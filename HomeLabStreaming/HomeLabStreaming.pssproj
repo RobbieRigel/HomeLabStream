@@ -30,6 +30,7 @@
     <Folder Include="Networking\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
     <Compile Include="Active Directory\PrepServerToBeDC.ps1" />
     <Compile Include="Comment Header Template.ps1" />
