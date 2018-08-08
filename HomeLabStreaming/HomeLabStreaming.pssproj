@@ -30,11 +30,15 @@
     <Folder Include="Networking\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active Directory\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
     <Compile Include="Active Directory\PrepServerToBeDC.ps1" />
     <Compile Include="Comment Header Template.ps1" />
     <Compile Include="HomeLabStreaming.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Active Directory\ListofVMsToCreate.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
