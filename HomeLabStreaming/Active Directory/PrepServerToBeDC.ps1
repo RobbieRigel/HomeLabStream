@@ -3,6 +3,7 @@
 # Video URL:
 # Subjet: Preparing a server with ADDS services. 
 # 
+# Ignore these... we are going to rework them. 
 $ipAddress = "192.168.1.30"
 $ipPrefix = "24"
 $networkGateway = "192.168.1.254"

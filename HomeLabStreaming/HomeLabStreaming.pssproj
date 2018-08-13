@@ -29,6 +29,7 @@
     <Folder Include="Active Directory\" />
     <Folder Include="Networking\" />
     <Folder Include="Hyper-V Managment\" />
+    <Folder Include="PowerShell Transcripts\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
@@ -37,11 +38,14 @@
     <Compile Include="Active Directory\PrepServerToBeDC.ps1" />
     <Compile Include="Comment Header Template.ps1" />
     <Compile Include="HomeLabStreaming.ps1" />
+    <Compile Include="Networking\ChangeIPandDNSInfo2.ps1" />
+    <Compile Include="Networking\ChangeIPandDNSInfo3.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Active Directory\FSMO roles.pdf" />
     <Content Include="Active Directory\FSMO roles.vsdx" />
     <Content Include="Hyper-V Managment\ListofVMsToCreate.csv" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

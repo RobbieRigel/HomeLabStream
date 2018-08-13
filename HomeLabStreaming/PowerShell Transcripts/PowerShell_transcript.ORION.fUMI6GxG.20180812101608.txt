@@ -1,0 +1,903 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180812101608
+Username: ORION\Administrator
+RunAs User: ORION\Administrator
+Machine: ORION (Microsoft Windows NT 10.0.14393.0)
+Host Application: powershell
+Process ID: 3692
+PSVersion: 5.1.14393.2395
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.2395
+BuildVersion: 10.0.14393.2395
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+PS C:\Users\Administrator> clear
+PS C:\Users\Administrator> Get-Command -Noun VMProcessor -Module Hyper-V 
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Get-VMProcessor                                    2.0.0.0    Hyper-V
+Cmdlet          Set-VMProcessor                                    2.0.0.0    Hyper-V
+
+
+PS C:\Users\Administrator> get-vm *dc* | Get-VMProcessor
+
+VMName       Count CompatibilityForMigrationEnabled CompatibilityForOlderOperatingSystemsEnabled
+------       ----- -------------------------------- --------------------------------------------
+BWORLD-DC-01 2     False                            False
+BWORLD-DC-02 1     False                            False
+BWORLD-DC-03 1     False                            False
+
+
+PS C:\Users\Administrator> get-vm *dc* | Get-VMProcessor | Format-Table -Property VMName, Count, HwThreadCountPerCore
+
+VMName       Count HwThreadCountPerCore
+------       ----- --------------------
+BWORLD-DC-01     2                    1
+BWORLD-DC-02     1                    1
+BWORLD-DC-03     1                    1
+
+
+PS C:\Users\Administrator> man Set-VMProcessor
+
+NAME
+    Set-VMProcessor
+
+SYNOPSIS
+    Configures one or more processors of a virtual machine.
+
+
+SYNTAX
+    Set-VMProcessor [-VMName] <String[]> [-CimSession <Microsoft.Management.Infrastructure.CimSession[]>]
+    [-CompatibilityForMigrationEnabled <Boolean]>] [-CompatibilityForOlderOperatingSystemsEnabled <Boolean]>]
+    [-ComputerName <String[]>] [-Count <Int64]>] [-Credential <System.Management.Automation.PSCredential[]>]
+    [-EnableHostResourceProtection <Nullable [System.Boolean]>] [-Maximum <Int64]>] [-MaximumCountPerNumaNode
+    <Int32]>] [-MaximumCountPerNumaSocket <Int32]>] [-Passthru] [-RelativeWeight <Int32]>] [-Reserve
+    <Int64]>] [-ResourcePoolName <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+
+    Set-VMProcessor [-VM] <VirtualMachine[]> [-CompatibilityForMigrationEnabled <Boolean]>]
+    [-CompatibilityForOlderOperatingSystemsEnabled <Boolean]>] [-Count <Int64]>]
+    [-EnableHostResourceProtection <Nullable [System.Boolean]>] [-Maximum <Int64]>] [-MaximumCountPerNumaNode
+    <Int32]>] [-MaximumCountPerNumaSocket <Int32]>] [-Passthru] [-RelativeWeight <Int32]>] [-Reserve
+    <Int64]>] [-ResourcePoolName <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+
+    Set-VMProcessor [-VMProcessor] <VMProcessor[]> [-CompatibilityForMigrationEnabled <Boolean]>]
+    [-CompatibilityForOlderOperatingSystemsEnabled <Boolean]>] [-Count <Int64]>]
+    [-EnableHostResourceProtection <Nullable [System.Boolean]>] [-Maximum <Int64]>] [-MaximumCountPerNumaNode
+    <Int32]>] [-MaximumCountPerNumaSocket <Int32]>] [-Passthru] [-RelativeWeight <Int32]>] [-Reserve
+    <Int64]>] [-ResourcePoolName <String>] [-Confirm] [-WhatIf] [<CommonParameters>]
+PS C:\Users\Administrator> get-vm *dc* | Set-VMProcessor -Count 2 -HwThreadCountPerCore 2
+PS C:\Users\Administrator> get-vm *dc* | Get-VMProcessor
+
+VMName       Count CompatibilityForMigrationEnabled CompatibilityForOlderOperatingSystemsEnabled
+------       ----- -------------------------------- --------------------------------------------
+BWORLD-DC-01 2     False                            False
+BWORLD-DC-02 2     False                            False
+BWORLD-DC-03 2     False                            False
+
+
+PS C:\Users\Administrator> get-vm *dc* | Get-VMProcessor | Format-Table -Property VMName, Count, HwThreadCountPerCore
+
+VMName       Count HwThreadCountPerCore
+------       ----- --------------------
+BWORLD-DC-01     2                    2
+BWORLD-DC-02     2                    2
+BWORLD-DC-03     2                    2
+
+
+PS C:\Users\Administrator> Get-Command -Noun *inte* -Module Hyper-V
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Disable-VMIntegrationService                       2.0.0.0    Hyper-V
+Cmdlet          Enable-VMIntegrationService                        2.0.0.0    Hyper-V
+Cmdlet          Get-VMIntegrationService                           2.0.0.0    Hyper-V
+
+
+PS C:\Users\Administrator> get-vm *dc* | Get-VMIntegrationService
+
+VMName       Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
+------       ----                    ------- ------------------------ --------------------------
+BWORLD-DC-01 Guest Service Interface True
+BWORLD-DC-01 Heartbeat               True
+BWORLD-DC-01 Key-Value Pair Exchange True
+BWORLD-DC-01 Shutdown                True
+BWORLD-DC-01 Time Synchronization    True
+BWORLD-DC-01 VSS                     True
+BWORLD-DC-02 Guest Service Interface False
+BWORLD-DC-02 Heartbeat               True
+BWORLD-DC-02 Key-Value Pair Exchange True
+BWORLD-DC-02 Shutdown                True
+BWORLD-DC-02 Time Synchronization    True
+BWORLD-DC-02 VSS                     True
+BWORLD-DC-03 Guest Service Interface False
+BWORLD-DC-03 Heartbeat               True
+BWORLD-DC-03 Key-Value Pair Exchange True
+BWORLD-DC-03 Shutdown                True
+BWORLD-DC-03 Time Synchronization    True
+BWORLD-DC-03 VSS                     True
+
+
+PS C:\Users\Administrator> get-vm *dc* 
+
+Name         State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
+----         ----- ----------- ----------------- ------   ------             -------
+BWORLD-DC-01 Off   0           0                 00:00:00 Operating normally 8.0
+BWORLD-DC-02 Off   0           0                 00:00:00 Operating normally 8.0
+BWORLD-DC-03 Off   0           0                 00:00:00 Operating normally 8.0
+
+
+PS C:\Users\Administrator> man Enable-VMIntegrationService
+
+NAME
+    Enable-VMIntegrationService
+
+SYNOPSIS
+    Enables an integration service on a virtual machine.
+
+
+SYNTAX
+    Enable-VMIntegrationService [-Name] <String[]> [-VMName] <String[]> [-CimSession
+    <Microsoft.Management.Infrastructure.CimSession[]>] [-ComputerName <String[]>] [-Credential
+    <System.Management.Automation.PSCredential[]>] [-Passthru] [-Confirm] [-WhatIf] [<CommonParameters>]
+
+    Enable-VMIntegrationService [-Name] <String[]> [-VM] <VirtualMachine[]> [-Passthru] [-Confirm] [-WhatIf]
+    [<CommonParameters>]
+
+    Enable-VMIntegrationService [-VMIntegrationService] <VMIntegrationComponent[]> [-Passthru] [-Confirm]
+    [-WhatIf] [<CommonParameters>]
+
+
+DESCRIPTION
+    The Enable-VMIntegrationService cmdlet enables an integration service on a virtual machine.
+
+
+RELATED LINKS
+    Online Version: http://go.microsoft.com/fwlink/?LinkID=306836
+PS C:\Users\Administrator> get-vm *dc* 
+
+Name         State CPUUsage(%) MemoryAssigned(M) Uptime   Status             Version
+----         ----- ----------- ----------------- ------   ------             -------
+BWORLD-DC-01 Off   0           0                 00:00:00 Operating normally 8.0
+BWORLD-DC-02 Off   0           0                 00:00:00 Operating normally 8.0
+BWORLD-DC-03 Off   0           0                 00:00:00 Operating normally 8.0
+
+
+PS C:\Users\Administrator> get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService "Guest Service Interface"
+>> TerminatingError(Enable-VMIntegrationService): "Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent"."
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service 
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... -VMIntegrationService -VMIntegrationService "Guest Service Interface"
++                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... -VMIntegrationService -VMIntegrationService "Guest Service Interface"
++                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMInt
+   egrationService
+
+PS C:\Users\Administrator> get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService Guest
+>> TerminatingError(Enable-VMIntegrationService): "Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent"."
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest" value of type 
+"System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService Guest
++                                                                 ~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest" value
+of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService Guest
++                                                                 ~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMInt
+   egrationService
+
+PS C:\Users\Administrator> Get-VMIntegrationService -VM bworld-dc-01
+>> TerminatingError(Get-VMIntegrationService): "Cannot bind parameter 'VM'. Cannot convert the "bworld-dc-01" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VirtualMachine"."
+Get-VMIntegrationService : Cannot bind parameter 'VM'. Cannot convert the "bworld-dc-01" value of type "System.String" 
+to type "Microsoft.HyperV.PowerShell.VirtualMachine".
+At line:1 char:30
++ Get-VMIntegrationService -VM bworld-dc-01
++                              ~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.GetVMIntegrationService
+Get-VMIntegrationService : Cannot bind parameter 'VM'. Cannot convert the "bworld-dc-01" value of type
+"System.String" to type "Microsoft.HyperV.PowerShell.VirtualMachine".
+At line:1 char:30
++ Get-VMIntegrationService -VM bworld-dc-01
++                              ~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.GetVMIntegr
+   ationService
+
+PS C:\Users\Administrator> Get-VMIntegrationService -VMName bworld-dc-01
+
+VMName       Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
+------       ----                    ------- ------------------------ --------------------------
+BWORLD-DC-01 Guest Service Interface True
+BWORLD-DC-01 Heartbeat               True
+BWORLD-DC-01 Key-Value Pair Exchange True
+BWORLD-DC-01 Shutdown                True
+BWORLD-DC-01 Time Synchronization    True
+BWORLD-DC-01 VSS                     True
+
+
+PS C:\Users\Administrator> Get-VMIntegrationService -VMName bworld-dc-01 | select *
+
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Guest Service Interface
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\6C09BB55-D683-4DA0-8931-C9BF705F64
+                             80
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Heartbeat
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\84EAAE65-2F2E-45F5-9BB5-0E857DC8EB
+                             47
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+IsClustered                : False
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Key-Value Pair Exchange
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\2A34B1C2-FD73-4043-8A5B-DD2159BC74
+                             3F
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Shutdown
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\9F8233AC-BE49-4C79-8EE3-E7E1985B20
+                             77
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Time Synchronization
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\2497F4DE-E9FA-4204-80E4-4B75C46419
+                             C0
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : VSS
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\5CED1297-4598-4915-A5FC-AD21BB4D02
+                             A4
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+
+
+PS C:\Users\Administrator> Get-VMIntegrationService
+>> TerminatingError(Get-VMIntegrationService): "Cannot validate argument on parameter 'VMName'. The argument is null, empty, or an element of the argument collection contains a null value. Supply a collection that does not contain any null values and then try the command again."
+Get-VMIntegrationService : Cannot validate argument on parameter 'VMName'. The argument is null, empty, or an element 
+of the argument collection contains a null value. Supply a collection that does not contain any null values and then 
+try the command again.
+At line:1 char:1
++ Get-VMIntegrationService
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMIntegrationService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationError,Microsoft.HyperV.PowerShell.Commands.GetVMIntegrationService
+Get-VMIntegrationService : Cannot validate argument on parameter 'VMName'. The argument is null, empty, or an
+element of the argument collection contains a null value. Supply a collection that does not contain any null
+values and then try the command again.
+At line:1 char:1
++ Get-VMIntegrationService
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMIntegrationService], ParameterBindingValidationExceptio
+   n
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.HyperV.PowerShell.Commands.GetVMInte
+   grationService
+
+PS C:\Users\Administrator> clear
+PS C:\Users\Administrator> Get-VMIntegrationService -VMName bworld-dc-01 | gm
+
+
+   TypeName: Microsoft.HyperV.PowerShell.GuestServiceInterfaceComponent
+
+Name                       MemberType    Definition
+----                       ----------    ----------
+VMCheckpointId             AliasProperty VMCheckpointId = VMSnapshotId
+VMCheckpointName           AliasProperty VMCheckpointName = VMSnapshotName
+Equals                     Method        bool Equals(System.Object obj)
+GetHashCode                Method        int GetHashCode()
+GetType                    Method        type GetType()
+ToString                   Method        string ToString()
+CimSession                 Property      CimSession CimSession {get;}
+ComputerName               Property      string ComputerName {get;}
+Enabled                    Property      bool Enabled {get;}
+Id                         Property      string Id {get;}
+IsDeleted                  Property      bool IsDeleted {get;}
+Name                       Property      string Name {get;}
+OperationalStatus          Property      Microsoft.HyperV.PowerShell.VMIntegrationComponentOperationalStatu...
+PrimaryOperationalStatus   Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+PrimaryStatusDescription   Property      string PrimaryStatusDescription {get;}
+SecondaryOperationalStatus Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+SecondaryStatusDescription Property      string SecondaryStatusDescription {get;}
+StatusDescription          Property      string[] StatusDescription {get;}
+VMId                       Property      guid VMId {get;}
+VMName                     Property      string VMName {get;}
+VMSnapshotId               Property      guid VMSnapshotId {get;}
+VMSnapshotName             Property      string VMSnapshotName {get;}
+
+
+   TypeName: Microsoft.HyperV.PowerShell.VMIntegrationComponent
+
+Name                       MemberType    Definition
+----                       ----------    ----------
+VMCheckpointId             AliasProperty VMCheckpointId = VMSnapshotId
+VMCheckpointName           AliasProperty VMCheckpointName = VMSnapshotName
+Equals                     Method        bool Equals(System.Object obj)
+GetHashCode                Method        int GetHashCode()
+GetType                    Method        type GetType()
+ToString                   Method        string ToString()
+CimSession                 Property      CimSession CimSession {get;}
+ComputerName               Property      string ComputerName {get;}
+Enabled                    Property      bool Enabled {get;}
+Id                         Property      string Id {get;}
+IsDeleted                  Property      bool IsDeleted {get;}
+Name                       Property      string Name {get;}
+OperationalStatus          Property      Microsoft.HyperV.PowerShell.VMIntegrationComponentOperationalStatu...
+PrimaryOperationalStatus   Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+PrimaryStatusDescription   Property      string PrimaryStatusDescription {get;}
+SecondaryOperationalStatus Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+SecondaryStatusDescription Property      string SecondaryStatusDescription {get;}
+StatusDescription          Property      string[] StatusDescription {get;}
+VMId                       Property      guid VMId {get;}
+VMName                     Property      string VMName {get;}
+VMSnapshotId               Property      guid VMSnapshotId {get;}
+VMSnapshotName             Property      string VMSnapshotName {get;}
+
+
+   TypeName: Microsoft.HyperV.PowerShell.DataExchangeComponent
+
+Name                       MemberType    Definition
+----                       ----------    ----------
+VMCheckpointId             AliasProperty VMCheckpointId = VMSnapshotId
+VMCheckpointName           AliasProperty VMCheckpointName = VMSnapshotName
+Equals                     Method        bool Equals(System.Object obj)
+GetHashCode                Method        int GetHashCode()
+GetType                    Method        type GetType()
+ToString                   Method        string ToString()
+CimSession                 Property      CimSession CimSession {get;}
+ComputerName               Property      string ComputerName {get;}
+Enabled                    Property      bool Enabled {get;}
+Id                         Property      string Id {get;}
+IsClustered                Property      bool IsClustered {get;}
+IsDeleted                  Property      bool IsDeleted {get;}
+Name                       Property      string Name {get;}
+OperationalStatus          Property      Microsoft.HyperV.PowerShell.VMIntegrationComponentOperationalStatu...
+PrimaryOperationalStatus   Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+PrimaryStatusDescription   Property      string PrimaryStatusDescription {get;}
+SecondaryOperationalStatus Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+SecondaryStatusDescription Property      string SecondaryStatusDescription {get;}
+StatusDescription          Property      string[] StatusDescription {get;}
+VMId                       Property      guid VMId {get;}
+VMName                     Property      string VMName {get;}
+VMSnapshotId               Property      guid VMSnapshotId {get;}
+VMSnapshotName             Property      string VMSnapshotName {get;}
+
+
+   TypeName: Microsoft.HyperV.PowerShell.ShutdownComponent
+
+Name                       MemberType    Definition
+----                       ----------    ----------
+VMCheckpointId             AliasProperty VMCheckpointId = VMSnapshotId
+VMCheckpointName           AliasProperty VMCheckpointName = VMSnapshotName
+Equals                     Method        bool Equals(System.Object obj)
+GetHashCode                Method        int GetHashCode()
+GetType                    Method        type GetType()
+ToString                   Method        string ToString()
+CimSession                 Property      CimSession CimSession {get;}
+ComputerName               Property      string ComputerName {get;}
+Enabled                    Property      bool Enabled {get;}
+Id                         Property      string Id {get;}
+IsDeleted                  Property      bool IsDeleted {get;}
+Name                       Property      string Name {get;}
+OperationalStatus          Property      Microsoft.HyperV.PowerShell.VMIntegrationComponentOperationalStatu...
+PrimaryOperationalStatus   Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+PrimaryStatusDescription   Property      string PrimaryStatusDescription {get;}
+SecondaryOperationalStatus Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+SecondaryStatusDescription Property      string SecondaryStatusDescription {get;}
+StatusDescription          Property      string[] StatusDescription {get;}
+VMId                       Property      guid VMId {get;}
+VMName                     Property      string VMName {get;}
+VMSnapshotId               Property      guid VMSnapshotId {get;}
+VMSnapshotName             Property      string VMSnapshotName {get;}
+
+
+PS C:\Users\Administrator> $integration = Get-VMIntegrationService -VMName bworld-dc-01
+PS C:\Users\Administrator> $integration
+
+VMName       Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
+------       ----                    ------- ------------------------ --------------------------
+BWORLD-DC-01 Guest Service Interface True
+BWORLD-DC-01 Heartbeat               True
+BWORLD-DC-01 Key-Value Pair Exchange True
+BWORLD-DC-01 Shutdown                True
+BWORLD-DC-01 Time Synchronization    True
+BWORLD-DC-01 VSS                     True
+
+
+PS C:\Users\Administrator> $integration[0]
+
+VMName       Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
+------       ----                    ------- ------------------------ --------------------------
+BWORLD-DC-01 Guest Service Interface True
+
+
+PS C:\Users\Administrator> $integration[0] | select *
+
+
+VMCheckpointId             : 00000000-0000-0000-0000-000000000000
+VMCheckpointName           :
+Enabled                    : True
+OperationalStatus          : {}
+PrimaryOperationalStatus   :
+PrimaryStatusDescription   :
+SecondaryOperationalStatus :
+SecondaryStatusDescription :
+StatusDescription          : {}
+Name                       : Guest Service Interface
+Id                         : Microsoft:136EC59C-75DD-4E33-98D6-64A3A638C90A\6C09BB55-D683-4DA0-8931-C9BF705F64
+                             80
+VMId                       : 136ec59c-75dd-4e33-98d6-64a3a638c90a
+VMName                     : BWORLD-DC-01
+VMSnapshotId               : 00000000-0000-0000-0000-000000000000
+VMSnapshotName             :
+CimSession                 : CimSession: .
+ComputerName               : ORION
+IsDeleted                  : False
+
+
+
+PS C:\Users\Administrator> $integration[0] | gm
+
+
+   TypeName: Microsoft.HyperV.PowerShell.GuestServiceInterfaceComponent
+
+Name                       MemberType    Definition
+----                       ----------    ----------
+VMCheckpointId             AliasProperty VMCheckpointId = VMSnapshotId
+VMCheckpointName           AliasProperty VMCheckpointName = VMSnapshotName
+Equals                     Method        bool Equals(System.Object obj)
+GetHashCode                Method        int GetHashCode()
+GetType                    Method        type GetType()
+ToString                   Method        string ToString()
+CimSession                 Property      CimSession CimSession {get;}
+ComputerName               Property      string ComputerName {get;}
+Enabled                    Property      bool Enabled {get;}
+Id                         Property      string Id {get;}
+IsDeleted                  Property      bool IsDeleted {get;}
+Name                       Property      string Name {get;}
+OperationalStatus          Property      Microsoft.HyperV.PowerShell.VMIntegrationComponentOperationalStatu...
+PrimaryOperationalStatus   Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+PrimaryStatusDescription   Property      string PrimaryStatusDescription {get;}
+SecondaryOperationalStatus Property      System.Nullable[Microsoft.HyperV.PowerShell.VMIntegrationComponent...
+SecondaryStatusDescription Property      string SecondaryStatusDescription {get;}
+StatusDescription          Property      string[] StatusDescription {get;}
+VMId                       Property      guid VMId {get;}
+VMName                     Property      string VMName {get;}
+VMSnapshotId               Property      guid VMSnapshotId {get;}
+VMSnapshotName             Property      string VMSnapshotName {get;}
+
+
+PS C:\Users\Administrator> $GuestServices = $integration[0]
+PS C:\Users\Administrator> get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestServices
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either because the 
+command does not take pipeline input or the input and its properties do not match any of the parameters that take 
+pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-64a3a638c90a']:PSObject) 
+[Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either
+because the command does not take pipeline input or the input and its properties do not match any of the
+parameters that take pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-64a3a638c90a']:PSObject) [Enable-VMIntegra
+   tionService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationSer
+   vice
+
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either because the 
+command does not take pipeline input or the input and its properties do not match any of the parameters that take 
+pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-9d1c1ce1bb98']:PSObject) 
+[Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either
+because the command does not take pipeline input or the input and its properties do not match any of the
+parameters that take pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-9d1c1ce1bb98']:PSObject) [Enable-VMIntegra
+   tionService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationSer
+   vice
+
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either because the 
+command does not take pipeline input or the input and its properties do not match any of the parameters that take 
+pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-7a02ec6b2a56']:PSObject) 
+[Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : The input object cannot be bound to any parameters for the command either
+because the command does not take pipeline input or the input and its properties do not match any of the
+parameters that take pipeline input.
+At line:1 char:15
++ ... t-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestS ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (VirtualMachine ...-7a02ec6b2a56']:PSObject) [Enable-VMIntegra
+   tionService], ParameterBindingException
+    + FullyQualifiedErrorId : InputObjectNotBound,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationSer
+   vice
+
+PS C:\Users\Administrator> $GuestServices.Name
+Guest Service Interface
+PS C:\Users\Administrator> get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService $GuestServices.Name
+>> TerminatingError(Enable-VMIntegrationService): "Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent"."
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service 
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... Enable-VMIntegrationService -VMIntegrationService $GuestServices.Name
++                                                       ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... Enable-VMIntegrationService -VMIntegrationService $GuestServices.Name
++                                                       ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMInt
+   egrationService
+
+PS C:\Users\Administrator> get-vm *dc* | Enable-VMIntegrationService -VMIntegrationService ($GuestServices.Name)
+>> TerminatingError(Enable-VMIntegrationService): "Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent"."
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service 
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... able-VMIntegrationService -VMIntegrationService ($GuestServices.Name)
++                                                     ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMIntegrationService
+Enable-VMIntegrationService : Cannot bind parameter 'VMIntegrationService'. Cannot convert the "Guest Service
+Interface" value of type "System.String" to type "Microsoft.HyperV.PowerShell.VMIntegrationComponent".
+At line:1 char:65
++ ... able-VMIntegrationService -VMIntegrationService ($GuestServices.Name)
++                                                     ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Enable-VMIntegrationService], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.HyperV.PowerShell.Commands.EnableVMInt
+   egrationService
+
+PS C:\Users\Administrator> Get-TypeData Microsoft.HyperV.PowerShell.VMintegrationComponet
+PS C:\Users\Administrator> Enable-VMIntegrationService -VMName bworld-dc-02 -Name "Guest Service Interface"
+PS C:\Users\Administrator> Enable-VMIntegrationService -VMName bworld-dc-03 -Name "Guest Service Interface"
+PS C:\Users\Administrator> Get-vm *dc* | Get-VMMemory
+
+VMName       DynamicMemoryEnabled Minimum(M) Startup(M) Maximum(M)
+------       -------------------- ---------- ---------- ----------
+BWORLD-DC-01 True                 512        2048       1048576
+BWORLD-DC-02 True                 512        1024       1048576
+BWORLD-DC-03 True                 512        1024       1048576
+
+
+PS C:\Users\Administrator> Get-vm *dc* | Get-VMProcessor | select VMName, Count, HwThreadCountPerCore
+
+VMName       Count HwThreadCountPerCore
+------       ----- --------------------
+BWORLD-DC-01     2                    2
+BWORLD-DC-02     2                    2
+BWORLD-DC-03     2                    2
+
+
+PS C:\Users\Administrator> Get-vm *dc* | Start-VM
+PS C:\Users\Administrator> Get-vm *dc* 
+
+Name         State   CPUUsage(%) MemoryAssigned(M) Uptime           Status             Version
+----         -----   ----------- ----------------- ------           ------             -------
+BWORLD-DC-01 Running 4           2048              00:00:05.5650000 Operating normally 8.0
+BWORLD-DC-02 Running 2           1024              00:00:05.0650000 Operating normally 8.0
+BWORLD-DC-03 Running 2           1024              00:00:04.6120000 Operating normally 8.0
+
+
+PS C:\Users\Administrator> cd C:\PSScripts\
+PS C:\PSScripts> ls
+
+
+    Directory: C:\PSScripts
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/12/2018  11:17 AM            754 ChangeIPandDNSInfo2.ps1
+-a----        8/12/2018  11:17 AM            754 ChangeIPandDNSInfo3.ps1
+
+
+PS C:\PSScripts> Invoke-Command -ComputerName BWORLD-DC02 -Credential (Get-Credential) -FilePath .\ChangeIPandDNSInfo2.ps1
+[BWORLD-DC02] Connecting to remote server BWORLD-DC02 failed with the following error message : WinRM cannot process 
+the request. The following error with errorcode 0x80090311 occurred while using Kerberos authentication: There are 
+currently no logon servers available to service the logon request.  
+ Possible causes are:
+  -The user name or password specified are invalid.
+  -Kerberos is used when no authentication method and no user name are specified.
+  -Kerberos accepts domain user names, but not local user names.
+  -The Service Principal Name (SPN) for the remote computer name and port does not exist.
+  -The client and remote computers are in different domains and there is no trust between the two domains.
+ After checking for the above issues, try the following:
+  -Check the Event Viewer for events related to authentication.
+  -Change the authentication method; add the destination computer to the WinRM TrustedHosts configuration setting or 
+use HTTPS transport.
+ Note that computers in the TrustedHosts list might not be authenticated.
+   -For more information about WinRM configuration, run the following command: winrm help config. For more information, 
+see the about_Remote_Troubleshooting Help topic.
+    + CategoryInfo          : OpenError: (BWORLD-DC02:String) [], PSRemotingTransportException
+    + FullyQualifiedErrorId : AuthenticationFailed,PSSessionStateBroken
+[BWORLD-DC02] Connecting to remote server BWORLD-DC02 failed with the following error message : WinRM cannot
+process the request. The following error with errorcode 0x80090311 occurred while using Kerberos
+authentication: There are currently no logon servers available to service the logon request.
+ Possible causes are:
+  -The user name or password specified are invalid.
+  -Kerberos is used when no authentication method and no user name are specified.
+  -Kerberos accepts domain user names, but not local user names.
+  -The Service Principal Name (SPN) for the remote computer name and port does not exist.
+  -The client and remote computers are in different domains and there is no trust between the two domains.
+ After checking for the above issues, try the following:
+  -Check the Event Viewer for events related to authentication.
+  -Change the authentication method; add the destination computer to the WinRM TrustedHosts configuration
+setting or use HTTPS transport.
+ Note that computers in the TrustedHosts list might not be authenticated.
+   -For more information about WinRM configuration, run the following command: winrm help config. For more
+information, see the about_Remote_Troubleshooting Help topic.
+    + CategoryInfo          : OpenError: (BWORLD-DC02:String) [], PSRemotingTransportException
+    + FullyQualifiedErrorId : AuthenticationFailed,PSSessionStateBroken
+PS C:\PSScripts> clear
+PS C:\PSScripts> get-vm
+
+Name         State   CPUUsage(%) MemoryAssigned(M) Uptime           Status             Version
+----         -----   ----------- ----------------- ------           ------             -------
+BWORLD-DC-01 Running 0           1592              01:15:56.0670000 Operating normally 8.0
+BWORLD-DC-02 Running 0           592               00:02:29.6340000 Operating normally 8.0
+BWORLD-DC-03 Running 0           546               01:15:55.1290000 Operating normally 8.0
+Web-Dev      Off     0           0                 00:00:00         Operating normally 8.0
+
+
+PS C:\PSScripts> cd C:\Users\Administrator\AppData\
+PS C:\Users\Administrator\AppData> cd ..
+PS C:\Users\Administrator> ls
+
+
+    Directory: C:\Users\Administrator
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---        7/25/2018  11:20 PM                Contacts
+d-r---        7/25/2018  11:20 PM                Desktop
+d-r---        7/25/2018  11:20 PM                Documents
+d-r---        7/25/2018  11:20 PM                Downloads
+d-r---        7/25/2018  11:20 PM                Favorites
+d-r---        7/25/2018  11:20 PM                Links
+d-r---        7/25/2018  11:20 PM                Music
+d-r---        7/25/2018  11:20 PM                Pictures
+d-r---        7/25/2018  11:20 PM                Saved Games
+d-r---        7/25/2018  11:20 PM                Searches
+d-r---        7/25/2018  11:20 PM                Videos
+
+
+PS C:\Users\Administrator> cd .\Documents\
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       12/19/2016   7:54 PM                WindowsPowerShell
+-a----        8/12/2018  10:16 AM              0 PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+
+
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       12/19/2016   7:54 PM                WindowsPowerShell
+-a----        8/12/2018  10:16 AM              0 PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+
+
+PS C:\Users\Administrator\Documents> dir
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       12/19/2016   7:54 PM                WindowsPowerShell
+-a----        8/12/2018  10:16 AM              0 PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+
+
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       12/19/2016   7:54 PM                WindowsPowerShell
+-a----        8/12/2018  10:16 AM              0 PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+
+
+PS C:\Users\Administrator\Documents> Get-ChildItem
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       12/19/2016   7:54 PM                WindowsPowerShell
+-a----        8/12/2018  10:16 AM              0 PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt
+
+
+PS C:\Users\Administrator\Documents> Get-Command *trans*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Get-DtcTransaction                                 1.0.0.0    MsDtc
+Function        Get-DtcTransactionsStatistics                      1.0.0.0    MsDtc
+Function        Get-DtcTransactionsTraceSession                    1.0.0.0    MsDtc
+Function        Get-DtcTransactionsTraceSetting                    1.0.0.0    MsDtc
+Function        Get-NetTransportFilter                             1.0.0.0    NetTCPIP
+Function        Get-OffloadDataTransferSetting                     2.0.0.0    Storage
+Function        New-NetTransportFilter                             1.0.0.0    NetTCPIP
+Function        Remove-NetTransportFilter                          1.0.0.0    NetTCPIP
+Function        Set-DtcTransaction                                 1.0.0.0    MsDtc
+Function        Set-DtcTransactionsTraceSession                    1.0.0.0    MsDtc
+Function        Set-DtcTransactionsTraceSetting                    1.0.0.0    MsDtc
+Function        Start-DtcTransactionsTraceSession                  1.0.0.0    MsDtc
+Function        Stop-DtcTransactionsTraceSession                   1.0.0.0    MsDtc
+Function        Write-DtcTransactionsTraceSession                  1.0.0.0    MsDtc
+Cmdlet          Complete-BitsTransfer                              2.0.0.0    BitsTransfer
+Cmdlet          Complete-DtcDiagnosticTransaction                  1.0.0.0    MsDtc
+Cmdlet          Complete-Transaction                               3.1.0.0    Microsoft.PowerShell.Management
+Cmdlet          Get-BitsTransfer                                   2.0.0.0    BitsTransfer
+Cmdlet          Get-Transaction                                    3.1.0.0    Microsoft.PowerShell.Management
+Cmdlet          New-DtcDiagnosticTransaction                       1.0.0.0    MsDtc
+Cmdlet          New-PSTransportOption                              3.0.0.0    Microsoft.PowerShell.Core
+Cmdlet          Receive-DtcDiagnosticTransaction                   1.0.0.0    MsDtc
+Cmdlet          Remove-BitsTransfer                                2.0.0.0    BitsTransfer
+Cmdlet          Resume-BitsTransfer                                2.0.0.0    BitsTransfer
+Cmdlet          Send-DtcDiagnosticTransaction                      1.0.0.0    MsDtc
+Cmdlet          Set-BitsTransfer                                   2.0.0.0    BitsTransfer
+Cmdlet          Start-BitsTransfer                                 2.0.0.0    BitsTransfer
+Cmdlet          Start-Transaction                                  3.1.0.0    Microsoft.PowerShell.Management
+Cmdlet          Start-Transcript                                   3.0.0.0    Microsoft.PowerShell.Host
+Cmdlet          Stop-Transcript                                    3.0.0.0    Microsoft.PowerShell.Host
+Cmdlet          Suspend-BitsTransfer                               2.0.0.0    BitsTransfer
+Cmdlet          Undo-DtcDiagnosticTransaction                      1.0.0.0    MsDtc
+Cmdlet          Undo-Transaction                                   3.1.0.0    Microsoft.PowerShell.Management
+Cmdlet          Use-Transaction                                    3.1.0.0    Microsoft.PowerShell.Management
+
+
+PS C:\Users\Administrator\Documents> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20180812120758
+**********************
