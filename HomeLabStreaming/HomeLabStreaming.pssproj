@@ -32,6 +32,7 @@
     <Folder Include="PowerShell Transcripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active Directory\AddingDomainControllers.ps1" />
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
@@ -45,6 +46,7 @@
     <Content Include="Active Directory\FSMO roles.pdf" />
     <Content Include="Active Directory\FSMO roles.vsdx" />
     <Content Include="Hyper-V Managment\ListofVMsToCreate.csv" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.W8OdeDmF.20180814203415.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

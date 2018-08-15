@@ -1,0 +1,1356 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180814203415
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Machine: BWORLD-DC-01 (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 5016
+PSVersion: 5.1.14393.2395
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.2395
+BuildVersion: 10.0.14393.2395
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.BWORLD-DC-01.W8OdeDmF.20180814203415.txt
+PS C:\> Get-PSDrive
+
+Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation
+----           ---------     --------- --------      ----                                               ---------------
+AD                                     ActiveDire... //RootDSE/                            DC=ugn,DC=bobbysworld,DC=org
+Alias                                  Alias
+C                  15.45         43.80 FileSystem    C:\
+Cert                                   Certificate   \
+D                                      FileSystem    D:\
+Env                                    Environment
+Function                               Function
+HKCU                                   Registry      HKEY_CURRENT_USER
+HKLM                                   Registry      HKEY_LOCAL_MACHINE
+Variable                               Variable
+WSMan                                  WSMan
+
+
+PS C:\> clear
+PS C:\> cd AD:\
+PS AD:\> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+ugn                  domainDNS            DC=ugn,DC=bobbysworld,DC=org
+Configuration        configuration        CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+Schema               dMD                  CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+DomainDnsZones       domainDNS            DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org
+ForestDnsZones       domainDNS            DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\> Get-ADRootDSE
+
+
+configurationNamingContext    : CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+currentTime                   : 8/14/2018 8:37:00 PM
+defaultNamingContext          : DC=ugn,DC=bobbysworld,DC=org
+dnsHostName                   : BWORLD-DC-01.ugn.bobbysworld.org
+domainControllerFunctionality : Windows2016
+domainFunctionality           : Windows2012Domain
+dsServiceName                 : CN=NTDS Settings,CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn
+                                ,DC=bobbysworld,DC=org
+forestFunctionality           : Windows2012Forest
+highestCommittedUSN           : 20849
+isGlobalCatalogReady          : {TRUE}
+isSynchronized                : {TRUE}
+ldapServiceName               : ugn.bobbysworld.org:bworld-dc-01$@UGN.BOBBYSWORLD.ORG
+namingContexts                : {DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org,
+                                CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org,
+                                DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org...}
+rootDomainNamingContext       : DC=ugn,DC=bobbysworld,DC=org
+schemaNamingContext           : CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+serverName                    : CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,D
+                                C=org
+subschemaSubentry             : CN=Aggregate,CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+supportedCapabilities         : {1.2.840.113556.1.4.800 (LDAP_CAP_ACTIVE_DIRECTORY_OID), 1.2.840.113556.1.4.1670
+                                (LDAP_CAP_ACTIVE_DIRECTORY_V51_OID), 1.2.840.113556.1.4.1791
+                                (LDAP_CAP_ACTIVE_DIRECTORY_LDAP_INTEG_OID), 1.2.840.113556.1.4.1935
+                                (LDAP_CAP_ACTIVE_DIRECTORY_V61_OID)...}
+supportedControl              : {1.2.840.113556.1.4.319 (LDAP_PAGED_RESULT_OID_STRING), 1.2.840.113556.1.4.801
+                                (LDAP_SERVER_SD_FLAGS_OID), 1.2.840.113556.1.4.473 (LDAP_SERVER_SORT_OID),
+                                1.2.840.113556.1.4.528 (LDAP_SERVER_NOTIFICATION_OID)...}
+supportedLDAPPolicies         : {MaxPoolThreads, MaxPercentDirSyncRequests, MaxDatagramRecv, MaxReceiveBuffer...}
+supportedLDAPVersion          : {3, 2}
+supportedSASLMechanisms       : {GSSAPI, GSS-SPNEGO, EXTERNAL, DIGEST-MD5}
+
+
+
+PS AD:\> get-psdrive
+
+Name           Used (GB)     Free (GB) Provider      Root                                               CurrentLocation
+----           ---------     --------- --------      ----                                               ---------------
+AD                                     ActiveDire... //RootDSE/
+Alias                                  Alias
+C                  15.45         43.80 FileSystem    C:\
+Cert                                   Certificate   \
+D                                      FileSystem    D:\
+Env                                    Environment
+Function                               Function
+HKCU                                   Registry      HKEY_CURRENT_USER
+HKLM                                   Registry      HKEY_LOCAL_MACHINE
+Variable                               Variable
+WSMan                                  WSMan
+
+
+PS AD:\> set-location AD:\
+PS AD:\> Set-LocalGroup HKCU:\
+PS AD:\> TerminatingError(Set-LocalGroup): "Cannot bind argument to parameter 'Description' because it is an empty string."
+Set-LocalGroup : Cannot bind argument to parameter 'Description' because it is an empty string.
+At line:1 char:1
++ Set-LocalGroup HKCU:\
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-LocalGroup], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerShell.Commands.SetLocalGroupCommand
+Set-LocalGroup : Cannot bind argument to parameter 'Description' because it is an empty string.
+At line:1 char:1
++ Set-LocalGroup HKCU:\
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-LocalGroup], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerShell.Commands.SetL
+   ocalGroupCommand
+
+PS AD:\> Set-Location HKCU:\
+PS HKCU:\> ls
+
+
+    Hive: HKEY_CURRENT_USER
+
+
+Name                           Property
+----                           --------
+AppEvents
+Console                        ColorTable00             : 0
+                               ColorTable01             : 8388608
+                               ColorTable02             : 32768
+                               ColorTable03             : 8421376
+                               ColorTable04             : 128
+                               ColorTable05             : 8388736
+                               ColorTable06             : 32896
+                               ColorTable07             : 12632256
+                               ColorTable08             : 8421504
+                               ColorTable09             : 16711680
+                               ColorTable10             : 65280
+                               ColorTable11             : 16776960
+                               ColorTable12             : 255
+                               ColorTable13             : 16711935
+                               ColorTable14             : 65535
+                               ColorTable15             : 16777215
+                               CtrlKeyShortcutsDisabled : 0
+                               CursorSize               : 25
+                               EnableColorSelection     : 0
+                               ExtendedEditKey          : 1
+                               ExtendedEditKeyCustom    : 0
+                               FaceName                 : __DefaultTTFont__
+                               FilterOnPaste            : 1
+                               FontFamily               : 0
+                               FontSize                 : 1048576
+                               FontWeight               : 0
+                               ForceV2                  : 1
+                               FullScreen               : 0
+                               HistoryBufferSize        : 50
+                               HistoryNoDup             : 0
+                               InsertMode               : 1
+                               LineSelection            : 1
+                               LineWrap                 : 1
+                               LoadConIme               : 1
+                               NumberOfHistoryBuffers   : 4
+                               PopupColors              : 245
+                               QuickEdit                : 1
+                               ScreenBufferSize         : 589889656
+                               ScreenColors             : 7
+                               ScrollScale              : 1
+                               TrimLeadingZeros         : 0
+                               WindowAlpha              : 255
+                               WindowSize               : 1966200
+                               WordDelimiters           : 0
+Control Panel
+Environment                    Path : C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;
+                               TEMP : C:\Users\Administrator\AppData\Local\Temp
+                               TMP  : C:\Users\Administrator\AppData\Local\Temp
+EUDC
+Keyboard Layout
+Network
+Printers
+SOFTWARE
+System
+Volatile Environment           LOGONSERVER               : \\BWORLD-DC-01
+                               USERDNSDOMAIN             : UGN.BOBBYSWORLD.ORG
+                               USERDOMAIN                : BobbysWorld
+                               USERNAME                  : Administrator
+                               USERPROFILE               : C:\Users\Administrator
+                               HOMEPATH                  : \Users\Administrator
+                               HOMEDRIVE                 : C:
+                               APPDATA                   : C:\Users\Administrator\AppData\Roaming
+                               LOCALAPPDATA              : C:\Users\Administrator\AppData\Local
+                               USERDOMAIN_ROAMINGPROFILE : BobbysWorld
+
+
+PS HKCU:\> cd AD:\
+PS AD:\> cler
+cler : The term 'cler' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ cler
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (cler:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+cler : The term 'cler' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ cler
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (cler:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS AD:\> cls
+PS AD:\> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+ugn                  domainDNS            DC=ugn,DC=bobbysworld,DC=org
+Configuration        configuration        CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+Schema               dMD                  CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+DomainDnsZones       domainDNS            DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org
+ForestDnsZones       domainDNS            DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\> dir
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+ugn                  domainDNS            DC=ugn,DC=bobbysworld,DC=org
+Configuration        configuration        CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+Schema               dMD                  CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+DomainDnsZones       domainDNS            DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org
+ForestDnsZones       domainDNS            DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\> cd "DC=ugn,DC=bobbysworld,DC=org"
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+Builtin              builtinDomain        CN=Builtin,DC=ugn,DC=bobbysworld,DC=org
+Computers            container            CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+Domain Controllers   organizationalUnit   OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+ForeignSecurityPr... container            CN=ForeignSecurityPrincipals,DC=ugn,DC=bobbysworld,DC=org
+Infrastructure       infrastructureUpdate CN=Infrastructure,DC=ugn,DC=bobbysworld,DC=org
+Keys                 container            CN=Keys,DC=ugn,DC=bobbysworld,DC=org
+LostAndFound         lostAndFound         CN=LostAndFound,DC=ugn,DC=bobbysworld,DC=org
+Managed Service A... container            CN=Managed Service Accounts,DC=ugn,DC=bobbysworld,DC=org
+NTDS Quotas          msDS-QuotaContainer  CN=NTDS Quotas,DC=ugn,DC=bobbysworld,DC=org
+Program Data         container            CN=Program Data,DC=ugn,DC=bobbysworld,DC=org
+System               container            CN=System,DC=ugn,DC=bobbysworld,DC=org
+TPM Devices          msTPM-Information... CN=TPM Devices,DC=ugn,DC=bobbysworld,DC=org
+Users                container            CN=Users,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> cd "CN=Computers"
+PS AD:\CN=Computers,DC=ugn,DC=bobbysworld,DC=org> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+BWORLD-DC-02         computer             CN=BWORLD-DC-02,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+BWORLD-DC-03         computer             CN=BWORLD-DC-03,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+ORION                computer             CN=ORION,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\CN=Computers,DC=ugn,DC=bobbysworld,DC=org> cd ..
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+Builtin              builtinDomain        CN=Builtin,DC=ugn,DC=bobbysworld,DC=org
+Computers            container            CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+Domain Controllers   organizationalUnit   OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+ForeignSecurityPr... container            CN=ForeignSecurityPrincipals,DC=ugn,DC=bobbysworld,DC=org
+Infrastructure       infrastructureUpdate CN=Infrastructure,DC=ugn,DC=bobbysworld,DC=org
+Keys                 container            CN=Keys,DC=ugn,DC=bobbysworld,DC=org
+LostAndFound         lostAndFound         CN=LostAndFound,DC=ugn,DC=bobbysworld,DC=org
+Managed Service A... container            CN=Managed Service Accounts,DC=ugn,DC=bobbysworld,DC=org
+NTDS Quotas          msDS-QuotaContainer  CN=NTDS Quotas,DC=ugn,DC=bobbysworld,DC=org
+Program Data         container            CN=Program Data,DC=ugn,DC=bobbysworld,DC=org
+System               container            CN=System,DC=ugn,DC=bobbysworld,DC=org
+TPM Devices          msTPM-Information... CN=TPM Devices,DC=ugn,DC=bobbysworld,DC=org
+Users                container            CN=Users,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> New-ADOrganizationalUnit -Name "Servers"
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+Builtin              builtinDomain        CN=Builtin,DC=ugn,DC=bobbysworld,DC=org
+Computers            container            CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+Domain Controllers   organizationalUnit   OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+ForeignSecurityPr... container            CN=ForeignSecurityPrincipals,DC=ugn,DC=bobbysworld,DC=org
+Infrastructure       infrastructureUpdate CN=Infrastructure,DC=ugn,DC=bobbysworld,DC=org
+Keys                 container            CN=Keys,DC=ugn,DC=bobbysworld,DC=org
+LostAndFound         lostAndFound         CN=LostAndFound,DC=ugn,DC=bobbysworld,DC=org
+Managed Service A... container            CN=Managed Service Accounts,DC=ugn,DC=bobbysworld,DC=org
+NTDS Quotas          msDS-QuotaContainer  CN=NTDS Quotas,DC=ugn,DC=bobbysworld,DC=org
+Program Data         container            CN=Program Data,DC=ugn,DC=bobbysworld,DC=org
+Servers              organizationalUnit   OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+System               container            CN=System,DC=ugn,DC=bobbysworld,DC=org
+TPM Devices          msTPM-Information... CN=TPM Devices,DC=ugn,DC=bobbysworld,DC=org
+Users                container            CN=Users,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> cd "OU=Servers"
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> ls
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> New-ADOrganizationalUnit -Name "Hyper-V Hosts"
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $HyperHost = Get-ADOrganizationalUnit -Filter "Hyper-V Hosts"
+>> TerminatingError(Get-ADOrganizationalUnit): "Error parsing query: 'Hyper-V Hosts' Error Message: 'syntax error' at position: '9'."
+Get-ADOrganizationalUnit : Error parsing query: 'Hyper-V Hosts' Error Message: 'syntax error' at position: '9'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit -Filter "Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADOrganizationalUnit], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+Get-ADOrganizationalUnit : Error parsing query: 'Hyper-V Hosts' Error Message: 'syntax error' at position: '9'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit -Filter "Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADOrganizationalUnit], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $HyperHost = Get-ADOrganizationalUnit ".\OU=Hyper-V Hosts\"
+>> TerminatingError(Get-ADOrganizationalUnit): "Cannot find an object with identity: '.\OU=Hyper-V Hosts\' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADOrganizationalUnit : Cannot find an object with identity: '.\OU=Hyper-V Hosts\' under: 
+'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit ".\OU=Hyper-V Hosts\"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\OU=Hyper-V Hosts\:ADOrganizationalUnit) [Get-ADOrganizationalUnit], 
+ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+Get-ADOrganizationalUnit : Cannot find an object with identity: '.\OU=Hyper-V Hosts\' under:
+'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit ".\OU=Hyper-V Hosts\"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (.\OU=Hyper-V Hosts\:ADOrganizationalUnit) [Get-ADOrganizationalUnit], A
+   DIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,M
+   icrosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts"
+>> TerminatingError(Get-ADOrganizationalUnit): "Cannot find an object with identity: 'OU=Hyper-V Hosts' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADOrganizationalUnit : Cannot find an object with identity: 'OU=Hyper-V Hosts' under: 
+'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (OU=Hyper-V Hosts:ADOrganizationalUnit) [Get-ADOrganizationalUnit], 
+ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+Get-ADOrganizationalUnit : Cannot find an object with identity: 'OU=Hyper-V Hosts' under:
+'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (OU=Hyper-V Hosts:ADOrganizationalUnit) [Get-ADOrganizationalUnit], ADId
+   entityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,M
+   icrosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts, OU=Servers, DC- UGN, DC=bobbysworld, DC=org"
+>> TerminatingError(Get-ADOrganizationalUnit): "Cannot find an object with identity: 'OU=Hyper-V Hosts, OU=Servers, DC- UGN, DC=bobbysworld, DC=org' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADOrganizationalUnit : Cannot find an object with identity: 'OU=Hyper-V Hosts, OU=Servers, DC- UGN, DC=bobbysworld, 
+DC=org' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ ... HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts, OU=Servers, D ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (OU=Hyper-V Host...ysworld, DC=org:ADOrganizationalUnit) 
+[Get-ADOrganizationalUnit], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+Get-ADOrganizationalUnit : Cannot find an object with identity: 'OU=Hyper-V Hosts, OU=Servers, DC- UGN,
+DC=bobbysworld, DC=org' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:14
++ ... HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts, OU=Servers, D ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (OU=Hyper-V Host...ysworld, DC=org:ADOrganizationalUnit) [Get-ADOrganiza
+   tionalUnit], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,M
+   icrosoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $HyperHost = Get-ADOrganizationalUnit -Filter "OU=Hyper-V Hosts"
+>> TerminatingError(Get-ADOrganizationalUnit): "Error parsing query: 'OU=Hyper-V Hosts' Error Message: 'Operator Not supported: =' at position: '3'."
+Get-ADOrganizationalUnit : Error parsing query: 'OU=Hyper-V Hosts' Error Message: 'Operator Not supported: =' at 
+position: '3'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit -Filter "OU=Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADOrganizationalUnit], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+Get-ADOrganizationalUnit : Error parsing query: 'OU=Hyper-V Hosts' Error Message: 'Operator Not supported: =' at
+position: '3'.
+At line:1 char:14
++ $HyperHost = Get-ADOrganizationalUnit -Filter "OU=Hyper-V Hosts"
++              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADOrganizationalUnit], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADOrganizationalUnit
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> cd ..
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> pwd
+
+Path
+----
+AD:\DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> cd ..
+PS AD:\> $HyperHost = Get-ADOrganizationalUnit "OU=Hyper-V Hosts, OU=Servers, DC=UGN, DC=bobbysworld, DC=org"
+PS AD:\> $HyperHost
+
+
+City                     :
+Country                  :
+DistinguishedName        : OU=Hyper-V Hosts,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+LinkedGroupPolicyObjects : {}
+ManagedBy                :
+Name                     : Hyper-V Hosts
+ObjectClass              : organizationalUnit
+ObjectGUID               : 986a5c94-b15d-4f6e-aaab-bc03a0edee92
+PostalCode               :
+State                    :
+StreetAddress            :
+
+
+
+PS AD:\> $Orion = Get-ADComputer orion
+PS AD:\> $orion
+
+
+DistinguishedName : CN=ORION,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       : Orion.ugn.bobbysworld.org
+Enabled           : True
+Name              : ORION
+ObjectClass       : computer
+ObjectGUID        : 84dce338-aeb5-4c01-81f6-9b8118713021
+SamAccountName    : ORION$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1103
+UserPrincipalName :
+
+
+
+PS AD:\> $orion | select *
+
+
+DistinguishedName      : CN=ORION,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName            : Orion.ugn.bobbysworld.org
+Enabled                : True
+Name                   : ORION
+ObjectClass            : computer
+ObjectGUID             : 84dce338-aeb5-4c01-81f6-9b8118713021
+SamAccountName         : ORION$
+SID                    : S-1-5-21-2983660187-1718435535-191266432-1103
+UserPrincipalName      :
+WriteDebugStream       : {}
+WriteErrorStream       : {}
+WriteInformationStream : {}
+WriteVerboseStream     : {}
+WriteWarningStream     : {}
+PropertyNames          : {DistinguishedName, DNSHostName, Enabled, Name...}
+AddedProperties        : {}
+RemovedProperties      : {}
+ModifiedProperties     : {}
+PropertyCount          : 15
+
+
+
+PS AD:\> clear
+PS AD:\> man Move-ADObject
+>> TerminatingError(Get-Help): "Could not find file 'C:\Windows\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\en-US\Microsoft.ActiveDirectory.Management.dll-Help.xml'."
+Get-Help : Could not find file 'C:\Windows\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\en-US\Microsoft.Activ
+eDirectory.Management.dll-Help.xml'.
+At line:55 char:5
++     Get-Help @PSBoundParameters | more
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Get-Help], FileNotFoundException
+    + FullyQualifiedErrorId : System.IO.FileNotFoundException,Microsoft.PowerShell.Commands.GetHelpCommand
+Get-Help : Could not find file 'C:\Windows\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\en-US\Microsoft.Acti
+veDirectory.Management.dll-Help.xml'.
+At line:55 char:5
++     Get-Help @PSBoundParameters | more
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Get-Help], FileNotFoundException
+    + FullyQualifiedErrorId : System.IO.FileNotFoundException,Microsoft.PowerShell.Commands.GetHelpCommand
+
+PS AD:\> Move-ADObject $Orion -TargetPath $HyperHost.DistinguishedName
+PS AD:\> Get-ADComputer orion
+
+
+DistinguishedName : CN=ORION,OU=Hyper-V Hosts,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       : Orion.ugn.bobbysworld.org
+Enabled           : True
+Name              : ORION
+ObjectClass       : computer
+ObjectGUID        : 84dce338-aeb5-4c01-81f6-9b8118713021
+SamAccountName    : ORION$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1103
+UserPrincipalName :
+
+
+
+PS AD:\> cd "DC=ugn,DC=bobbysworld,DC=org"
+PS AD:\DC=ugn,DC=bobbysworld,DC=org> cd "OU=Servers"
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> New-ADOrganizationalUnit -Name "Make DC"
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $makeDC = Get-ADOrganizationalUnit "OU=Make DC, OU=servers, DC=ugn, dc=bobbysworld, dc=org"
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter *dc*
+>> TerminatingError(Get-ADComputer): "Error parsing query: '*dc*' Error Message: 'syntax error' at position: '1'."
+Get-ADComputer : Error parsing query: '*dc*' Error Message: 'syntax error' at position: '1'.
+At line:1 char:1
++ Get-ADComputer -Filter *dc*
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: '*dc*' Error Message: 'syntax error' at position: '1'.
+At line:1 char:1
++ Get-ADComputer -Filter *dc*
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "name like *dc*
+"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'name like *dc*
+' Error Message: 'syntax error' at position: '6'."
+Get-ADComputer : Error parsing query: 'name like *dc*
+' Error Message: 'syntax error' at position: '6'.
+At line:1 char:1
++ Get-ADComputer -Filter "name like *dc*
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'name like *dc*
+' Error Message: 'syntax error' at position: '6'.
+At line:1 char:1
++ Get-ADComputer -Filter "name like *dc*
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "name like *dc*"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'name like *dc*' Error Message: 'syntax error' at position: '6'."
+Get-ADComputer : Error parsing query: 'name like *dc*' Error Message: 'syntax error' at position: '6'.
+At line:1 char:1
++ Get-ADComputer -Filter "name like *dc*"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'name like *dc*' Error Message: 'syntax error' at position: '6'.
+At line:1 char:1
++ Get-ADComputer -Filter "name like *dc*"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "name -like *dc*"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'name -like *dc*' Error Message: 'syntax error' at position: '12'."
+Get-ADComputer : Error parsing query: 'name -like *dc*' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like *dc*"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'name -like *dc*' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like *dc*"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer *dc*
+>> TerminatingError(Get-ADComputer): "Cannot find an object with identity: '*dc*' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADComputer : Cannot find an object with identity: '*dc*' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADComputer *dc*
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (*dc*:ADComputer) [Get-ADComputer], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Cannot find an object with identity: '*dc*' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADComputer *dc*
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (*dc*:ADComputer) [Get-ADComputer], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,M
+   icrosoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "name -like dc"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'name -like dc' Error Message: 'syntax error' at position: '12'."
+Get-ADComputer : Error parsing query: 'name -like dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'name -like dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "name -like bworld-dc"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'name -like bworld-dc' Error Message: 'syntax error' at position: '12'."
+Get-ADComputer : Error parsing query: 'name -like bworld-dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like bworld-dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'name -like bworld-dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "name -like bworld-dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "Name -like bworld-dc"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'Name -like bworld-dc' Error Message: 'syntax error' at position: '12'."
+Get-ADComputer : Error parsing query: 'Name -like bworld-dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "Name -like bworld-dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'Name -like bworld-dc' Error Message: 'syntax error' at position: '12'.
+At line:1 char:1
++ Get-ADComputer -Filter "Name -like bworld-dc"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer BWORLD-dc-02, BWORLD-dc-03
+>> TerminatingError(Get-ADComputer): "Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer' required by parameter 'Identity'. Specified method is not supported."
+Get-ADComputer : Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer' 
+required by parameter 'Identity'. Specified method is not supported.
+At line:1 char:16
++ Get-ADComputer BWORLD-dc-02, BWORLD-dc-03
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ADComputer], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer'
+required by parameter 'Identity'. Specified method is not supported.
+At line:1 char:16
++ Get-ADComputer BWORLD-dc-02, BWORLD-dc-03
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ADComputer], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer 'BWORLD-dc-02', 'BWORLD-dc-03'
+>> TerminatingError(Get-ADComputer): "Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer' required by parameter 'Identity'. Specified method is not supported."
+Get-ADComputer : Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer' 
+required by parameter 'Identity'. Specified method is not supported.
+At line:1 char:16
++ Get-ADComputer 'BWORLD-dc-02', 'BWORLD-dc-03'
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ADComputer], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Cannot convert 'System.Object[]' to the type 'Microsoft.ActiveDirectory.Management.ADComputer'
+required by parameter 'Identity'. Specified method is not supported.
+At line:1 char:16
++ Get-ADComputer 'BWORLD-dc-02', 'BWORLD-dc-03'
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ADComputer], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $DC2 = Get-ADComputer bworld-dc-02
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $dc3 = Get-ADComputer bworld-dc-03
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Move-ADObject $dc02 -TargetPath $makeDC.DistinguishedName
+>> TerminatingError(Move-ADObject): "Cannot validate argument on parameter 'Identity'. The argument is null. Provide a valid value for the argument, and then try running the command again."
+Move-ADObject : Cannot validate argument on parameter 'Identity'. The argument is null. Provide a valid value for the 
+argument, and then try running the command again.
+At line:1 char:15
++ Move-ADObject $dc02 -TargetPath $makeDC.DistinguishedName
++               ~~~~~
+    + CategoryInfo          : InvalidData: (:) [Move-ADObject], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.MoveADObject
+Move-ADObject : Cannot validate argument on parameter 'Identity'. The argument is null. Provide a valid value for the
+argument, and then try running the command again.
+At line:1 char:15
++ Move-ADObject $dc02 -TargetPath $makeDC.DistinguishedName
++               ~~~~~
+    + CategoryInfo          : InvalidData: (:) [Move-ADObject], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,Microsoft.ActiveDirectory.Management.Commands.MoveADObj
+   ect
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> $dc2
+
+
+DistinguishedName : CN=BWORLD-DC-02,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       : BWORLD-DC-02.ugn.bobbysworld.org
+Enabled           : True
+Name              : BWORLD-DC-02
+ObjectClass       : computer
+ObjectGUID        : 385a0a82-1d14-42ff-b2a0-3694687e9131
+SamAccountName    : BWORLD-DC-02$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1104
+UserPrincipalName :
+
+
+
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Move-ADObject $dc2 -TargetPath $makeDC.DistinguishedName
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Move-ADObject $dc3 -TargetPath $makeDC.DistinguishedName
+PS AD:\OU=Servers,DC=ugn,DC=bobbysworld,DC=org> cd "OU=Make DC"
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> ls
+
+Name                 ObjectClass          DistinguishedName
+----                 -----------          -----------------
+BWORLD-DC-02         computer             CN=BWORLD-DC-02,OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+BWORLD-DC-03         computer             CN=BWORLD-DC-03,OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+
+
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -Filter "OU=Make DC"
+>> TerminatingError(Get-ADComputer): "Error parsing query: 'OU=Make DC' Error Message: 'Operator Not supported: =' at position: '3'."
+Get-ADComputer : Error parsing query: 'OU=Make DC' Error Message: 'Operator Not supported: =' at position: '3'.
+At line:1 char:1
++ Get-ADComputer -Filter "OU=Make DC"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micros
+oft.ActiveDirectory.Management.Commands.GetADComputer
+Get-ADComputer : Error parsing query: 'OU=Make DC' Error Message: 'Operator Not supported: =' at position: '3'.
+At line:1 char:1
++ Get-ADComputer -Filter "OU=Make DC"
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Get-ADComputer], ADFilterParsingException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Micr
+   osoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-ADComputer -SearchBase $makeDC.DistinguishedName
+
+
+DistinguishedName : CN=BWORLD-DC-02,OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       : BWORLD-DC-02.ugn.bobbysworld.org
+Enabled           : True
+Name              : BWORLD-DC-02
+ObjectClass       : computer
+ObjectGUID        : 385a0a82-1d14-42ff-b2a0-3694687e9131
+SamAccountName    : BWORLD-DC-02$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1104
+UserPrincipalName :
+
+DistinguishedName : CN=BWORLD-DC-03,OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       : BWORLD-DC-03.ugn.bobbysworld.org
+Enabled           : True
+Name              : BWORLD-DC-03
+ObjectClass       : computer
+ObjectGUID        : e5a18e93-f2ab-4d0d-9703-4ea960c53d01
+SamAccountName    : BWORLD-DC-03$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1106
+UserPrincipalName :
+
+
+
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> Get-WindowsFeature
+
+Display Name                                            Name                       Install State
+------------                                            ----                       -------------
+[ ] Active Directory Certificate Services               AD-Certificate                 Available
+    [ ] Certification Authority                         ADCS-Cert-Authority            Available
+    [ ] Certificate Enrollment Policy Web Service       ADCS-Enroll-Web-Pol            Available
+    [ ] Certificate Enrollment Web Service              ADCS-Enroll-Web-Svc            Available
+    [ ] Certification Authority Web Enrollment          ADCS-Web-Enrollment            Available
+    [ ] Network Device Enrollment Service               ADCS-Device-Enrollment         Available
+    [ ] Online Responder                                ADCS-Online-Cert               Available
+[X] Active Directory Domain Services                    AD-Domain-Services             Installed
+[ ] Active Directory Federation Services                ADFS-Federation                Available
+[ ] Active Directory Lightweight Directory Services     ADLDS                          Available
+[ ] Active Directory Rights Management Services         ADRMS                          Available
+    [ ] Active Directory Rights Management Server       ADRMS-Server                   Available
+    [ ] Identity Federation Support                     ADRMS-Identity                 Available
+[ ] Device Health Attestation                           DeviceHealthAttestat...        Available
+[ ] DHCP Server                                         DHCP                           Available
+[X] DNS Server                                          DNS                            Installed
+[ ] Fax Server                                          Fax                            Available
+[X] File and Storage Services                           FileAndStorage-Services        Installed
+    [X] File and iSCSI Services                         File-Services                  Installed
+        [X] File Server                                 FS-FileServer                  Installed
+        [ ] BranchCache for Network Files               FS-BranchCache                 Available
+        [ ] Data Deduplication                          FS-Data-Deduplication          Available
+        [ ] DFS Namespaces                              FS-DFS-Namespace               Available
+        [ ] DFS Replication                             FS-DFS-Replication             Available
+        [ ] File Server Resource Manager                FS-Resource-Manager            Available
+        [ ] File Server VSS Agent Service               FS-VSS-Agent                   Available
+        [ ] iSCSI Target Server                         FS-iSCSITarget-Server          Available
+        [ ] iSCSI Target Storage Provider (VDS and V... iSCSITarget-VSS-VDS            Available
+        [ ] Server for NFS                              FS-NFS-Service                 Available
+        [ ] Work Folders                                FS-SyncShareService            Available
+    [X] Storage Services                                Storage-Services               Installed
+[ ] Host Guardian Service                               HostGuardianServiceRole        Available
+[ ] Hyper-V                                             Hyper-V                        Available
+[ ] MultiPoint Services                                 MultiPointServerRole           Available
+[ ] Network Controller                                  NetworkController              Available
+[ ] Network Policy and Access Services                  NPAS                           Available
+[ ] Print and Document Services                         Print-Services                 Available
+    [ ] Print Server                                    Print-Server                   Available
+    [ ] Distributed Scan Server                         Print-Scan-Server              Available
+    [ ] Internet Printing                               Print-Internet                 Available
+    [ ] LPD Service                                     Print-LPD-Service              Available
+[ ] Remote Access                                       RemoteAccess                   Available
+    [ ] DirectAccess and VPN (RAS)                      DirectAccess-VPN               Available
+    [ ] Routing                                         Routing                        Available
+    [ ] Web Application Proxy                           Web-Application-Proxy          Available
+[ ] Remote Desktop Services                             Remote-Desktop-Services        Available
+    [ ] Remote Desktop Connection Broker                RDS-Connection-Broker          Available
+    [ ] Remote Desktop Gateway                          RDS-Gateway                    Available
+    [ ] Remote Desktop Licensing                        RDS-Licensing                  Available
+    [ ] Remote Desktop Session Host                     RDS-RD-Server                  Available
+    [ ] Remote Desktop Virtualization Host              RDS-Virtualization             Available
+    [ ] Remote Desktop Web Access                       RDS-Web-Access                 Available
+[ ] Volume Activation Services                          VolumeActivation               Available
+[ ] Web Server (IIS)                                    Web-Server                     Available
+    [ ] Web Server                                      Web-WebServer                  Available
+        [ ] Common HTTP Features                        Web-Common-Http                Available
+            [ ] Default Document                        Web-Default-Doc                Available
+            [ ] Directory Browsing                      Web-Dir-Browsing               Available
+            [ ] HTTP Errors                             Web-Http-Errors                Available
+            [ ] Static Content                          Web-Static-Content             Available
+            [ ] HTTP Redirection                        Web-Http-Redirect              Available
+            [ ] WebDAV Publishing                       Web-DAV-Publishing             Available
+        [ ] Health and Diagnostics                      Web-Health                     Available
+            [ ] HTTP Logging                            Web-Http-Logging               Available
+            [ ] Custom Logging                          Web-Custom-Logging             Available
+            [ ] Logging Tools                           Web-Log-Libraries              Available
+            [ ] ODBC Logging                            Web-ODBC-Logging               Available
+            [ ] Request Monitor                         Web-Request-Monitor            Available
+            [ ] Tracing                                 Web-Http-Tracing               Available
+        [ ] Performance                                 Web-Performance                Available
+            [ ] Static Content Compression              Web-Stat-Compression           Available
+            [ ] Dynamic Content Compression             Web-Dyn-Compression            Available
+        [ ] Security                                    Web-Security                   Available
+            [ ] Request Filtering                       Web-Filtering                  Available
+            [ ] Basic Authentication                    Web-Basic-Auth                 Available
+            [ ] Centralized SSL Certificate Support     Web-CertProvider               Available
+            [ ] Client Certificate Mapping Authentic... Web-Client-Auth                Available
+            [ ] Digest Authentication                   Web-Digest-Auth                Available
+            [ ] IIS Client Certificate Mapping Authe... Web-Cert-Auth                  Available
+            [ ] IP and Domain Restrictions              Web-IP-Security                Available
+            [ ] URL Authorization                       Web-Url-Auth                   Available
+            [ ] Windows Authentication                  Web-Windows-Auth               Available
+        [ ] Application Development                     Web-App-Dev                    Available
+            [ ] .NET Extensibility 3.5                  Web-Net-Ext                    Available
+            [ ] .NET Extensibility 4.6                  Web-Net-Ext45                  Available
+            [ ] Application Initialization              Web-AppInit                    Available
+            [ ] ASP                                     Web-ASP                        Available
+            [ ] ASP.NET 3.5                             Web-Asp-Net                    Available
+            [ ] ASP.NET 4.6                             Web-Asp-Net45                  Available
+            [ ] CGI                                     Web-CGI                        Available
+            [ ] ISAPI Extensions                        Web-ISAPI-Ext                  Available
+            [ ] ISAPI Filters                           Web-ISAPI-Filter               Available
+            [ ] Server Side Includes                    Web-Includes                   Available
+            [ ] WebSocket Protocol                      Web-WebSockets                 Available
+    [ ] FTP Server                                      Web-Ftp-Server                 Available
+        [ ] FTP Service                                 Web-Ftp-Service                Available
+        [ ] FTP Extensibility                           Web-Ftp-Ext                    Available
+    [ ] Management Tools                                Web-Mgmt-Tools                 Available
+        [ ] IIS Management Console                      Web-Mgmt-Console               Available
+        [ ] IIS 6 Management Compatibility              Web-Mgmt-Compat                Available
+            [ ] IIS 6 Metabase Compatibility            Web-Metabase                   Available
+            [ ] IIS 6 Management Console                Web-Lgcy-Mgmt-Console          Available
+            [ ] IIS 6 Scripting Tools                   Web-Lgcy-Scripting             Available
+            [ ] IIS 6 WMI Compatibility                 Web-WMI                        Available
+        [ ] IIS Management Scripts and Tools            Web-Scripting-Tools            Available
+        [ ] Management Service                          Web-Mgmt-Service               Available
+[ ] Windows Deployment Services                         WDS                            Available
+    [ ] Deployment Server                               WDS-Deployment                 Available
+    [ ] Transport Server                                WDS-Transport                  Available
+[ ] Windows Server Essentials Experience                ServerEssentialsRole           Available
+[ ] Windows Server Update Services                      UpdateServices                 Available
+    [ ] WID Connectivity                                UpdateServices-WidDB           Available
+    [ ] WSUS Services                                   UpdateServices-Services        Available
+    [ ] SQL Server Connectivity                         UpdateServices-DB              Available
+[ ] .NET Framework 3.5 Features                         NET-Framework-Features         Available
+    [ ] .NET Framework 3.5 (includes .NET 2.0 and 3.0)  NET-Framework-Core               Removed
+    [ ] HTTP Activation                                 NET-HTTP-Activation            Available
+    [ ] Non-HTTP Activation                             NET-Non-HTTP-Activ             Available
+[X] .NET Framework 4.6 Features                         NET-Framework-45-Fea...        Installed
+    [X] .NET Framework 4.6                              NET-Framework-45-Core          Installed
+    [ ] ASP.NET 4.6                                     NET-Framework-45-ASPNET        Available
+    [X] WCF Services                                    NET-WCF-Services45             Installed
+        [ ] HTTP Activation                             NET-WCF-HTTP-Activat...        Available
+        [ ] Message Queuing (MSMQ) Activation           NET-WCF-MSMQ-Activat...        Available
+        [ ] Named Pipe Activation                       NET-WCF-Pipe-Activat...        Available
+        [ ] TCP Activation                              NET-WCF-TCP-Activati...        Available
+        [X] TCP Port Sharing                            NET-WCF-TCP-PortShar...        Installed
+[ ] Background Intelligent Transfer Service (BITS)      BITS                           Available
+    [ ] IIS Server Extension                            BITS-IIS-Ext                   Available
+    [ ] Compact Server                                  BITS-Compact-Server            Available
+[ ] BitLocker Drive Encryption                          BitLocker                      Available
+[ ] BitLocker Network Unlock                            BitLocker-NetworkUnlock        Available
+[ ] BranchCache                                         BranchCache                    Available
+[ ] Client for NFS                                      NFS-Client                     Available
+[ ] Containers                                          Containers                     Available
+[ ] Data Center Bridging                                Data-Center-Bridging           Available
+[ ] Direct Play                                         Direct-Play                    Available
+[ ] Enhanced Storage                                    EnhancedStorage                Available
+[ ] Failover Clustering                                 Failover-Clustering            Available
+[X] Group Policy Management                             GPMC                           Installed
+[ ] Host Guardian Hyper-V Support                       HostGuardian                   Available
+[ ] I/O Quality of Service                              DiskIo-QoS                     Available
+[ ] IIS Hostable Web Core                               Web-WHC                        Available
+[ ] Internet Printing Client                            Internet-Print-Client          Available
+[ ] IP Address Management (IPAM) Server                 IPAM                           Available
+[ ] iSNS Server service                                 ISNS                           Available
+[ ] LPR Port Monitor                                    LPR-Port-Monitor               Available
+[ ] Management OData IIS Extension                      ManagementOdata                Available
+[ ] Media Foundation                                    Server-Media-Foundation        Available
+[ ] Message Queuing                                     MSMQ                           Available
+    [ ] Message Queuing Services                        MSMQ-Services                  Available
+        [ ] Message Queuing Server                      MSMQ-Server                    Available
+        [ ] Directory Service Integration               MSMQ-Directory                 Available
+        [ ] HTTP Support                                MSMQ-HTTP-Support              Available
+        [ ] Message Queuing Triggers                    MSMQ-Triggers                  Available
+        [ ] Multicasting Support                        MSMQ-Multicasting              Available
+        [ ] Routing Service                             MSMQ-Routing                   Available
+    [ ] Message Queuing DCOM Proxy                      MSMQ-DCOM                      Available
+[ ] Multipath I/O                                       Multipath-IO                   Available
+[ ] MultiPoint Connector                                MultiPoint-Connector           Available
+    [ ] MultiPoint Connector Services                   MultiPoint-Connector...        Available
+    [ ] MultiPoint Manager and MultiPoint Dashboard     MultiPoint-Tools               Available
+[ ] Network Load Balancing                              NLB                            Available
+[ ] Peer Name Resolution Protocol                       PNRP                           Available
+[ ] Quality Windows Audio Video Experience              qWave                          Available
+[ ] RAS Connection Manager Administration Kit (CMAK)    CMAK                           Available
+[ ] Remote Assistance                                   Remote-Assistance              Available
+[ ] Remote Differential Compression                     RDC                            Available
+[X] Remote Server Administration Tools                  RSAT                           Installed
+    [ ] Feature Administration Tools                    RSAT-Feature-Tools             Available
+        [ ] SMTP Server Tools                           RSAT-SMTP                      Available
+        [ ] BitLocker Drive Encryption Administratio... RSAT-Feature-Tools-B...        Available
+            [ ] BitLocker Drive Encryption Tools        RSAT-Feature-Tools-B...        Available
+            [ ] BitLocker Recovery Password Viewer      RSAT-Feature-Tools-B...        Available
+        [ ] BITS Server Extensions Tools                RSAT-Bits-Server               Available
+        [ ] DataCenterBridging LLDP Tools               RSAT-DataCenterBridg...        Available
+        [ ] Failover Clustering Tools                   RSAT-Clustering                Available
+            [ ] Failover Cluster Management Tools       RSAT-Clustering-Mgmt           Available
+            [ ] Failover Cluster Module for Windows ... RSAT-Clustering-Powe...        Available
+            [ ] Failover Cluster Automation Server      RSAT-Clustering-Auto...        Available
+            [ ] Failover Cluster Command Interface      RSAT-Clustering-CmdI...        Available
+        [ ] IP Address Management (IPAM) Client         IPAM-Client-Feature            Available
+        [ ] Network Load Balancing Tools                RSAT-NLB                       Available
+        [ ] Shielded VM Tools                           RSAT-Shielded-VM-Tools         Available
+        [ ] SNMP Tools                                  RSAT-SNMP                      Available
+        [ ] Storage Replica Module for Windows Power... RSAT-Storage-Replica           Available
+        [ ] WINS Server Tools                           RSAT-WINS                      Available
+    [X] Role Administration Tools                       RSAT-Role-Tools                Installed
+        [X] AD DS and AD LDS Tools                      RSAT-AD-Tools                  Installed
+            [X] Active Directory module for Windows ... RSAT-AD-PowerShell             Installed
+            [X] AD DS Tools                             RSAT-ADDS                      Installed
+                [X] Active Directory Administrative ... RSAT-AD-AdminCenter            Installed
+                [X] AD DS Snap-Ins and Command-Line ... RSAT-ADDS-Tools                Installed
+            [X] AD LDS Snap-Ins and Command-Line Tools  RSAT-ADLDS                     Installed
+        [ ] Hyper-V Management Tools                    RSAT-Hyper-V-Tools             Available
+            [ ] Hyper-V GUI Management Tools            Hyper-V-Tools                  Available
+            [ ] Hyper-V Module for Windows PowerShell   Hyper-V-PowerShell             Available
+        [ ] Remote Desktop Services Tools               RSAT-RDS-Tools                 Available
+            [ ] Remote Desktop Gateway Tools            RSAT-RDS-Gateway               Available
+            [ ] Remote Desktop Licensing Diagnoser T... RSAT-RDS-Licensing-D...        Available
+            [ ] Remote Desktop Licensing Tools          RDS-Licensing-UI               Available
+        [ ] Windows Server Update Services Tools        UpdateServices-RSAT            Available
+            [ ] API and PowerShell cmdlets              UpdateServices-API             Available
+            [ ] User Interface Management Console       UpdateServices-UI              Available
+        [ ] Active Directory Certificate Services Tools RSAT-ADCS                      Available
+            [ ] Certification Authority Management T... RSAT-ADCS-Mgmt                 Available
+            [ ] Online Responder Tools                  RSAT-Online-Responder          Available
+        [ ] Active Directory Rights Management Servi... RSAT-ADRMS                     Available
+        [ ] DHCP Server Tools                           RSAT-DHCP                      Available
+        [X] DNS Server Tools                            RSAT-DNS-Server                Installed
+        [ ] Fax Server Tools                            RSAT-Fax                       Available
+        [ ] File Services Tools                         RSAT-File-Services             Available
+            [ ] DFS Management Tools                    RSAT-DFS-Mgmt-Con              Available
+            [ ] File Server Resource Manager Tools      RSAT-FSRM-Mgmt                 Available
+            [ ] Services for Network File System Man... RSAT-NFS-Admin                 Available
+        [ ] Network Controller Management Tools         RSAT-NetworkController         Available
+        [ ] Network Policy and Access Services Tools    RSAT-NPAS                      Available
+        [ ] Print and Document Services Tools           RSAT-Print-Services            Available
+        [ ] Remote Access Management Tools              RSAT-RemoteAccess              Available
+            [ ] Remote Access GUI and Command-Line T... RSAT-RemoteAccess-Mgmt         Available
+            [ ] Remote Access module for Windows Pow... RSAT-RemoteAccess-Po...        Available
+        [ ] Volume Activation Tools                     RSAT-VA-Tools                  Available
+        [ ] Windows Deployment Services Tools           WDS-AdminPack                  Available
+[ ] RPC over HTTP Proxy                                 RPC-over-HTTP-Proxy            Available
+[ ] Setup and Boot Event Collection                     Setup-and-Boot-Event...        Available
+[ ] Simple TCP/IP Services                              Simple-TCPIP                   Available
+[X] SMB 1.0/CIFS File Sharing Support                   FS-SMB1                        Installed
+[ ] SMB Bandwidth Limit                                 FS-SMBBW                       Available
+[ ] SMTP Server                                         SMTP-Server                    Available
+[ ] SNMP Service                                        SNMP-Service                   Available
+    [ ] SNMP WMI Provider                               SNMP-WMI-Provider              Available
+[ ] Software Load Balancer                              SoftwareLoadBalancer           Available
+[ ] Storage Replica                                     Storage-Replica                Available
+[ ] Telnet Client                                       Telnet-Client                  Available
+[ ] TFTP Client                                         TFTP-Client                    Available
+[ ] VM Shielding Tools for Fabric Management            FabricShieldedTools            Available
+[ ] WebDAV Redirector                                   WebDAV-Redirector              Available
+[ ] Windows Biometric Framework                         Biometric-Framework            Available
+[X] Windows Defender Features                           Windows-Defender-Fea...        Installed
+    [X] Windows Defender                                Windows-Defender               Installed
+    [X] GUI for Windows Defender                        Windows-Defender-Gui           Installed
+[ ] Windows Identity Foundation 3.5                     Windows-Identity-Fou...        Available
+[ ] Windows Internal Database                           Windows-Internal-Dat...        Available
+[X] Windows PowerShell                                  PowerShellRoot                 Installed
+    [X] Windows PowerShell 5.1                          PowerShell                     Installed
+    [ ] Windows PowerShell 2.0 Engine                   PowerShell-V2                    Removed
+    [ ] Windows PowerShell Desired State Configurati... DSC-Service                    Available
+    [X] Windows PowerShell ISE                          PowerShell-ISE                 Installed
+    [ ] Windows PowerShell Web Access                   WindowsPowerShellWeb...        Available
+[ ] Windows Process Activation Service                  WAS                            Available
+    [ ] Process Model                                   WAS-Process-Model              Available
+    [ ] .NET Environment 3.5                            WAS-NET-Environment            Available
+    [ ] Configuration APIs                              WAS-Config-APIs                Available
+[ ] Windows Search Service                              Search-Service                 Available
+[ ] Windows Server Backup                               Windows-Server-Backup          Available
+[ ] Windows Server Migration Tools                      Migration                      Available
+[ ] Windows Standards-Based Storage Management          WindowsStorageManage...        Available
+[ ] Windows TIFF IFilter                                Windows-TIFF-IFilter           Available
+[ ] WinRM IIS Extension                                 WinRM-IIS-Ext                  Available
+[ ] WINS Server                                         WINS                           Available
+[ ] Wireless LAN Service                                Wireless-Networking            Available
+[X] WoW64 Support                                       WoW64-Support                  Installed
+[ ] XPS Viewer                                          XPS-Viewer                     Available
+
+
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> clear
+PS AD:\OU=Make DC,OU=Servers,DC=ugn,DC=bobbysworld,DC=org> cd C:\
+PS C:\> clear
+PS C:\> Get-Command -Module ADDSDeployment
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Add-ADDSReadOnlyDomainControllerAccount            1.0.0.0    ADDSDeployment
+Cmdlet          Install-ADDSDomain                                 1.0.0.0    ADDSDeployment
+Cmdlet          Install-ADDSDomainController                       1.0.0.0    ADDSDeployment
+Cmdlet          Install-ADDSForest                                 1.0.0.0    ADDSDeployment
+Cmdlet          Test-ADDSDomainControllerInstallation              1.0.0.0    ADDSDeployment
+Cmdlet          Test-ADDSDomainControllerUninstallation            1.0.0.0    ADDSDeployment
+Cmdlet          Test-ADDSDomainInstallation                        1.0.0.0    ADDSDeployment
+Cmdlet          Test-ADDSForestInstallation                        1.0.0.0    ADDSDeployment
+Cmdlet          Test-ADDSReadOnlyDomainControllerAccountCreation   1.0.0.0    ADDSDeployment
+Cmdlet          Uninstall-ADDSDomainController                     1.0.0.0    ADDSDeployment
+
+
+PS C:\> man Install-ADDSDomainController
+
+NAME
+    Install-ADDSDomainController
+
+SYNTAX
+    Install-ADDSDomainController -DomainName <string> [-SkipPreChecks] [-SafeModeAdministratorPassword <securestring>] [-SiteName <string>]
+    [-ADPrepCredential <pscredential>] [-AllowDomainControllerReinstall] [-ApplicationPartitionsToReplicate <string[]>] [-CreateDnsDelegation]
+    [-Credential <pscredential>] [-CriticalReplicationOnly] [-DatabasePath <string>] [-DnsDelegationCredential <pscredential>] [-NoDnsOnNetwork]
+    [-NoGlobalCatalog] [-InstallationMediaPath <string>] [-InstallDns] [-LogPath <string>] [-MoveInfrastructureOperationMasterRoleIfNecessary]
+    [-NoRebootOnCompletion] [-ReplicationSourceDC <string>] [-SkipAutoConfigureDns] [-SystemKey <securestring>] [-SysvolPath <string>] [-Force]
+    [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+    Install-ADDSDomainController -DomainName <string> -SiteName <string> [-SkipPreChecks] [-SafeModeAdministratorPassword <securestring>]
+    [-ADPrepCredential <pscredential>] [-AllowDomainControllerReinstall] [-AllowPasswordReplicationAccountName <string[]>]
+    [-ApplicationPartitionsToReplicate <string[]>] [-Credential <pscredential>] [-CriticalReplicationOnly] [-DatabasePath <string>]
+    [-DelegatedAdministratorAccountName <string>] [-DenyPasswordReplicationAccountName <string[]>] [-NoDnsOnNetwork] [-NoGlobalCatalog]
+    [-InstallationMediaPath <string>] [-InstallDns] [-LogPath <string>] [-MoveInfrastructureOperationMasterRoleIfNecessary] [-ReadOnlyReplica]
+    [-NoRebootOnCompletion] [-ReplicationSourceDC <string>] [-SkipAutoConfigureDns] [-SystemKey <securestring>] [-SysvolPath <string>] [-Force]
+    [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+    Install-ADDSDomainController -DomainName <string> [-SkipPreChecks] [-SafeModeAdministratorPassword <securestring>] [-ADPrepCredential
+    <pscredential>] [-ApplicationPartitionsToReplicate <string[]>] [-Credential <pscredential>] [-CriticalReplicationOnly] [-DatabasePath
+    <string>] [-NoDnsOnNetwork] [-InstallationMediaPath <string>] [-LogPath <string>] [-NoRebootOnCompletion] [-ReplicationSourceDC <string>]
+    [-SkipAutoConfigureDns] [-SystemKey <securestring>] [-SysvolPath <string>] [-UseExistingAccount] [-Force] [-WhatIf] [-Confirm]
+    [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+PS C:\> cd .\vscode\
+PS C:\vscode> ls
+
+
+    Directory: C:\vscode
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        8/12/2018   8:44 AM                VSCode
+-a----        8/14/2018   9:25 PM            585 AddingDomainControllers.ps1
+-a----        8/12/2018   8:36 AM       77388782 VSCode.zip
+
+
+PS C:\vscode> .\AddingDomainControllers.ps1
+
+Success Restart Needed Exit Code      Feature Result
+------- -------------- ---------      --------------
+True    No             Success        {Active Directory Domain Services, Remote ...
+True    No             Success        {Active Directory Domain Services, Remote ...
+
+
+PS C:\vscode> Enter-PSSession  bworld-dc-02
+PS C:\vscode> Get-ADGroupMember EnterpriseAdmins
+>> TerminatingError(Get-ADGroupMember): "Cannot find an object with identity: 'EnterpriseAdmins' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADGroupMember : Cannot find an object with identity: 'EnterpriseAdmins' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADGroupMember EnterpriseAdmins
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (EnterpriseAdmins:ADGroup) [Get-ADGroupMember], 
+ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADGroupMember
+Get-ADGroupMember : Cannot find an object with identity: 'EnterpriseAdmins' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADGroupMember EnterpriseAdmins
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (EnterpriseAdmins:ADGroup) [Get-ADGroupMember], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Microsoft.ActiveDirectory.M
+   anagement.Commands.GetADGroupMember
+
+PS C:\vscode> Get-ADGroupMember "Enterprise Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\vscode> Get-ADGroupMember "Schema Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\vscode> Get-ADGroupMember "Domain Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\vscode> Get-ADDomainController
+
+
+ComputerObjectDN           : CN=BWORLD-DC-01,OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DefaultPartition           : DC=ugn,DC=bobbysworld,DC=org
+Domain                     : ugn.bobbysworld.org
+Enabled                    : True
+Forest                     : ugn.bobbysworld.org
+HostName                   : BWORLD-DC-01.ugn.bobbysworld.org
+InvocationId               : 14b154cf-5810-4d87-ba89-e978307d9b8c
+IPv4Address                : 192.168.1.30
+IPv6Address                : 2600:1700:6460:40f0::30
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : BWORLD-DC-01
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+OperatingSystem            : Windows Server 2016 Datacenter
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {SchemaMaster, DomainNamingMaster, PDCEmulator, RIDMaster...}
+Partitions                 : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                             CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org...}
+ServerObjectDN             : CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ServerObjectGuid           : ec03b4de-b2f3-449c-bb09-17260aa1106e
+Site                       : Chicago
+SslPort                    : 636
+
+
+
+PS C:\vscode> Move-ADDirectoryServerOperationMasterRole -Identity BWORLD-DC-02 -OperationMasterRole InfrastructureMaster, DomainNamingMaster
+Move Operation Master Role
+Do you want to move role 'InfrastructureMaster' to server 'BWORLD-DC-02.ugn.bobbysworld.org' ?
+&Yes  Yes to &All  &No  No to A&ll  &Suspend
+Y
+Move Operation Master Role
+Do you want to move role 'DomainNamingMaster' to server 'BWORLD-DC-02.ugn.bobbysworld.org' ?
+&Yes  Yes to &All  &No  No to A&ll  &Suspend
+Y
+PS C:\vscode> Get-ADDomainController
+
+
+ComputerObjectDN           : CN=BWORLD-DC-01,OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DefaultPartition           : DC=ugn,DC=bobbysworld,DC=org
+Domain                     : ugn.bobbysworld.org
+Enabled                    : True
+Forest                     : ugn.bobbysworld.org
+HostName                   : BWORLD-DC-01.ugn.bobbysworld.org
+InvocationId               : 14b154cf-5810-4d87-ba89-e978307d9b8c
+IPv4Address                : 192.168.1.30
+IPv6Address                : 2600:1700:6460:40f0::30
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : BWORLD-DC-01
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+OperatingSystem            : Windows Server 2016 Datacenter
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {SchemaMaster, PDCEmulator, RIDMaster}
+Partitions                 : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                             CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org...}
+ServerObjectDN             : CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ServerObjectGuid           : ec03b4de-b2f3-449c-bb09-17260aa1106e
+Site                       : Chicago
+SslPort                    : 636
+
+
+
+PS C:\vscode> Get-ADDomainController bworld-dc-02
+
+
+ComputerObjectDN           : CN=BWORLD-DC-02,OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DefaultPartition           : DC=ugn,DC=bobbysworld,DC=org
+Domain                     : ugn.bobbysworld.org
+Enabled                    : True
+Forest                     : ugn.bobbysworld.org
+HostName                   : BWORLD-DC-02.ugn.bobbysworld.org
+InvocationId               : 4c9ec9e4-221d-4599-8ddb-e2317215d90d
+IPv4Address                : 192.168.1.31
+IPv6Address                : 2600:1700:6460:40f0::31
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : BWORLD-DC-02
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=BWORLD-DC-02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+OperatingSystem            : Windows Server 2016 Datacenter
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {DomainNamingMaster, InfrastructureMaster}
+Partitions                 : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                             CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org...}
+ServerObjectDN             : CN=BWORLD-DC-02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ServerObjectGuid           : 007cbc7d-ab7b-4aa7-a3c9-2e26ffa78526
+Site                       : Chicago
+SslPort                    : 636
+
+
+
+PS C:\vscode> Get-ADDomainController -Filter *
+
+
+ComputerObjectDN           : CN=BWORLD-DC-01,OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DefaultPartition           : DC=ugn,DC=bobbysworld,DC=org
+Domain                     : ugn.bobbysworld.org
+Enabled                    : True
+Forest                     : ugn.bobbysworld.org
+HostName                   : BWORLD-DC-01.ugn.bobbysworld.org
+InvocationId               : 14b154cf-5810-4d87-ba89-e978307d9b8c
+IPv4Address                : 192.168.1.30
+IPv6Address                : 2600:1700:6460:40f0::30
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : BWORLD-DC-01
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+OperatingSystem            : Windows Server 2016 Datacenter
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {SchemaMaster, PDCEmulator, RIDMaster}
+Partitions                 : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                             CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org...}
+ServerObjectDN             : CN=BWORLD-DC-01,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ServerObjectGuid           : ec03b4de-b2f3-449c-bb09-17260aa1106e
+Site                       : Chicago
+SslPort                    : 636
+
+ComputerObjectDN           : CN=BWORLD-DC-02,OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DefaultPartition           : DC=ugn,DC=bobbysworld,DC=org
+Domain                     : ugn.bobbysworld.org
+Enabled                    : True
+Forest                     : ugn.bobbysworld.org
+HostName                   : BWORLD-DC-02.ugn.bobbysworld.org
+InvocationId               : 4c9ec9e4-221d-4599-8ddb-e2317215d90d
+IPv4Address                : 192.168.1.31
+IPv6Address                : 2600:1700:6460:40f0::31
+IsGlobalCatalog            : True
+IsReadOnly                 : False
+LdapPort                   : 389
+Name                       : BWORLD-DC-02
+NTDSSettingsObjectDN       : CN=NTDS Settings,CN=BWORLD-DC-02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+OperatingSystem            : Windows Server 2016 Datacenter
+OperatingSystemHotfix      :
+OperatingSystemServicePack :
+OperatingSystemVersion     : 10.0 (14393)
+OperationMasterRoles       : {DomainNamingMaster, InfrastructureMaster}
+Partitions                 : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                             CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org, CN=Configuration,DC=ugn,DC=bobbysworld,DC=org...}
+ServerObjectDN             : CN=BWORLD-DC-02,CN=Servers,CN=Chicago,CN=Sites,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ServerObjectGuid           : 007cbc7d-ab7b-4aa7-a3c9-2e26ffa78526
+Site                       : Chicago
+SslPort                    : 636
+
+
+
+PS C:\vscode> Get-Command *domaincontroller* -Module ActiveDirectory
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Add-ADDomainControllerPasswordReplicationPolicy    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADDomainController                             1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADDomainControllerPasswordReplicationPolicy    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADDomainControllerPasswordReplicationPolicy... 1.0.0.0    ActiveDirectory
+Cmdlet          Remove-ADDomainControllerPasswordReplicationPolicy 1.0.0.0    ActiveDirectory
+
+
+PS C:\vscode> whoami
+bobbysworld\administrator
+PS C:\vscode> Enter-PSSession bworld-dc-03
+PS C:\vscode> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20180814223309
+**********************
