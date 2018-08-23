@@ -1,0 +1,1574 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180822164759
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Machine: BWORLD-DC-01 (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 3496
+PSVersion: 5.1.14393.2430
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.2430
+BuildVersion: 10.0.14393.2430
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.BWORLD-DC-01.TnunK1pT.20180822164759.txt
+PS C:\Users\Administrator> cls
+PS C:\Users\Administrator> get-aduser -Filter *
+
+
+DistinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : True
+GivenName         :
+Name              : Administrator
+ObjectClass       : user
+ObjectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=Guest,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Guest
+ObjectClass       : user
+ObjectGUID        : 8f953f92-1a6d-45ea-990a-e6e26644205f
+SamAccountName    : Guest
+SID               : S-1-5-21-2983660187-1718435535-191266432-501
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=DefaultAccount,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : DefaultAccount
+ObjectClass       : user
+ObjectGUID        : 94b91ae4-5ee4-4864-b976-991af71875e0
+SamAccountName    : DefaultAccount
+SID               : S-1-5-21-2983660187-1718435535-191266432-503
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=krbtgt,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : krbtgt
+ObjectClass       : user
+ObjectGUID        : ec9696f5-20d7-45e5-a888-ee06e56719bb
+SamAccountName    : krbtgt
+SID               : S-1-5-21-2983660187-1718435535-191266432-502
+Surname           :
+UserPrincipalName :
+
+
+
+PS C:\Users\Administrator> cd C:\vscode\
+PS C:\vscode> get-aduser -Filter * -Properties * | export-csv ADUserInfo.csv
+PS C:\vscode> clear
+PS C:\vscode> C:\
+C:\ : The term 'C:\' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ C:\
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (C:\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+C:\ : The term 'C:\' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or
+if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ C:\
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (C:\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\vscode> cd C:\
+PS C:\> ls
+
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/12/2016   6:36 AM                Logs
+d-----        7/27/2018  10:20 PM                PerfLogs
+d-r---        8/19/2018   8:06 PM                Program Files
+d-----        8/17/2018   4:17 PM                Program Files (x86)
+d-r---        7/26/2018  10:25 PM                Users
+d-----        8/22/2018   5:12 PM                vscode
+d-----        8/18/2018   2:18 PM                Windows
+-a----         8/5/2018  11:15 AM          10610 serverFeatures.txt
+
+
+PS C:\> cd .\Logs\
+PS C:\Logs> ls
+
+
+    Directory: C:\Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/12/2016   6:37 AM          69632 Application.evtx
+-a----        9/12/2016   6:35 AM          69632 HardwareEvents.evtx
+-a----        9/12/2016   6:35 AM          69632 Internet Explorer.evtx
+-a----        9/12/2016   6:35 AM          69632 Key Management Service.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Client-Licensing-Platform%4Admin.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Application-Experience%4Program-Compatibility-Assistant.evtx
+-a----        9/12/2016   6:37 AM        1052672 Microsoft-Windows-ApplicationResourceManagementSystem%4Operational.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-AppModel-Runtime%4Admin.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-AppReadiness%4Admin.evtx
+-a----        9/12/2016   6:36 AM        1118208 Microsoft-Windows-AppReadiness%4Operational.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-AppXDeployment%4Operational.evtx
+-a----        9/12/2016   6:36 AM        1118208 Microsoft-Windows-AppXDeploymentServer%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-AppXDeploymentServer%4Restricted.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-CodeIntegrity%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Containers-Wcifs%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Containers-Wcnfs%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Crypto-DPAPI%4BackUpKeySvc.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Crypto-DPAPI%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-DeviceManagement-Enterprise-Diagnostics-Provider%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-DeviceSetupManager%4Admin.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-DeviceSetupManager%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Dhcp-Client%4Admin.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Dhcpv6-Client%4Admin.evtx
+-a----        9/12/2016   6:37 AM        1118208 Microsoft-Windows-GroupPolicy%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Hyper-V-Guest-Drivers%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-International%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-Boot%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-EventTracing%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Kernel-IO%4Operational.evtx
+-a----        9/12/2016   6:36 AM        1052672 Microsoft-Windows-Kernel-PnP%4Configuration.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-Power%4Thermal-Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-ShimEngine%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-StoreMgr%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Kernel-WHEA%4Errors.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Kernel-WHEA%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Known Folders API Service.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-LiveId%4Operational.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-MUI%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-MUI%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-NCSI%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-NetworkProfile%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Ntfs%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Ntfs%4WHC.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Program-Compatibility-Assistant%4CompatAfterUpgrade.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Admin.evtx
+-a----        9/12/2016   6:37 AM        1052672 Microsoft-Windows-RemoteDesktopServices-RdpCoreTS%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-SettingSync%4Debug.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-SettingSync%4Operational.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Shell-Core%4ActionCenter.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Shell-Core%4AppDefaults.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Shell-Core%4LogonTasksChannel.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Shell-Core%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-SmbClient%4Connectivity.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBClient%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SmbClient%4Security.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBServer%4Audit.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBServer%4Connectivity.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-SMBServer%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBServer%4Security.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBWitnessClient%4Admin.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-SMBWitnessClient%4Informational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-StateRepository%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-StateRepository%4Restricted.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Store%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-TaskScheduler%4Maintenance.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-TerminalServices-LocalSessionManager%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-TerminalServices-LocalSessionManager%4Operational.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Admin.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-TerminalServices-RemoteConnectionManager%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-UniversalTelemetryClient%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-User Profile Service%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-UserPnp%4ActionCenter.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-UserPnp%4DeviceInstall.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-VolumeSnapshot-Driver%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Wcmsvc%4Operational.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-Windows Defender%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-Windows Defender%4WHC.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Windows Firewall With Advanced Security%4ConnectionSecurity.evtx
+-a----        9/12/2016   6:36 AM        1052672 Microsoft-Windows-Windows Firewall With Advanced Security%4Firewall.evtx
+-a----        9/12/2016   6:35 AM          69632 Microsoft-Windows-WinINet-Config%4ProxyConfigChanged.evtx
+-a----        9/12/2016   6:36 AM          69632 Microsoft-Windows-Winlogon%4Operational.evtx
+-a----        9/12/2016   6:37 AM          69632 Microsoft-Windows-WinRM%4Operational.evtx
+-a----        9/12/2016   6:36 AM        1052672 Microsoft-Windows-WMI-Activity%4Operational.evtx
+-a----        9/12/2016   6:37 AM        1118208 Security.evtx
+-a----        9/12/2016   6:36 AM          69632 Setup.evtx
+-a----        9/12/2016   6:37 AM        1118208 System.evtx
+-a----        9/12/2016   6:35 AM          69632 Windows PowerShell.evtx
+
+
+PS C:\Logs> cd \\njet-dc-02\e$\
+cd : Cannot find path '\\njet-dc-02\e$\' because it does not exist.
+At line:1 char:1
++ cd \\njet-dc-02\e$\
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\\njet-dc-02\e$\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path '\\njet-dc-02\e$\' because it does not exist.
+At line:1 char:1
++ cd \\njet-dc-02\e$\
++ ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\\njet-dc-02\e$\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Logs> cd \\bworld-dc-02\e$\
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$> cd .\AD-Logs\
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> clear
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> ls
+
+
+    Directory: \\bworld-dc-02\e$\AD-Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/14/2018  10:05 PM       10485760 Api.log
+-a----        8/14/2018  10:05 PM       10485760 Api00001.log
+-a----        8/14/2018  10:05 PM       10485760 Api00002.log
+-a----        8/14/2018  10:04 PM       10485760 Apires00001.jrs
+-a----        8/14/2018  10:04 PM       10485760 Apires00002.jrs
+-a----        8/14/2018  10:05 PM       10485760 Apitmp.log
+-a----        8/21/2018  10:27 PM       10485760 edb.log
+-a----        8/20/2018   7:09 AM       10485760 edb00003.log
+-a----        8/20/2018   5:03 PM       10485760 edb00004.log
+-a----        8/21/2018   2:47 AM       10485760 edb00005.log
+-a----        8/21/2018  12:38 PM       10485760 edb00006.log
+-a----        8/21/2018  10:27 PM       10485760 edb00007.log
+-a----        8/22/2018   8:10 AM       10485760 edb00008.log
+-a----        8/14/2018  10:05 PM       10485760 edbres00001.jrs
+-a----        8/14/2018  10:05 PM       10485760 edbres00002.jrs
+-a----        8/22/2018   8:10 AM       10485760 edbtmp.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> w32tm /monitor /domain:BobbysWorld
+BWORLD-DC-01.ugn.bobbysworld.org[[fe80::c8e6:3657:da42:c75e%9]:123]:
+    ICMP: 0ms delay
+    NTP: -0.0004787s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: BWORLD-DC-03.ugn.bobbysworld.org [145.69.21.239]
+        Stratum: 3
+BWORLD-DC-02.ugn.bobbysworld.org[[2600:1700:6460:40f0::31]:123]:
+    ICMP: 0ms delay
+    NTP: -0.0020838s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: BWORLD-DC-03.ugn.bobbysworld.org [143.96.121.129]
+        Stratum: 3
+BWORLD-DC-03.ugn.bobbysworld.org *** PDC ***[[2600:1700:6460:40f0::32]:123]:
+    ICMP: 0ms delay
+    NTP: +0.0000000s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: (unknown) [0x292905C0]
+        Stratum: 2
+
+Warning:
+Reverse name resolution is best effort. It may not be
+correct since RefID field in time packets differs across
+NTP implementations and may not be using IP addresses.
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> ls
+
+
+    Directory: \\bworld-dc-02\e$\AD-Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/14/2018  10:05 PM       10485760 Api.log
+-a----        8/14/2018  10:05 PM       10485760 Api00001.log
+-a----        8/14/2018  10:05 PM       10485760 Api00002.log
+-a----        8/14/2018  10:04 PM       10485760 Apires00001.jrs
+-a----        8/14/2018  10:04 PM       10485760 Apires00002.jrs
+-a----        8/14/2018  10:05 PM       10485760 Apitmp.log
+-a----        8/21/2018  10:27 PM       10485760 edb.log
+-a----        8/20/2018   7:09 AM       10485760 edb00003.log
+-a----        8/20/2018   5:03 PM       10485760 edb00004.log
+-a----        8/21/2018   2:47 AM       10485760 edb00005.log
+-a----        8/21/2018  12:38 PM       10485760 edb00006.log
+-a----        8/21/2018  10:27 PM       10485760 edb00007.log
+-a----        8/22/2018   8:10 AM       10485760 edb00008.log
+-a----        8/14/2018  10:05 PM       10485760 edbres00001.jrs
+-a----        8/14/2018  10:05 PM       10485760 edbres00002.jrs
+-a----        8/22/2018   8:10 AM       10485760 edbtmp.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> ls
+
+
+    Directory: \\bworld-dc-02\e$\AD-Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/14/2018  10:05 PM       10485760 Api.log
+-a----        8/14/2018  10:05 PM       10485760 Api00001.log
+-a----        8/14/2018  10:05 PM       10485760 Api00002.log
+-a----        8/14/2018  10:04 PM       10485760 Apires00001.jrs
+-a----        8/14/2018  10:04 PM       10485760 Apires00002.jrs
+-a----        8/14/2018  10:05 PM       10485760 Apitmp.log
+-a----        8/21/2018  10:27 PM       10485760 edb.log
+-a----        8/20/2018   7:09 AM       10485760 edb00003.log
+-a----        8/20/2018   5:03 PM       10485760 edb00004.log
+-a----        8/21/2018   2:47 AM       10485760 edb00005.log
+-a----        8/21/2018  12:38 PM       10485760 edb00006.log
+-a----        8/21/2018  10:27 PM       10485760 edb00007.log
+-a----        8/22/2018   8:10 AM       10485760 edb00008.log
+-a----        8/14/2018  10:05 PM       10485760 edbres00001.jrs
+-a----        8/14/2018  10:05 PM       10485760 edbres00002.jrs
+-a----        8/22/2018   8:10 AM       10485760 edbtmp.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\bworld-dc-02\e$\AD-Logs> cd Alias:\
+PS Alias:\> ls
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Alias           % -> ForEach-Object
+Alias           ? -> Where-Object
+Alias           ac -> Add-Content
+Alias           asnp -> Add-PSSnapin
+Alias           cat -> Get-Content
+Alias           cd -> Set-Location
+Alias           CFS -> ConvertFrom-String                          3.1.0.0    Microsoft.PowerShell.Utility
+Alias           chdir -> Set-Location
+Alias           clc -> Clear-Content
+Alias           clear -> Clear-Host
+Alias           clhy -> Clear-History
+Alias           cli -> Clear-Item
+Alias           clp -> Clear-ItemProperty
+Alias           cls -> Clear-Host
+Alias           clv -> Clear-Variable
+Alias           cnsn -> Connect-PSSession
+Alias           compare -> Compare-Object
+Alias           copy -> Copy-Item
+Alias           cp -> Copy-Item
+Alias           cpi -> Copy-Item
+Alias           cpp -> Copy-ItemProperty
+Alias           curl -> Invoke-WebRequest
+Alias           cvpa -> Convert-Path
+Alias           dbp -> Disable-PSBreakpoint
+Alias           del -> Remove-Item
+Alias           diff -> Compare-Object
+Alias           dir -> Get-ChildItem
+Alias           dnsn -> Disconnect-PSSession
+Alias           ebp -> Enable-PSBreakpoint
+Alias           echo -> Write-Output
+Alias           epal -> Export-Alias
+Alias           epcsv -> Export-Csv
+Alias           epsn -> Export-PSSession
+Alias           erase -> Remove-Item
+Alias           etsn -> Enter-PSSession
+Alias           exsn -> Exit-PSSession
+Alias           fc -> Format-Custom
+Alias           fhx -> Format-Hex                                  3.1.0.0    Microsoft.PowerShell.Utility
+Alias           fl -> Format-List
+Alias           foreach -> ForEach-Object
+Alias           ft -> Format-Table
+Alias           fw -> Format-Wide
+Alias           gal -> Get-Alias
+Alias           gbp -> Get-PSBreakpoint
+Alias           gc -> Get-Content
+Alias           gcb -> Get-Clipboard                               3.1.0.0    Microsoft.PowerShell.Management
+Alias           gci -> Get-ChildItem
+Alias           gcm -> Get-Command
+Alias           gcs -> Get-PSCallStack
+Alias           gdr -> Get-PSDrive
+Alias           ghy -> Get-History
+Alias           gi -> Get-Item
+Alias           gin -> Get-ComputerInfo                            3.1.0.0    Microsoft.PowerShell.Management
+Alias           gjb -> Get-Job
+Alias           gl -> Get-Location
+Alias           gm -> Get-Member
+Alias           gmo -> Get-Module
+Alias           gp -> Get-ItemProperty
+Alias           gps -> Get-Process
+Alias           gpv -> Get-ItemPropertyValue
+Alias           group -> Group-Object
+Alias           gsn -> Get-PSSession
+Alias           gsnp -> Get-PSSnapin
+Alias           gsv -> Get-Service
+Alias           gtz -> Get-TimeZone                                3.1.0.0    Microsoft.PowerShell.Management
+Alias           gu -> Get-Unique
+Alias           gv -> Get-Variable
+Alias           gwmi -> Get-WmiObject
+Alias           h -> Get-History
+Alias           history -> Get-History
+Alias           icm -> Invoke-Command
+Alias           iex -> Invoke-Expression
+Alias           ihy -> Invoke-History
+Alias           ii -> Invoke-Item
+Alias           ipal -> Import-Alias
+Alias           ipcsv -> Import-Csv
+Alias           ipmo -> Import-Module
+Alias           ipsn -> Import-PSSession
+Alias           irm -> Invoke-RestMethod
+Alias           ise -> powershell_ise.exe
+Alias           iwmi -> Invoke-WmiMethod
+Alias           iwr -> Invoke-WebRequest
+Alias           kill -> Stop-Process
+Alias           lp -> Out-Printer
+Alias           ls -> Get-ChildItem
+Alias           man -> help
+Alias           md -> mkdir
+Alias           measure -> Measure-Object
+Alias           mi -> Move-Item
+Alias           mount -> New-PSDrive
+Alias           move -> Move-Item
+Alias           mp -> Move-ItemProperty
+Alias           mv -> Move-Item
+Alias           nal -> New-Alias
+Alias           ndr -> New-PSDrive
+Alias           ni -> New-Item
+Alias           nmo -> New-Module
+Alias           npssc -> New-PSSessionConfigurationFile
+Alias           nsn -> New-PSSession
+Alias           nv -> New-Variable
+Alias           ogv -> Out-GridView
+Alias           oh -> Out-Host
+Alias           popd -> Pop-Location
+Alias           ps -> Get-Process
+Alias           pushd -> Push-Location
+Alias           pwd -> Get-Location
+Alias           r -> Invoke-History
+Alias           rbp -> Remove-PSBreakpoint
+Alias           rcjb -> Receive-Job
+Alias           rcsn -> Receive-PSSession
+Alias           rd -> Remove-Item
+Alias           rdr -> Remove-PSDrive
+Alias           ren -> Rename-Item
+Alias           ri -> Remove-Item
+Alias           rjb -> Remove-Job
+Alias           rm -> Remove-Item
+Alias           rmdir -> Remove-Item
+Alias           rmo -> Remove-Module
+Alias           rni -> Rename-Item
+Alias           rnp -> Rename-ItemProperty
+Alias           rp -> Remove-ItemProperty
+Alias           rsn -> Remove-PSSession
+Alias           rsnp -> Remove-PSSnapin
+Alias           rujb -> Resume-Job
+Alias           rv -> Remove-Variable
+Alias           rvpa -> Resolve-Path
+Alias           rwmi -> Remove-WmiObject
+Alias           sajb -> Start-Job
+Alias           sal -> Set-Alias
+Alias           saps -> Start-Process
+Alias           sasv -> Start-Service
+Alias           sbp -> Set-PSBreakpoint
+Alias           sc -> Set-Content
+Alias           scb -> Set-Clipboard                               3.1.0.0    Microsoft.PowerShell.Management
+Alias           select -> Select-Object
+Alias           set -> Set-Variable
+Alias           shcm -> Show-Command
+Alias           si -> Set-Item
+Alias           sl -> Set-Location
+Alias           sleep -> Start-Sleep
+Alias           sls -> Select-String
+Alias           sort -> Sort-Object
+Alias           sp -> Set-ItemProperty
+Alias           spjb -> Stop-Job
+Alias           spps -> Stop-Process
+Alias           spsv -> Stop-Service
+Alias           start -> Start-Process
+Alias           stz -> Set-TimeZone                                3.1.0.0    Microsoft.PowerShell.Management
+Alias           sujb -> Suspend-Job
+Alias           sv -> Set-Variable
+Alias           swmi -> Set-WmiInstance
+Alias           tee -> Tee-Object
+Alias           trcm -> Trace-Command
+Alias           type -> Get-Content
+Alias           wget -> Invoke-WebRequest
+Alias           where -> Where-Object
+Alias           wjb -> Wait-Job
+Alias           write -> Write-Output
+
+
+PS Alias:\> C:\
+C:\ : The term 'C:\' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ C:\
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (C:\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+C:\ : The term 'C:\' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or
+if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ C:\
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (C:\:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS Alias:\> cd c:\
+PS C:\> winver
+PS C:\> w32tm /monitor /domain:BobbysWorld
+BWORLD-DC-01.ugn.bobbysworld.org[[fe80::c8e6:3657:da42:c75e%9]:123]:
+    ICMP: 0ms delay
+    NTP: -0.0018871s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: BWORLD-DC-03.ugn.bobbysworld.org [145.69.21.239]
+        Stratum: 3
+BWORLD-DC-02.ugn.bobbysworld.org[[2600:1700:6460:40f0::31]:123]:
+    ICMP: 1ms delay
+    NTP: -0.0019726s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: BWORLD-DC-03.ugn.bobbysworld.org [143.96.121.129]
+        Stratum: 3
+BWORLD-DC-03.ugn.bobbysworld.org *** PDC ***[[2600:1700:6460:40f0::32]:123]:
+    ICMP: 0ms delay
+    NTP: +0.0000000s offset from BWORLD-DC-03.ugn.bobbysworld.org
+        RefID: (unknown) [0x292905C0]
+        Stratum: 2
+
+Warning:
+Reverse name resolution is best effort. It may not be
+correct since RefID field in time packets differs across
+NTP implementations and may not be using IP addresses.
+PS C:\> Enter-PSSession Procyon
+Enter-PSSession : Connecting to remote server Procyon failed with the following error message : WinRM cannot complete 
+the operation. Verify that the specified computer name is valid, that the computer is accessible over the network, and 
+that a firewall exception for the WinRM service is enabled and allows access from this computer. By default, the WinRM 
+firewall exception for public profiles limits access to remote computers within the same local subnet. For more 
+information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession Procyon
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (Procyon:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server Procyon failed with the following error message : WinRM cannot complete the operation. Verify that
+the specified computer name is valid, that the computer is accessible over the network, and that a firewall exception for the WinRM service is
+enabled and allows access from this computer. By default, the WinRM firewall exception for public profiles limits access to remote computers
+within the same local subnet. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession Procyon
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (Procyon:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS C:\> Enter-PSSession orion
+PS C:\> clear
+PS C:\> Get-ADUser -Filter *
+
+
+DistinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : True
+GivenName         :
+Name              : Administrator
+ObjectClass       : user
+ObjectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=Guest,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Guest
+ObjectClass       : user
+ObjectGUID        : 8f953f92-1a6d-45ea-990a-e6e26644205f
+SamAccountName    : Guest
+SID               : S-1-5-21-2983660187-1718435535-191266432-501
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=DefaultAccount,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : DefaultAccount
+ObjectClass       : user
+ObjectGUID        : 94b91ae4-5ee4-4864-b976-991af71875e0
+SamAccountName    : DefaultAccount
+SID               : S-1-5-21-2983660187-1718435535-191266432-503
+Surname           :
+UserPrincipalName :
+
+DistinguishedName : CN=krbtgt,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : krbtgt
+ObjectClass       : user
+ObjectGUID        : ec9696f5-20d7-45e5-a888-ee06e56719bb
+SamAccountName    : krbtgt
+SID               : S-1-5-21-2983660187-1718435535-191266432-502
+Surname           :
+UserPrincipalName :
+
+
+
+PS C:\> Get-Command *upn*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Application     upnpcont.exe                                       10.0.14... C:\Windows\system32\upnpcont.exe
+
+
+PS C:\> man Set-ADForest
+
+NAME
+    Set-ADForest
+
+SYNTAX
+    Set-ADForest [-Identity] <ADForest> [-WhatIf] [-Confirm] [-AuthType {Negotiate | Basic}] [-Credential <pscredential>] [-PassThru] [-Server
+    <string>] [-SPNSuffixes <hashtable>] [-UPNSuffixes <hashtable>]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Set-ADForest -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=219350.
+PS C:\> clear
+PS C:\> Set-ADForest -Identity ugn.bobbysworld.org -UPNSuffixes @{add="bobbysworld.org"}
+PS C:\> Get-ADForest
+
+
+ApplicationPartitions : {DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org}
+CrossForestReferences : {}
+DomainNamingMaster    : BWORLD-DC-02.ugn.bobbysworld.org
+Domains               : {ugn.bobbysworld.org}
+ForestMode            : Windows2012Forest
+GlobalCatalogs        : {BWORLD-DC-01.ugn.bobbysworld.org}
+Name                  : ugn.bobbysworld.org
+PartitionsContainer   : CN=Partitions,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+RootDomain            : ugn.bobbysworld.org
+SchemaMaster          : BWORLD-DC-03.ugn.bobbysworld.org
+Sites                 : {Chicago}
+SPNSuffixes           : {}
+UPNSuffixes           : {bobbysworld.org}
+
+
+
+PS C:\> Set-ADForest -Identity ugn.bobbysworld.org -UPNSuffixes @{add="ugn.bobbysworld.org"}
+PS C:\> Get-ADDomain -Identity ugn.bobbysworld.org
+
+
+AllowedDNSSuffixes                 : {}
+ChildDomains                       : {}
+ComputersContainer                 : CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DeletedObjectsContainer            : CN=Deleted Objects,DC=ugn,DC=bobbysworld,DC=org
+DistinguishedName                  : DC=ugn,DC=bobbysworld,DC=org
+DNSRoot                            : ugn.bobbysworld.org
+DomainControllersContainer         : OU=Domain Controllers,DC=ugn,DC=bobbysworld,DC=org
+DomainMode                         : Windows2012Domain
+DomainSID                          : S-1-5-21-2983660187-1718435535-191266432
+ForeignSecurityPrincipalsContainer : CN=ForeignSecurityPrincipals,DC=ugn,DC=bobbysworld,DC=org
+Forest                             : ugn.bobbysworld.org
+InfrastructureMaster               : BWORLD-DC-02.ugn.bobbysworld.org
+LastLogonReplicationInterval       :
+LinkedGroupPolicyObjects           : {cn={BC2B8587-F90D-43C5-A35D-E095376EA3E0},cn=policies,cn=system,DC=ugn,DC=bobbysworld,DC=org,
+                                     CN={31B2F340-016D-11D2-945F-00C04FB984F9},CN=Policies,CN=System,DC=ugn,DC=bobbysworld,DC=org}
+LostAndFoundContainer              : CN=LostAndFound,DC=ugn,DC=bobbysworld,DC=org
+ManagedBy                          :
+Name                               : ugn
+NetBIOSName                        : BobbysWorld
+ObjectClass                        : domainDNS
+ObjectGUID                         : 484dda1c-5cae-4315-81e0-deb7bf5ed2a4
+ParentDomain                       :
+PDCEmulator                        : BWORLD-DC-03.ugn.bobbysworld.org
+PublicKeyRequiredPasswordRolling   :
+QuotasContainer                    : CN=NTDS Quotas,DC=ugn,DC=bobbysworld,DC=org
+ReadOnlyReplicaDirectoryServers    : {}
+ReplicaDirectoryServers            : {BWORLD-DC-01.ugn.bobbysworld.org, BWORLD-DC-02.ugn.bobbysworld.org, BWORLD-DC-03.ugn.bobbysworld.org}
+RIDMaster                          : BWORLD-DC-01.ugn.bobbysworld.org
+SubordinateReferences              : {DC=ForestDnsZones,DC=ugn,DC=bobbysworld,DC=org, DC=DomainDnsZones,DC=ugn,DC=bobbysworld,DC=org,
+                                     CN=Configuration,DC=ugn,DC=bobbysworld,DC=org}
+SystemsContainer                   : CN=System,DC=ugn,DC=bobbysworld,DC=org
+UsersContainer                     : CN=Users,DC=ugn,DC=bobbysworld,DC=org
+
+
+
+PS C:\> Get-ADComputer Procyon -Properties *
+
+
+AccountExpirationDate                :
+accountExpires                       : 9223372036854775807
+AccountLockoutTime                   :
+AccountNotDelegated                  : False
+AllowReversiblePasswordEncryption    : False
+AuthenticationPolicy                 : {}
+AuthenticationPolicySilo             : {}
+BadLogonCount                        : 0
+badPasswordTime                      : 0
+badPwdCount                          : 0
+CannotChangePassword                 : False
+CanonicalName                        : ugn.bobbysworld.org/Computers/PROCYON
+Certificates                         : {}
+CN                                   : PROCYON
+codePage                             : 0
+CompoundIdentitySupported            : {}
+countryCode                          : 0
+Created                              : 8/20/2018 8:17:34 PM
+createTimeStamp                      : 8/20/2018 8:17:34 PM
+Deleted                              :
+Description                          :
+DisplayName                          :
+DistinguishedName                    : CN=PROCYON,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName                          : Procyon.ugn.bobbysworld.org
+DoesNotRequirePreAuth                : False
+dSCorePropagationData                : {12/31/1600 6:00:00 PM}
+Enabled                              : True
+HomedirRequired                      : False
+HomePage                             :
+instanceType                         : 4
+IPv4Address                          : 192.168.1.75
+IPv6Address                          : 2600:1700:6460:40f0:c1de:77b:f9c0:7d24
+isCriticalSystemObject               : False
+isDeleted                            :
+KerberosEncryptionType               : {}
+LastBadPasswordAttempt               :
+LastKnownParent                      :
+lastLogoff                           : 0
+lastLogon                            : 131794481635423998
+LastLogonDate                        : 8/20/2018 8:17:35 PM
+lastLogonTimestamp                   : 131792878558850768
+localPolicyFlags                     : 0
+Location                             :
+LockedOut                            : False
+logonCount                           : 5
+ManagedBy                            :
+MemberOf                             : {}
+MNSLogonAccount                      : False
+Modified                             : 8/20/2018 8:17:36 PM
+modifyTimeStamp                      : 8/20/2018 8:17:36 PM
+msDS-User-Account-Control-Computed   : 0
+Name                                 : PROCYON
+nTSecurityDescriptor                 : System.DirectoryServices.ActiveDirectorySecurity
+ObjectCategory                       : CN=Computer,CN=Schema,CN=Configuration,DC=ugn,DC=bobbysworld,DC=org
+ObjectClass                          : computer
+ObjectGUID                           : 9a677603-ade9-4fb4-b83a-bd4a4d165fd7
+objectSid                            : S-1-5-21-2983660187-1718435535-191266432-1108
+OperatingSystem                      : Windows 10 Pro
+OperatingSystemHotfix                :
+OperatingSystemServicePack           :
+OperatingSystemVersion               : 10.0 (17134)
+PasswordExpired                      : False
+PasswordLastSet                      : 8/20/2018 8:17:34 PM
+PasswordNeverExpires                 : False
+PasswordNotRequired                  : False
+PrimaryGroup                         : CN=Domain Computers,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+primaryGroupID                       : 515
+PrincipalsAllowedToDelegateToAccount : {}
+ProtectedFromAccidentalDeletion      : False
+pwdLastSet                           : 131792878543438901
+SamAccountName                       : PROCYON$
+sAMAccountType                       : 805306369
+sDRightsEffective                    : 15
+ServiceAccount                       : {}
+servicePrincipalName                 : {RestrictedKrbHost/PROCYON, HOST/PROCYON, RestrictedKrbHost/Procyon.ugn.bobbysworld.org,
+                                       HOST/Procyon.ugn.bobbysworld.org}
+ServicePrincipalNames                : {RestrictedKrbHost/PROCYON, HOST/PROCYON, RestrictedKrbHost/Procyon.ugn.bobbysworld.org,
+                                       HOST/Procyon.ugn.bobbysworld.org}
+SID                                  : S-1-5-21-2983660187-1718435535-191266432-1108
+SIDHistory                           : {}
+TrustedForDelegation                 : False
+TrustedToAuthForDelegation           : False
+UseDESKeyOnly                        : False
+userAccountControl                   : 4096
+userCertificate                      : {}
+UserPrincipalName                    :
+uSNChanged                           : 42482
+uSNCreated                           : 42476
+whenChanged                          : 8/20/2018 8:17:36 PM
+whenCreated                          : 8/20/2018 8:17:34 PM
+
+
+
+PS C:\> Set-ADForest -Identity ugn.bobbysworld.org -SPNSuffixes @{add="ugn.bobbysworld.org", "bobbysworld.org" }
+PS C:\> Get-ADGroupMember "Schema Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\> Get-ADGroupMember "Enterprise Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\> Get-ADGroupMember "Domain Admins"
+
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\> Get-ADGroupMember "Administrators"
+
+
+distinguishedName : CN=Domain Admins,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Domain Admins
+objectClass       : group
+objectGUID        : 6f99027a-d22f-4cb5-ae45-24066558c431
+SamAccountName    : Domain Admins
+SID               : S-1-5-21-2983660187-1718435535-191266432-512
+
+distinguishedName : CN=Enterprise Admins,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Enterprise Admins
+objectClass       : group
+objectGUID        : c7758e69-d416-48fa-942b-064f574e629d
+SamAccountName    : Enterprise Admins
+SID               : S-1-5-21-2983660187-1718435535-191266432-519
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\> cd .\vscode\
+PS C:\vscode> ls
+
+
+    Directory: C:\vscode
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        8/12/2018   8:44 AM                VSCode
+-a----        8/22/2018   6:34 PM            344 Adding AD Users and Groups.ps1
+-a----        8/14/2018   9:25 PM            585 AddingDomainControllers.ps1
+-a----        8/22/2018   5:12 PM           8544 ADUserInfo.csv
+-a----        8/12/2018   8:36 AM       77388782 VSCode.zip
+
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(Import-Csv): "Could not find file 'C:\vscode\ADUserTemplate.csv'."
+Import-Csv : Could not find file 'C:\vscode\ADUserTemplate.csv'.
+At C:\vscode\Adding AD Users and Groups.ps1:10 char:13
++ $UserList = Import-Csv -Path (Join-Path $PSScriptRoot -ChildPath ADUs ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], FileNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+Import-Csv : Could not find file 'C:\vscode\ADUserTemplate.csv'.
+At C:\vscode\Adding AD Users and Groups.ps1:10 char:13
++ $UserList = Import-Csv -Path (Join-Path $PSScriptRoot -ChildPath ADUs ...
++             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Import-Csv], FileNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.ImportCsvCommand
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(New-ADUser): "Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported."
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. 
+Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+>> TerminatingError(New-ADUser): "Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported."
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. 
+Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+PS C:\vscode> Import-Csv .\ADUserTemplate.csv
+
+
+UserName          : Robbie Rigel
+SAMAccountName    : RobbieR
+DisplayName       : Robbie Rigel
+enabled           : TRUE
+UserPrincipalName : RobbieR@bobbysworld.org
+
+UserName          : Robbie Rigel
+SAMAccountName    : RobbieR.da
+DisplayName       : Robbie Rigel Domain Admin
+enabled           : TRUE
+UserPrincipalName : RobbieR.da@bobbysworld.org
+
+
+
+PS C:\vscode> Import-Csv .\ADUserTemplate.csv | gm
+
+
+   TypeName: System.Management.Automation.PSCustomObject
+
+Name              MemberType   Definition
+----              ----------   ----------
+Equals            Method       bool Equals(System.Object obj)
+GetHashCode       Method       int GetHashCode()
+GetType           Method       type GetType()
+ToString          Method       string ToString()
+DisplayName       NoteProperty string DisplayName=Robbie Rigel
+enabled           NoteProperty string enabled=TRUE
+SAMAccountName    NoteProperty string SAMAccountName=RobbieR
+UserName          NoteProperty string UserName=Robbie Rigel
+UserPrincipalName NoteProperty string UserPrincipalName=RobbieR@bobbysworld.org
+
+
+PS C:\vscode> $users=Import-Csv .\ADUserTemplate.csv
+PS C:\vscode> $users
+
+
+UserName          : Robbie Rigel
+SAMAccountName    : RobbieR
+DisplayName       : Robbie Rigel
+enabled           : TRUE
+UserPrincipalName : RobbieR@bobbysworld.org
+
+UserName          : Robbie Rigel
+SAMAccountName    : RobbieR.da
+DisplayName       : Robbie Rigel Domain Admin
+enabled           : TRUE
+UserPrincipalName : RobbieR.da@bobbysworld.org
+
+
+
+PS C:\vscode> $users | ft
+
+UserName     SAMAccountName DisplayName               enabled UserPrincipalName
+--------     -------------- -----------               ------- -----------------
+Robbie Rigel RobbieR        Robbie Rigel              TRUE    RobbieR@bobbysworld.org
+Robbie Rigel RobbieR.da     Robbie Rigel Domain Admin TRUE    RobbieR.da@bobbysworld.org
+
+
+PS C:\vscode> $users[0].UserName
+Robbie Rigel
+PS C:\vscode> $users[0].UserName | gm
+
+
+   TypeName: System.String
+
+Name             MemberType            Definition
+----             ----------            ----------
+Clone            Method                System.Object Clone(), System.Object ICloneable.Clone()
+CompareTo        Method                int CompareTo(System.Object value), int CompareTo(string strB), int IComparable.CompareTo(System.Object...
+Contains         Method                bool Contains(string value)
+CopyTo           Method                void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count)
+EndsWith         Method                bool EndsWith(string value), bool EndsWith(string value, System.StringComparison comparisonType), bool ...
+Equals           Method                bool Equals(System.Object obj), bool Equals(string value), bool Equals(string value, System.StringCompa...
+GetEnumerator    Method                System.CharEnumerator GetEnumerator(), System.Collections.IEnumerator IEnumerable.GetEnumerator(), Syst...
+GetHashCode      Method                int GetHashCode()
+GetType          Method                type GetType()
+GetTypeCode      Method                System.TypeCode GetTypeCode(), System.TypeCode IConvertible.GetTypeCode()
+IndexOf          Method                int IndexOf(char value), int IndexOf(char value, int startIndex), int IndexOf(char value, int startInde...
+IndexOfAny       Method                int IndexOfAny(char[] anyOf), int IndexOfAny(char[] anyOf, int startIndex), int IndexOfAny(char[] anyOf...
+Insert           Method                string Insert(int startIndex, string value)
+IsNormalized     Method                bool IsNormalized(), bool IsNormalized(System.Text.NormalizationForm normalizationForm)
+LastIndexOf      Method                int LastIndexOf(char value), int LastIndexOf(char value, int startIndex), int LastIndexOf(char value, i...
+LastIndexOfAny   Method                int LastIndexOfAny(char[] anyOf), int LastIndexOfAny(char[] anyOf, int startIndex), int LastIndexOfAny(...
+Normalize        Method                string Normalize(), string Normalize(System.Text.NormalizationForm normalizationForm)
+PadLeft          Method                string PadLeft(int totalWidth), string PadLeft(int totalWidth, char paddingChar)
+PadRight         Method                string PadRight(int totalWidth), string PadRight(int totalWidth, char paddingChar)
+Remove           Method                string Remove(int startIndex, int count), string Remove(int startIndex)
+Replace          Method                string Replace(char oldChar, char newChar), string Replace(string oldValue, string newValue)
+Split            Method                string[] Split(Params char[] separator), string[] Split(char[] separator, int count), string[] Split(ch...
+StartsWith       Method                bool StartsWith(string value), bool StartsWith(string value, System.StringComparison comparisonType), b...
+Substring        Method                string Substring(int startIndex), string Substring(int startIndex, int length)
+ToBoolean        Method                bool IConvertible.ToBoolean(System.IFormatProvider provider)
+ToByte           Method                byte IConvertible.ToByte(System.IFormatProvider provider)
+ToChar           Method                char IConvertible.ToChar(System.IFormatProvider provider)
+ToCharArray      Method                char[] ToCharArray(), char[] ToCharArray(int startIndex, int length)
+ToDateTime       Method                datetime IConvertible.ToDateTime(System.IFormatProvider provider)
+ToDecimal        Method                decimal IConvertible.ToDecimal(System.IFormatProvider provider)
+ToDouble         Method                double IConvertible.ToDouble(System.IFormatProvider provider)
+ToInt16          Method                int16 IConvertible.ToInt16(System.IFormatProvider provider)
+ToInt32          Method                int IConvertible.ToInt32(System.IFormatProvider provider)
+ToInt64          Method                long IConvertible.ToInt64(System.IFormatProvider provider)
+ToLower          Method                string ToLower(), string ToLower(cultureinfo culture)
+ToLowerInvariant Method                string ToLowerInvariant()
+ToSByte          Method                sbyte IConvertible.ToSByte(System.IFormatProvider provider)
+ToSingle         Method                float IConvertible.ToSingle(System.IFormatProvider provider)
+ToString         Method                string ToString(), string ToString(System.IFormatProvider provider), string IConvertible.ToString(Syste...
+ToType           Method                System.Object IConvertible.ToType(type conversionType, System.IFormatProvider provider)
+ToUInt16         Method                uint16 IConvertible.ToUInt16(System.IFormatProvider provider)
+ToUInt32         Method                uint32 IConvertible.ToUInt32(System.IFormatProvider provider)
+ToUInt64         Method                uint64 IConvertible.ToUInt64(System.IFormatProvider provider)
+ToUpper          Method                string ToUpper(), string ToUpper(cultureinfo culture)
+ToUpperInvariant Method                string ToUpperInvariant()
+Trim             Method                string Trim(Params char[] trimChars), string Trim()
+TrimEnd          Method                string TrimEnd(Params char[] trimChars)
+TrimStart        Method                string TrimStart(Params char[] trimChars)
+Chars            ParameterizedProperty char Chars(int index) {get;}
+Length           Property              int Length {get;}
+
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(New-ADUser): "Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported."
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. 
+Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+>> TerminatingError(New-ADUser): "Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported."
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. 
+Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : Cannot convert 'System.Object[]' to the type 'System.String' required by parameter 'DisplayName'. Specified method is not supported.
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:84
++ ... tName $user.SamAccountName -DisplayName $UserList.DisplayName -UserPr ...
++                                             ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [New-ADUser], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgument,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(New-ADUser): "An attempt was made to add an object to the directory with a name that is already in use"
+New-ADUser : An attempt was made to add an object to the directory with a name that is already in use
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:8305,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : An attempt was made to add an object to the directory with a name that is already in use
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:8305,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+PS C:\vscode> Get-ADUser RobbieR
+
+
+DistinguishedName : CN=Robbie Rigel,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Robbie Rigel
+ObjectClass       : user
+ObjectGUID        : 2474279c-7c00-4bc5-8928-4cbd779edfe3
+SamAccountName    : RobbieR
+SID               : S-1-5-21-2983660187-1718435535-191266432-1109
+Surname           :
+UserPrincipalName : RobbieR@bobbysworld.org
+
+
+
+PS C:\vscode> Get-ADUser RobbieR.da
+>> TerminatingError(Get-ADUser): "Cannot find an object with identity: 'RobbieR.da' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADUser : Cannot find an object with identity: 'RobbieR.da' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADUser RobbieR.da
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (RobbieR.da:ADUser) [Get-ADUser], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADUser
+Get-ADUser : Cannot find an object with identity: 'RobbieR.da' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADUser RobbieR.da
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (RobbieR.da:ADUser) [Get-ADUser], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Microsoft.ActiveDirectory.M
+   anagement.Commands.GetADUser
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(New-ADUser): "The specified account already exists"
+New-ADUser : The specified account already exists
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], 
+ADIdentityAlreadyExistsException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1316,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : The specified account already exists
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADIdentityAlreadyExistsException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1316,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+>> TerminatingError(New-ADUser): "An attempt was made to add an object to the directory with a name that is already in use"
+New-ADUser : An attempt was made to add an object to the directory with a name that is already in use
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:8305,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : An attempt was made to add an object to the directory with a name that is already in use
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:8305,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+PS C:\vscode> & '.\Adding AD Users and Groups.ps1'
+PS C:\vscode> TerminatingError(New-ADUser): "The specified account already exists"
+New-ADUser : The specified account already exists
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], 
+ADIdentityAlreadyExistsException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1316,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+New-ADUser : The specified account already exists
+At C:\vscode\Adding AD Users and Groups.ps1:13 char:2
++     New-ADUser -Name $user.UserName -SamAccountName $user.SamAccountN ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceExists: (CN=Robbie Rigel...bysworld,DC=org:String) [New-ADUser], ADIdentityAlreadyExistsException
+    + FullyQualifiedErrorId : ActiveDirectoryServer:1316,Microsoft.ActiveDirectory.Management.Commands.NewADUser
+
+PS C:\vscode> Get-ADUser Robbie*
+>> TerminatingError(Get-ADUser): "Cannot find an object with identity: 'Robbie*' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+Get-ADUser : Cannot find an object with identity: 'Robbie*' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADUser Robbie*
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Robbie*:ADUser) [Get-ADUser], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADUser
+Get-ADUser : Cannot find an object with identity: 'Robbie*' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ Get-ADUser Robbie*
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Robbie*:ADUser) [Get-ADUser], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Microsoft.ActiveDirectory.M
+   anagement.Commands.GetADUser
+
+PS C:\vscode> get-aduser RobbieR
+
+
+DistinguishedName : CN=Robbie Rigel,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Robbie Rigel
+ObjectClass       : user
+ObjectGUID        : 2474279c-7c00-4bc5-8928-4cbd779edfe3
+SamAccountName    : RobbieR
+SID               : S-1-5-21-2983660187-1718435535-191266432-1109
+Surname           :
+UserPrincipalName : RobbieR@bobbysworld.org
+
+
+
+PS C:\vscode> get-aduser RobbieR.da
+
+
+DistinguishedName : CN=Robbie Rigel Admin,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Robbie Rigel Admin
+ObjectClass       : user
+ObjectGUID        : d691d182-f997-4692-8263-9d37ba5e2f73
+SamAccountName    : RobbieR.da
+SID               : S-1-5-21-2983660187-1718435535-191266432-1110
+Surname           :
+UserPrincipalName : RobbieR.da@bobbysworld.org
+
+
+
+PS C:\vscode> Add-ADGroupMember -Identity Administrators -Members RobbieR.da
+PS C:\vscode> Get-ADGroupMember -Identity Administrators
+
+
+distinguishedName : CN=Robbie Rigel Admin,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Robbie Rigel Admin
+objectClass       : user
+objectGUID        : d691d182-f997-4692-8263-9d37ba5e2f73
+SamAccountName    : RobbieR.da
+SID               : S-1-5-21-2983660187-1718435535-191266432-1110
+
+distinguishedName : CN=Domain Admins,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Domain Admins
+objectClass       : group
+objectGUID        : 6f99027a-d22f-4cb5-ae45-24066558c431
+SamAccountName    : Domain Admins
+SID               : S-1-5-21-2983660187-1718435535-191266432-512
+
+distinguishedName : CN=Enterprise Admins,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Enterprise Admins
+objectClass       : group
+objectGUID        : c7758e69-d416-48fa-942b-064f574e629d
+SamAccountName    : Enterprise Admins
+SID               : S-1-5-21-2983660187-1718435535-191266432-519
+
+distinguishedName : CN=Administrator,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+name              : Administrator
+objectClass       : user
+objectGUID        : b2b3aac8-398e-4be9-ad1a-b78c52805df8
+SamAccountName    : Administrator
+SID               : S-1-5-21-2983660187-1718435535-191266432-500
+
+
+
+PS C:\vscode> get-aduser RobbieR.da
+
+
+DistinguishedName : CN=Robbie Rigel Admin,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Robbie Rigel Admin
+ObjectClass       : user
+ObjectGUID        : d691d182-f997-4692-8263-9d37ba5e2f73
+SamAccountName    : RobbieR.da
+SID               : S-1-5-21-2983660187-1718435535-191266432-1110
+Surname           :
+UserPrincipalName : RobbieR.da@bobbysworld.org
+
+
+
+PS C:\vscode> man Set-ADAccountPassword 
+
+NAME
+    Set-ADAccountPassword
+
+SYNTAX
+    Set-ADAccountPassword [-Identity] <ADAccount> [-WhatIf] [-Confirm] [-AuthType {Negotiate | Basic}] [-Credential <pscredential>]
+    [-NewPassword <securestring>] [-OldPassword <securestring>] [-Partition <string>] [-PassThru] [-Reset] [-Server <string>]
+    [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Set-ADAccountPassword -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=219353.
+PS C:\vscode> Set-ADAccountPassword -Identity RobbieR.da -NewPassword (Get-Credential) -Reset
+PS C:\vscode> TerminatingError(Set-ADAccountPassword): "Cannot bind parameter 'NewPassword'. Cannot convert the "System.Management.Automation.PSCredential" value of type "System.Management.Automation.PSCredential" to type "System.Security.SecureString"."
+Set-ADAccountPassword : Cannot bind parameter 'NewPassword'. Cannot convert the 
+"System.Management.Automation.PSCredential" value of type "System.Management.Automation.PSCredential" to type 
+"System.Security.SecureString".
+At line:1 char:57
++ ... untPassword -Identity RobbieR.da -NewPassword (Get-Credential) -Reset
++                                                   ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-ADAccountPassword], ParameterBindingException
+    + FullyQualifiedErrorId : 
+CannotConvertArgumentNoMessage,Microsoft.ActiveDirectory.Management.Commands.SetADAccountPassword
+Set-ADAccountPassword : Cannot bind parameter 'NewPassword'. Cannot convert the "System.Management.Automation.PSCredential" value of type
+"System.Management.Automation.PSCredential" to type "System.Security.SecureString".
+At line:1 char:57
++ ... untPassword -Identity RobbieR.da -NewPassword (Get-Credential) -Reset
++                                                   ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-ADAccountPassword], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.ActiveDirectory.Management.Commands.SetADAccountPassword
+
+PS C:\vscode> Set-ADAccountPassword -Identity RobbieR.da -NewPassword (Get-Credential).Password -Reset
+PS C:\vscode> $NewPassword = ConvertTo-SecureString "P@ssw0rd" -Force -AsPlainText
+PS C:\vscode> $NewPassword = ConvertTo-SecureString "P@ssw0rd" -Force -AsPlainText
+PS C:\vscode> Set-ADAccountPassword -Identity RobbieR -NewPassword $NewPassword -Reset
+PS C:\vscode> Enter-PSSession BWORLD-DC-02 -Credential RobbieR 
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or 
+password is incorrect. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or password is incorrect. For
+more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS C:\vscode> Enter-PSSession BWORLD-DC-02 -Credential RobbieR 
+>> TerminatingError(Enter-PSSession): "Cannot bind argument to parameter 'Credential' because it is null."
+Enter-PSSession : Cannot bind argument to parameter 'Credential' because it is null.
+At line:1 char:42
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR
++                                          ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Enter-PSSession], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.EnterPSSessionCommand
+Enter-PSSession : Cannot bind argument to parameter 'Credential' because it is null.
+At line:1 char:42
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR
++                                          ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Enter-PSSession], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Commands.EnterPSSessionCommand
+
+PS C:\vscode> Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbwsworld.org 
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or 
+password is incorrect. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbwsworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or password is incorrect. For
+more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbwsworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS C:\vscode> Get-ADUser RobbieR
+
+
+DistinguishedName : CN=Robbie Rigel,CN=Users,DC=ugn,DC=bobbysworld,DC=org
+Enabled           : False
+GivenName         :
+Name              : Robbie Rigel
+ObjectClass       : user
+ObjectGUID        : 2474279c-7c00-4bc5-8928-4cbd779edfe3
+SamAccountName    : RobbieR
+SID               : S-1-5-21-2983660187-1718435535-191266432-1109
+Surname           :
+UserPrincipalName : RobbieR@bobbysworld.org
+
+
+
+PS C:\vscode> clear
+PS C:\vscode> Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or 
+password is incorrect. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or password is incorrect. For
+more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS C:\vscode> Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or 
+password is incorrect. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server BWORLD-DC-02 failed with the following error message : The user name or password is incorrect. For
+more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-DC-02 -Credential RobbieR@bobbysworld.org
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-DC-02:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS C:\vscode> clear
+PS C:\vscode> Enter-PSSession orion
+PS C:\vscode> Get-NetIPAddress
+
+
+IPAddress         : fe80::ffff:ffff:fffe%6
+InterfaceIndex    : 6
+InterfaceAlias    : Teredo Tunneling Pseudo-Interface
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 64
+PrefixOrigin      : WellKnown
+SuffixOrigin      : Link
+AddressState      : Deprecated
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : fe80::c8e6:3657:da42:c75e%9
+InterfaceIndex    : 9
+InterfaceAlias    : Ethernet
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 64
+PrefixOrigin      : WellKnown
+SuffixOrigin      : Link
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : 2600:1700:6460:40f0:c8e6:3657:da42:c75e
+InterfaceIndex    : 9
+InterfaceAlias    : Ethernet
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 64
+PrefixOrigin      : RouterAdvertisement
+SuffixOrigin      : Link
+AddressState      : Preferred
+ValidLifetime     : 13.23:59:41
+PreferredLifetime : 13.23:59:41
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : 2600:1700:6460:40f0::30
+InterfaceIndex    : 9
+InterfaceAlias    : Ethernet
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 128
+PrefixOrigin      : Manual
+SuffixOrigin      : Manual
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : ::1
+InterfaceIndex    : 1
+InterfaceAlias    : Loopback Pseudo-Interface 1
+AddressFamily     : IPv6
+Type              : Unicast
+PrefixLength      : 128
+PrefixOrigin      : WellKnown
+SuffixOrigin      : WellKnown
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : 192.168.1.30
+InterfaceIndex    : 9
+InterfaceAlias    : Ethernet
+AddressFamily     : IPv4
+Type              : Unicast
+PrefixLength      : 24
+PrefixOrigin      : Manual
+SuffixOrigin      : Manual
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+IPAddress         : 127.0.0.1
+InterfaceIndex    : 1
+InterfaceAlias    : Loopback Pseudo-Interface 1
+AddressFamily     : IPv4
+Type              : Unicast
+PrefixLength      : 8
+PrefixOrigin      : WellKnown
+SuffixOrigin      : WellKnown
+AddressState      : Preferred
+ValidLifetime     : Infinite ([TimeSpan]::MaxValue)
+PreferredLifetime : Infinite ([TimeSpan]::MaxValue)
+SkipAsSource      : False
+PolicyStore       : ActiveStore
+
+
+
+PS C:\vscode> Get-Command *replication*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Add-ADDomainControllerPasswordReplicationPolicy    1.0.0.0    ActiveDirectory
+Cmdlet          Enable-VMReplication                               2.0.0.0    Hyper-V
+Cmdlet          Get-ADAccountResultantPasswordReplicationPolicy    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADDomainControllerPasswordReplicationPolicy    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADDomainControllerPasswordReplicationPolicy... 1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationAttributeMetadata                 1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationConnection                        1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationFailure                           1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationPartnerMetadata                   1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationQueueOperation                    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationSite                              1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationSiteLink                          1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationSiteLinkBridge                    1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationSubnet                            1.0.0.0    ActiveDirectory
+Cmdlet          Get-ADReplicationUpToDatenessVectorTable           1.0.0.0    ActiveDirectory
+Cmdlet          Get-VMReplication                                  2.0.0.0    Hyper-V
+Cmdlet          Get-VMReplicationAuthorizationEntry                2.0.0.0    Hyper-V
+Cmdlet          Get-VMReplicationServer                            2.0.0.0    Hyper-V
+Cmdlet          Import-VMInitialReplication                        2.0.0.0    Hyper-V
+Cmdlet          Measure-VMReplication                              2.0.0.0    Hyper-V
+Cmdlet          New-ADReplicationSite                              1.0.0.0    ActiveDirectory
+Cmdlet          New-ADReplicationSiteLink                          1.0.0.0    ActiveDirectory
+Cmdlet          New-ADReplicationSiteLinkBridge                    1.0.0.0    ActiveDirectory
+Cmdlet          New-ADReplicationSubnet                            1.0.0.0    ActiveDirectory
+Cmdlet          New-VMReplicationAuthorizationEntry                2.0.0.0    Hyper-V
+Cmdlet          Remove-ADDomainControllerPasswordReplicationPolicy 1.0.0.0    ActiveDirectory
+Cmdlet          Remove-ADReplicationSite                           1.0.0.0    ActiveDirectory
+Cmdlet          Remove-ADReplicationSiteLink                       1.0.0.0    ActiveDirectory
+Cmdlet          Remove-ADReplicationSiteLinkBridge                 1.0.0.0    ActiveDirectory
+Cmdlet          Remove-ADReplicationSubnet                         1.0.0.0    ActiveDirectory
+Cmdlet          Remove-VMReplication                               2.0.0.0    Hyper-V
+Cmdlet          Remove-VMReplicationAuthorizationEntry             2.0.0.0    Hyper-V
+Cmdlet          Reset-VMReplicationStatistics                      2.0.0.0    Hyper-V
+Cmdlet          Resume-VMReplication                               2.0.0.0    Hyper-V
+Cmdlet          Set-ADReplicationConnection                        1.0.0.0    ActiveDirectory
+Cmdlet          Set-ADReplicationSite                              1.0.0.0    ActiveDirectory
+Cmdlet          Set-ADReplicationSiteLink                          1.0.0.0    ActiveDirectory
+Cmdlet          Set-ADReplicationSiteLinkBridge                    1.0.0.0    ActiveDirectory
+Cmdlet          Set-ADReplicationSubnet                            1.0.0.0    ActiveDirectory
+Cmdlet          Set-VMReplication                                  2.0.0.0    Hyper-V
+Cmdlet          Set-VMReplicationAuthorizationEntry                2.0.0.0    Hyper-V
+Cmdlet          Set-VMReplicationServer                            2.0.0.0    Hyper-V
+Cmdlet          Start-VMInitialReplication                         2.0.0.0    Hyper-V
+Cmdlet          Stop-VMInitialReplication                          2.0.0.0    Hyper-V
+Cmdlet          Stop-VMReplication                                 2.0.0.0    Hyper-V
+Cmdlet          Suspend-VMReplication                              2.0.0.0    Hyper-V
+Cmdlet          Test-VMReplicationConnection                       2.0.0.0    Hyper-V
+
+
+PS C:\vscode> man New-ADReplicationSubnet
+
+NAME
+    New-ADReplicationSubnet
+
+SYNTAX
+    New-ADReplicationSubnet [-Name] <string> [[-Site] <ADReplicationSite>] [-WhatIf] [-Confirm] [-AuthType {Negotiate | Basic}] [-Credential
+    <pscredential>] [-Description <string>] [-Instance <ADReplicationSubnet>] [-Location <string>] [-OtherAttributes <hashtable>] [-PassThru]
+    [-Server <string>]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help New-ADReplicationSubnet -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=216380.
+PS C:\vscode> man New-ADReplicationSubnet -Online
+
+PS C:\vscode> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20180822211502
+**********************

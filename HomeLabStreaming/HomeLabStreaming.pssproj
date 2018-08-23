@@ -32,6 +32,7 @@
     <Folder Include="PowerShell Transcripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Active Directory\Adding AD Users and Groups.ps1" />
     <Compile Include="Active Directory\AddingDomainControllers.ps1" />
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
@@ -43,9 +44,12 @@
     <Compile Include="Networking\ChangeIPandDNSInfo3.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Active Directory\ADUserTemplate.csv" />
     <Content Include="Active Directory\FSMO roles.pdf" />
     <Content Include="Active Directory\FSMO roles.vsdx" />
     <Content Include="Hyper-V Managment\ListofVMsToCreate.csv" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.dfCWAgD+.20180819101825.txt" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.TnunK1pT.20180822164759.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.W8OdeDmF.20180814203415.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt" />
   </ItemGroup>

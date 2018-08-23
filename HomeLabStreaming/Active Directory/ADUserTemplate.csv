@@ -1,0 +1,3 @@
+UserName,SAMAccountName,DisplayName,enabled,UserPrincipalName
+Robbie Rigel,RobbieR,Robbie Rigel ,TRUE,RobbieR@bobbysworld.org
+Robbie Rigel Admin,RobbieR.da,Robbie Rigel Domain Admin,TRUE,RobbieR.da@bobbysworld.org
