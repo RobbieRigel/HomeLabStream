@@ -12,6 +12,8 @@ Configuration CreateManagmentVM {
 	Import-DscResource -ModuleName xHyper-V
 	Node $AllNodes.Where{$_.Role -eq "Hyper-V Host"}.NodeName
 	{
+		
+		$OSDiskSize = 30GB
 		xVMSwitch MgmtVswitch
 		{
 			Name = "ORION-VSw-02"
@@ -90,11 +92,23 @@ $HyperVDSCData =
 		@{
 			NodeName = "BWORLD-MGT-01"
 			Role= "Managment Desktop"
+			Application = "Veeam"
 		},
 
 		@{
 			NodeName = "Orion"
 			Role = "Hyper-V Host"
+			Application = "Hyper-V"
+		}
+		@{
+			NodeName = "BWORLD-BU-01"
+			Role = "Backup Server"
+			Application = "Veeam"
+		}
+		@{
+			NodeName = "BWORLD-IIS-01"
+			Role = "DSC Pull Server"
+			Application "DSC"
 		}
 
 	)

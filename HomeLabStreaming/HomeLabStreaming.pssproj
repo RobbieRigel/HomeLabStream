@@ -36,6 +36,8 @@
     <Compile Include="Active Directory\Adding AD Users and Groups.ps1" />
     <Compile Include="Active Directory\AddingDomainControllers.ps1" />
     <Compile Include="Desired State Config\DSC-LCMConfig.ps1" />
+    <Compile Include="Desired State Config\Hyper-V-DSCData-Test.psd1" />
+    <Compile Include="Desired State Config\HyperV-DSCData.psd1" />
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
