@@ -35,9 +35,12 @@
   <ItemGroup>
     <Compile Include="Active Directory\Adding AD Users and Groups.ps1" />
     <Compile Include="Active Directory\AddingDomainControllers.ps1" />
+    <Compile Include="Desired State Config\BWORLD-MasterConfig.ps1" />
+    <Compile Include="Desired State Config\BWORLD-MasterNodes.psd1" />
     <Compile Include="Desired State Config\DSC-LCMConfig.ps1" />
     <Compile Include="Desired State Config\Hyper-V-DSCData-Test.psd1" />
     <Compile Include="Desired State Config\HyperV-DSCData.psd1" />
+    <Compile Include="Desired State Config\HyperVDSC-VMConfiguration.ps1" />
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
@@ -45,7 +48,7 @@
     <Compile Include="Comment Header Template.ps1" />
     <Compile Include="HomeLabStreaming.ps1" />
     <Compile Include="Hyper-V Managment\DSC-CreateVM.ps1" />
-    <Compile Include="Hyper-V Managment\DSC-KeepPDCOn.ps1" />
+    <Compile Include="Hyper-V Managment\DSC-FromSteam.ps1" />
     <Compile Include="Networking\ChangeIPandDNSInfo2.ps1" />
     <Compile Include="Networking\ChangeIPandDNSInfo3.ps1" />
   </ItemGroup>
