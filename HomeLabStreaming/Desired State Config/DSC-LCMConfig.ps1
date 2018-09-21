@@ -10,30 +10,53 @@ configuration LCMConfig
     {
         Settings
         {
-            ActionAfterREboot = 'ContinueConfiguration'
+            RefreshMode = "Pull"
+			ActionAfterReboot =  'ContinueConfiguration'
 			AllowModuleOverwrite = $true
 			ConfigurationMode = 'ApplyAndAutoCorrect'
         }
+
+		ConfigurationRepositoryWeb BWORLD-DSCSvr
+        {
+            ServerURL          = "https://BWORLD-IIS-01.ugn.bobbysworld.org:8080/PSDSCPullServer.svc" # notice it is https
+            RegistrationKey    = '80f5cbd2-1bbf-45cf-8753-35d2d01c947d'
+            ConfigurationNames = @('ClientConfig')
+        }
+		ReportServerWeb BWORLD-RptSvr
+        {
+            ServerURL       = "https://BWORLD-IIS-01.ugn.bobbysworld.org:8080/PSDSCPullServer.svc" # notice it is https
+            RegistrationKey = '80f5cbd2-1bbf-45cf-8753-35d2d01c947d'
+        }
     }
 }
-LCMConfig -ConfigurationData $HyperVDSCData
+LCMConfig -ConfigurationData BWORLD-MasterNodes.psd1
 
 
 
-$HyperVDSCData = 
+<#$DSCConfig = 
 @{
 	AllNodes = 
 	@(
 		@{
-			NodeName = "BWORLD-MGT-01"
-			Role= "Managment Desktop"
-		},
-
-		@{
 			NodeName = "Orion"
 			Role = "Hyper-V Host"
+			Application = "Hyper-V"
+			}
+		@{
+			NodeName = "BWORLD-IIS-01"
+			Role = "IIS"
+			Application = "DSC"
+			}
+		@{
+			NodeName = "BWORLD-MGT-01"
+			Role = "Managment"
+			
+		}
+		@{
+			NodeName = "BWORLD-BU-01"
+			Role = "Backup"
 		}
 
 	)
 
-}
+}#>

@@ -17,7 +17,7 @@ Configuration MasterConfig {
 	{
 		WindowsFeature AddHyperV {
 			Name = "Hyper-V"
-			LogPath = "C:\ProgramData\DSC\"
+			LogPath = "C:\ProgramData\DSC\installHyperV.txt"
 			IncludeAllSubFeature = $true
 			Ensure = "Present"
 		}
@@ -26,8 +26,8 @@ Configuration MasterConfig {
 
 	Node $AllNodes.Where({$_.Role -eq "IIS"}).NodeName {
 		WindowsFeature AddIIS {
-			Name = "Web-Serer"
-			LogPath = "C:\ProgramData\DSC\"
+			Name = "Web-Server"
+			LogPath = "C:\ProgramData\DSC\installIIS.txt"
 			IncludeAllSubFeature = $true
 			Ensure = "Present"
 		}
@@ -41,7 +41,8 @@ Configuration MasterConfig {
             Name   = "DSC-Service"
         }
 
-        <#xDscWebService PSDSCPullServer
+		$certificateThumbPrint = '9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB'
+		xDscWebService PSDSCPullServer
         {
             UseSecurityBestPractices = $true
 			Ensure                  = "Present"
@@ -56,7 +57,15 @@ Configuration MasterConfig {
             RegistrationKeyPath     = "$env:PROGRAMFILES\WindowsPowerShell\DscService"
             AcceptSelfSignedCertificates = $true
             Enable32BitAppOnWin64   = $false
-        }#>
+        }
+
+		File RegistrationKeyFile
+        {
+            Ensure          = 'Present'
+            Type            = 'File'
+            DestinationPath = "$env:ProgramFiles\WindowsPowerShell\DscService\RegistrationKeys.txt"
+            Contents        = '80f5cbd2-1bbf-45cf-8753-35d2d01c947d'
+        }
 
 	} 
 }

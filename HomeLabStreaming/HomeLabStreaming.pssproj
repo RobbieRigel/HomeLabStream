@@ -30,6 +30,7 @@
     <Folder Include="Networking\" />
     <Folder Include="Hyper-V Managment\" />
     <Folder Include="Desired State Config\" />
+    <Folder Include="DISM\" />
     <Folder Include="PowerShell Transcripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +42,7 @@
     <Compile Include="Desired State Config\Hyper-V-DSCData-Test.psd1" />
     <Compile Include="Desired State Config\HyperV-DSCData.psd1" />
     <Compile Include="Desired State Config\HyperVDSC-VMConfiguration.ps1" />
+    <Compile Include="DISM\CreateBootVHD.ps1" />
     <Compile Include="Hyper-V Managment\AddNewVMs.ps1" />
     <Compile Include="Active Directory\InstallingADDS.ps1" />
     <Compile Include="Active Directory\NewADDSForest.ps1" />
@@ -57,10 +59,13 @@
     <Content Include="Active Directory\FSMO roles.pdf" />
     <Content Include="Active Directory\FSMO roles.vsdx" />
     <Content Include="Hyper-V Managment\ListofVMsToCreate.csv" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.4otSvlBG.20180919180603.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.dfCWAgD+.20180819101825.txt" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.g55EAXKI.20180905170729.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.TnunK1pT.20180822164759.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.BWORLD-DC-01.W8OdeDmF.20180814203415.txt" />
     <Content Include="PowerShell Transcripts\PowerShell_transcript.ORION.fUMI6GxG.20180812101608.txt" />
+    <Content Include="PowerShell Transcripts\PowerShell_transcript.SIRIUS.BwzWZg8L.20180919165120.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

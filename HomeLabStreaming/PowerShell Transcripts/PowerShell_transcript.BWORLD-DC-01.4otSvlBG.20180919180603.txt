@@ -1,0 +1,1171 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180919180603
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Machine: BWORLD-DC-01 (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 1684
+PSVersion: 5.1.14393.2430
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.2430
+BuildVersion: 10.0.14393.2430
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.BWORLD-DC-01.4otSvlBG.20180919180603.txt
+PS C:\Users\Administrator> Get-Variable winp*
+PS C:\Users\Administrator> $winParams = @{WinServer='BWORLD-DC-01'}
+PS C:\Users\Administrator> whoami
+bobbysworld\administrator
+PS C:\Users\Administrator> cd .\Documents\
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        8/17/2018   4:22 PM                MessageAnalyzer
+d-----         8/5/2018  11:29 AM                PowerShell
+d-----        8/12/2018   8:49 AM                PSScripts
+d-----         8/5/2018  11:31 AM                WindowsPowerShell
+-a----         9/5/2018   9:21 PM           2740 domainInfo
+-a----        9/19/2018   6:06 PM              0 PowerShell_transcript.BWORLD-DC-01.4otSvlBG.20180919180603.txt
+-a----        8/20/2018   9:49 PM         216187 PowerShell_transcript.BWORLD-DC-01.dfCWAgD+.20180819101825.txt
+-a----         9/5/2018   7:30 PM          18268 PowerShell_transcript.BWORLD-DC-01.g55EAXKI.20180905170729.txt
+-a----        8/22/2018   9:15 PM          83570 PowerShell_transcript.BWORLD-DC-01.TnunK1pT.20180822164759.txt
+-a----        8/14/2018  10:33 PM          88353 PowerShell_transcript.BWORLD-DC-01.W8OdeDmF.20180814203415.txt
+
+
+PS C:\Users\Administrator\Documents> dnsmgmt.msc
+PS C:\Users\Administrator\Documents> New-PACertificate BWORLD-IIS-01.UGN.BOBBYSWORLD.ORG, *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-staging-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/acct/6928447 with -1-byte payload
+VERBOSE: received 330-byte response of content type application/json
+VERBOSE: Using account 6928447
+VERBOSE: Creating a new order for BWORLD-IIS-01.UGN.BOBBYSWORLD.ORG, *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+>> TerminatingError(Invoke-WebRequest): "{
+  "type": "urn:ietf:params:acme:error:malformed",
+  "detail": "Error creating new order :: Domain name \"bworld-iis-01.ugn.bobbysworld.org\" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request.",
+  "status": 400
+}"
+PS C:\Users\Administrator\Documents> TerminatingError(): "Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request."
+>> TerminatingError(): "Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request."
+>> TerminatingError(): "Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request."
+>> TerminatingError(): "Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request."
+Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one or the other from the certificate request.
+Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in the same request. Remove one
+or the other from the certificate request.
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Invoke-ACME.ps1:135 char:9
++         throw [AcmeException]::new($acmeError.detail,$acmeError)
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (:) [], AcmeException
+    + FullyQualifiedErrorId : Error creating new order :: Domain name "bworld-iis-01.ugn.bobbysworld.org" is redundant with a wildcard domain in
+    the same request. Remove one or the other from the certificate request.
+
+PS C:\Users\Administrator\Documents> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-staging-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/acct/6928447 with -1-byte payload
+VERBOSE: received 330-byte response of content type application/json
+VERBOSE: Using account 6928447
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 393-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Operation '' complete.
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value mBNVFOBQGOylIcdBcJG2LXjEEShsuMTqRdczKtStZUw
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/challenge/nm5JK6sY-vgkhntuSMd1txq3gyJEl00O7DV8let2yyk/173750928 with -1-byte payload
+VERBOSE: received 229-byte response of content type application/json
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value mBNVFOBQGOylIcdBcJG2LXjEEShsuMTqRdczKtStZUw
+VERBOSE: Saving changes for Windows plugin
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Wait-AuthValidation.ps1:34 char:17
++ ...             throw "Authorization invalid for $($auth.fqdn): $message" ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Authorization i...bobbysworld.org:String) [], RuntimeException
+    + FullyQualifiedErrorId : Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobb
+   ysworld.org
+
+PS C:\Users\Administrator\Documents> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-staging-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/acct/6928447 with -1-byte payload
+VERBOSE: received 330-byte response of content type application/json
+VERBOSE: Using account 6928447
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 391-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value PCHSoJiADU9s4O2_7bc_vvn_DnN2haPpklHf2BtyVTE
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/challenge/ZgsZR_F0CcyJPkVHAe8nWYeiyGkViG6FQeStpePgqY4/173752233 with -1-byte payload
+VERBOSE: received 229-byte response of content type application/json
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value PCHSoJiADU9s4O2_7bc_vvn_DnN2haPpklHf2BtyVTE
+VERBOSE: Saving changes for Windows plugin
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Wait-AuthValidation.ps1:34 char:17
++ ...             throw "Authorization invalid for $($auth.fqdn): $message" ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Authorization i...bobbysworld.org:String) [], RuntimeException
+    + FullyQualifiedErrorId : Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobb
+   ysworld.org
+
+PS C:\Users\Administrator\Documents> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-staging-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/acct/6928447 with -1-byte payload
+VERBOSE: received 330-byte response of content type application/json
+VERBOSE: Using account 6928447
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 393-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value PUtBYSwgtio62lf-smkSWbWfgE7Ku9Tu6JM-rPFidE0
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/challenge/ZGBqnN1zXeiIM8imYs9fYO_BLacO1HALZpmcTvcRhqk/173752881 with -1-byte payload
+VERBOSE: received 229-byte response of content type application/json
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value PUtBYSwgtio62lf-smkSWbWfgE7Ku9Tu6JM-rPFidE0
+VERBOSE: Saving changes for Windows plugin
+PS C:\Users\Administrator\Documents> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org"
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobbysworld.org
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Wait-AuthValidation.ps1:34 char:17
++ ...             throw "Authorization invalid for $($auth.fqdn): $message" ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Authorization i...bobbysworld.org:String) [], RuntimeException
+    + FullyQualifiedErrorId : Authorization invalid for *.ugn.bobbysworld.org: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.ugn.bobb
+   ysworld.org
+
+PS C:\Users\Administrator\Documents> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-staging-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/acct/6928447 with -1-byte payload
+VERBOSE: received 330-byte response of content type application/json
+VERBOSE: Using account 6928447
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 392-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/challenge/yaPnzJPpnmuvNYLgI0fjfEBFumugJIja4m5umFI_33g/173753574 with -1-byte payload
+VERBOSE: received 229-byte response of content type application/json
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Finalizing the order.
+VERBOSE: Creating new certificate request with key length 2048.
+VERBOSE: Creating new private key for the certificate request.
+VERBOSE: POST https://acme-staging-v02.api.letsencrypt.org/acme/finalize/6928447/8485618 with -1-byte payload
+VERBOSE: received 493-byte response of content type application/json
+VERBOSE: GET https://acme-staging-v02.api.letsencrypt.org/acme/cert/fa1c31a6e752171aca5a49bf1312df3e2711 with 0-byte payload
+VERBOSE: received 3806-byte response of content type application/pem-certificate-chain
+VERBOSE: Updating cert expiration and renewal window
+VERBOSE: Successfully created certificate.
+
+Subject                  NotAfter              KeyLength Thumbprint                               AllSANs
+-------                  --------              --------- ----------                               -------
+CN=*.ugn.bobbysworld.org 12/18/2018 4:32:38 PM 2048      58F0E4C712EADE3CB00611051550F4846C2522D4 {*.ugn.bobbysworld.org}
+
+
+PS C:\Users\Administrator\Documents> Get-PACertificate
+
+Subject                  NotAfter              KeyLength Thumbprint                               AllSANs
+-------                  --------              --------- ----------                               -------
+CN=*.ugn.bobbysworld.org 12/18/2018 4:32:38 PM 2048      58F0E4C712EADE3CB00611051550F4846C2522D4 {*.ugn.bobbysworld.org}
+
+
+PS C:\Users\Administrator\Documents> Get-PACertificate | select *
+
+
+Subject       : CN=*.ugn.bobbysworld.org
+NotBefore     : 9/19/2018 5:32:38 PM
+NotAfter      : 12/18/2018 4:32:38 PM
+KeyLength     : 2048
+Thumbprint    : 58F0E4C712EADE3CB00611051550F4846C2522D4
+AllSANs       : {*.ugn.bobbysworld.org}
+CertFile      : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\cert.cer
+KeyFile       : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\cert.key
+ChainFile     : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\chain.cer
+FullChainFile : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\fullchain.cer
+PfxFile       : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\cert.pfx
+PfxFullChain  : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\fullchain.pfx
+PfxPass       : System.Security.SecureString
+
+
+
+PS C:\Users\Administrator\Documents> cd ..\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/19/2018   6:25 PM                !.ugn.bobbysworld.org
+d-----        9/12/2018  10:51 PM                BWORLD-IIS-01.UGN.BOBBYSWORLD.ORG
+-a----        9/19/2018   6:22 PM           1214 acct.json
+-a----        9/19/2018   6:22 PM             48 current-order.txt
+-a----        9/19/2018   6:22 PM            736 plugindata.xml
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447> cd .\!.ugn.bobbysworld.org\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           2126 cert.cer
+-a----        9/19/2018   6:25 PM           1704 cert.key
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+-a----        9/19/2018   6:25 PM           1679 chain.cer
+-a----        9/19/2018   6:25 PM           3806 fullchain.cer
+-a----        9/19/2018   6:25 PM           4546 fullchain.pfx
+-a----        9/19/2018   6:25 PM           2428 order.json
+-a----        9/19/2018   6:25 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cat .\cert.cer
+-----BEGIN CERTIFICATE-----
+MIIF9TCCBN2gAwIBAgITAPocMabnUhcaylpJvxMS3z4nETANBgkqhkiG9w0BAQsF
+ADAiMSAwHgYDVQQDDBdGYWtlIExFIEludGVybWVkaWF0ZSBYMTAeFw0xODA5MTky
+MjMyMzhaFw0xODEyMTgyMjMyMzhaMCAxHjAcBgNVBAMMFSoudWduLmJvYmJ5c3dv
+cmxkLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJIbF4swJIrN
+CCQAi7huzCpQGRVZZHP0gnMqyKuPF1f/WUraRX78XXNv/aWdASRRUFDaXXnSNl3X
+ZXDE1qBO2UQosKVXQJeg7vrFoibTtxEsE71LPVmJvgzA1+hZALrV06/7J1w5LmID
+vppqxkzWulJR7S4F2QbRAikd5w3lULiDIW7+1AWCFZ2tmjePp1RPloWaA8l9HjbW
+o45jz5GQTpgJwoJTtTrU/H6fabAf6ZYmMQETyO+reWoHX8IGbjgQjbQCbjI72DHO
+ITSxGaLjTcD66rK8kcG29ZtjLFmKnSRtZhyCnsugzxH+VXJLH3ivc3UmWKkZiO3h
+UqBJYnzh+UUCAwEAAaOCAyQwggMgMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAU
+BggrBgEFBQcDAQYIKwYBBQUHAwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUKDvh
+9oAjBy5ovfNR+HfmYG71jgQwHwYDVR0jBBgwFoAUwMwDRrlYIMxccnDz4S7LIKb1
+aDowdwYIKwYBBQUHAQEEazBpMDIGCCsGAQUFBzABhiZodHRwOi8vb2NzcC5zdGct
+aW50LXgxLmxldHNlbmNyeXB0Lm9yZzAzBggrBgEFBQcwAoYnaHR0cDovL2NlcnQu
+c3RnLWludC14MS5sZXRzZW5jcnlwdC5vcmcvMCAGA1UdEQQZMBeCFSoudWduLmJv
+YmJ5c3dvcmxkLm9yZzCB/gYDVR0gBIH2MIHzMAgGBmeBDAECATCB5gYLKwYBBAGC
+3xMBAQEwgdYwJgYIKwYBBQUHAgEWGmh0dHA6Ly9jcHMubGV0c2VuY3J5cHQub3Jn
+MIGrBggrBgEFBQcCAjCBngyBm1RoaXMgQ2VydGlmaWNhdGUgbWF5IG9ubHkgYmUg
+cmVsaWVkIHVwb24gYnkgUmVseWluZyBQYXJ0aWVzIGFuZCBvbmx5IGluIGFjY29y
+ZGFuY2Ugd2l0aCB0aGUgQ2VydGlmaWNhdGUgUG9saWN5IGZvdW5kIGF0IGh0dHBz
+Oi8vbGV0c2VuY3J5cHQub3JnL3JlcG9zaXRvcnkvMIIBAwYKKwYBBAHWeQIEAgSB
+9ASB8QDvAHYAsMyD5aX5fWuvfAnMKEkEhyrH6IsTLGNQt8b9JuFsbHcAAAFl9C2s
+MAAABAMARzBFAiEAyNKI8RCfySOk7jQUYFQrJrLpNn2fCGYjdnictQxhUgQCIC/B
+E1QEmHNmQqnNRdJO8XjCZOELAqhPmWsUGuJPYoRJAHUA3Zk0/KXnJIDJVmh9gTSZ
+CEmySfe1adjHvKs/XMHzbmQAAAFl9C2t3gAABAMARjBEAiAsUSNN5kxMQvwLImcZ
+Edp2rE2oL25mtkJv6goF5WxaHwIgZbtOfB4xA9fsK/+Uapieivw/XshhtQ7qbARN
++KaYQPcwDQYJKoZIhvcNAQELBQADggEBABGNG2OlXSckAO0seXGaPK8GPrAVsSx3
+YT/j3X67inioQd+sxaWgkT9SqUr3RRCJMEMjOwqOeype80MD5/tm0ueKRbgKf/SG
+Et1W+Lmza2Iv3I/ZrQ8oJypo0Uu3jBQynRvtGbukGEjGaRyhN6OOYYuTRTEAlkcR
+Vd5BT89cHLQek3NYLiDFGSI5L/d7dAOlG7eZFT/eMfsqH0HsTLZcECxm+R730DnG
+Za0Vskelg7k+G0jcnXXG59Lha14uOn2wGqoL2lHWgYVrnx+XXNWlcUGZVELOe6DF
+zpMqVo2qCwWC/R/+UEv1bFgesfR69Qv6NF/ZYwjwWH/7sI8kzmDNKCI=
+-----END CERTIFICATE-----
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           2126 cert.cer
+-a----        9/19/2018   6:25 PM           1704 cert.key
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+-a----        9/19/2018   6:25 PM           1679 chain.cer
+-a----        9/19/2018   6:25 PM           3806 fullchain.cer
+-a----        9/19/2018   6:25 PM           4546 fullchain.pfx
+-a----        9/19/2018   6:25 PM           2428 order.json
+-a----        9/19/2018   6:25 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Get-Command *certificate*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Get-PACertificate                                  2.8.0      Posh-ACME
+Function        Get-RDCertificate                                  2.0.0.0    RemoteDesktop
+Function        New-PACertificate                                  2.8.0      Posh-ACME
+Function        New-RDCertificate                                  2.0.0.0    RemoteDesktop
+Function        Set-RDCertificate                                  2.0.0.0    RemoteDesktop
+Cmdlet          Add-CertificateEnrollmentPolicyServer              1.0.0.0    PKI
+Cmdlet          Export-Certificate                                 1.0.0.0    PKI
+Cmdlet          Export-PfxCertificate                              1.0.0.0    PKI
+Cmdlet          Get-Certificate                                    1.0.0.0    PKI
+Cmdlet          Get-CertificateAutoEnrollmentPolicy                1.0.0.0    PKI
+Cmdlet          Get-CertificateEnrollmentPolicyServer              1.0.0.0    PKI
+Cmdlet          Get-CertificateNotificationTask                    1.0.0.0    PKI
+Cmdlet          Get-PfxCertificate                                 3.0.0.0    Microsoft.PowerShell.Security
+Cmdlet          Import-Certificate                                 1.0.0.0    PKI
+Cmdlet          Import-PfxCertificate                              1.0.0.0    PKI
+Cmdlet          New-CertificateNotificationTask                    1.0.0.0    PKI
+Cmdlet          New-SelfSignedCertificate                          1.0.0.0    PKI
+Cmdlet          Remove-CertificateEnrollmentPolicyServer           1.0.0.0    PKI
+Cmdlet          Remove-CertificateNotificationTask                 1.0.0.0    PKI
+Cmdlet          Set-CertificateAutoEnrollmentPolicy                1.0.0.0    PKI
+Cmdlet          Switch-Certificate                                 1.0.0.0    PKI
+Cmdlet          Test-Certificate                                   1.0.0.0    PKI
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           2126 cert.cer
+-a----        9/19/2018   6:25 PM           1704 cert.key
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+-a----        9/19/2018   6:25 PM           1679 chain.cer
+-a----        9/19/2018   6:25 PM           3806 fullchain.cer
+-a----        9/19/2018   6:25 PM           4546 fullchain.pfx
+-a----        9/19/2018   6:25 PM           2428 order.json
+-a----        9/19/2018   6:25 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> $certToImport = Get-Item .\cert.pfx
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> $certPwd = ConvertTo-SecureString "poshacme" -Force -AsPlainText
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData
+>> TerminatingError(Copy-Item): "The network path was not found"
+cp : The network path was not found
+At line:1 char:1
++ cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.CopyItemCommand
+cp : The network path was not found
+At line:1 char:1
++ cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.CopyItemCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData\
+>> TerminatingError(Copy-Item): "The network path was not found"
+cp : The network path was not found
+At line:1 char:1
++ cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.CopyItemCommand
+cp : The network path was not found
+At line:1 char:1
++ cp $certToImport -Destination \\BWORLD-IIS-01\C$\ProgramData\
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], IOException
+    + FullyQualifiedErrorId : System.IO.IOException,Microsoft.PowerShell.Commands.CopyItemCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cd \\BWORLD-IIS-01\c$\
+cd : Cannot find path '\\BWORLD-IIS-01\c$\' because it does not exist.
+At line:1 char:1
++ cd \\BWORLD-IIS-01\c$\
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\\BWORLD-IIS-01\c$\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path '\\BWORLD-IIS-01\c$\' because it does not exist.
+At line:1 char:1
++ cd \\BWORLD-IIS-01\c$\
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\\BWORLD-IIS-01\c$\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> whoami
+bobbysworld\administrator
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Test-Connection BWORLD-IIS-01
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Enter-PSSession BWORLD-IIS-01
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cls
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> $certToImport
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> $IISsession = New-PSSession BWORLD-IIS-01
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cp $certToImport -Destination C:\ProgramData\ -ToSession $IISsession
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Enter-PSSession $IISsession
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Import-PfxCertificate -FilePath C:\ProgramData\cert.pfx -Password $certPwd -CertStoreLocation $certLocation -Verbose
+>> TerminatingError(Import-PfxCertificate): "The PFX file could not be found."
+Import-PfxCertificate : The PFX file could not be found.
+At line:1 char:1
++ Import-PfxCertificate -FilePath C:\ProgramData\cert.pfx -Password $ce ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-PfxCertificate], FileNotFoundException
+    + FullyQualifiedErrorId : 
+System.IO.FileNotFoundException,Microsoft.CertificateServices.Commands.ImportPfxCertificate
+Import-PfxCertificate : The PFX file could not be found.
+At line:1 char:1
++ Import-PfxCertificate -FilePath C:\ProgramData\cert.pfx -Password $ce ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-PfxCertificate], FileNotFoundException
+    + FullyQualifiedErrorId : System.IO.FileNotFoundException,Microsoft.CertificateServices.Commands.ImportPfxCertificate
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           2126 cert.cer
+-a----        9/19/2018   6:25 PM           1704 cert.key
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+-a----        9/19/2018   6:25 PM           1679 chain.cer
+-a----        9/19/2018   6:25 PM           3806 fullchain.cer
+-a----        9/19/2018   6:25 PM           4546 fullchain.pfx
+-a----        9/19/2018   6:25 PM           2428 order.json
+-a----        9/19/2018   6:25 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Import-PfxCertificate -FilePath $certToImport -Password $certPwd -CertStoreLocation $certLocation -Verbose
+>> TerminatingError(Import-PfxCertificate): "Cert:\"
+Import-PfxCertificate : Cert:\
+At line:1 char:1
++ Import-PfxCertificate -FilePath $certToImport -Password $certPwd -Cer ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-PfxCertificate], InvalidStorePathException
+    + FullyQualifiedErrorId : RuntimeException,Microsoft.CertificateServices.Commands.ImportPfxCertificate
+Import-PfxCertificate : Cert:\
+At line:1 char:1
++ Import-PfxCertificate -FilePath $certToImport -Password $certPwd -Cer ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Import-PfxCertificate], InvalidStorePathException
+    + FullyQualifiedErrorId : RuntimeException,Microsoft.CertificateServices.Commands.ImportPfxCertificate
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Import-PfxCertificate -FilePath $certToImport -Password $certPwd -CertStoreLocation 'cert:\localmachine\my' -Verbose
+VERBOSE: Performing the operation "Import PFX certificate" on target "Item: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\cert.pfx Destination: my".
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cd Cert:\LocalMachine\My\
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> Get-Certificate
+>> TerminatingError(Get-Certificate): "Parameter set cannot be resolved using the specified named parameters."
+Get-Certificate : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:1
++ Get-Certificate
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Certificate], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.CertificateServices.Commands.GetCertificateCommand
+Get-Certificate : Parameter set cannot be resolved using the specified named parameters.
+At line:1 char:1
++ Get-Certificate
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Certificate], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameterSet,Microsoft.CertificateServices.Commands.GetCertificateCommand
+
+PS Cert:\LocalMachine\My\> man Get-Certificate
+
+NAME
+    Get-Certificate
+
+SYNTAX
+    Get-Certificate -Template <string> [-Url <uri>] [-SubjectName <string>] [-DnsName <string[]>] [-Credential <PkiCredential>]
+    [-CertStoreLocation <string>] [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+    Get-Certificate -Request <Certificate> [-Credential <PkiCredential>] [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Get-Certificate -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=386820.
+PS Cert:\LocalMachine\My\> Get-PfxCertificate
+>> TerminatingError(Get-PfxCertificate): "Cannot bind argument to parameter 'FilePath' because it is an empty array."
+Get-PfxCertificate : Cannot bind argument to parameter 'FilePath' because it is an empty array.
+At line:1 char:1
++ Get-PfxCertificate
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-PfxCertificate], ParameterBindingValidationException
+    + FullyQualifiedErrorId : 
+ParameterArgumentValidationErrorEmptyArrayNotAllowed,Microsoft.PowerShell.Commands.GetPfxCertificateCommand
+Get-PfxCertificate : Cannot bind argument to parameter 'FilePath' because it is an empty array.
+At line:1 char:1
++ Get-PfxCertificate
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-PfxCertificate], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyArrayNotAllowed,Microsoft.PowerShell.Commands.GetPfxCertificateCommand
+
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $cert = ls
+PS Cert:\LocalMachine\My\> $cert
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $cert.Thumbprint
+58F0E4C712EADE3CB00611051550F4846C2522D4
+PS Cert:\LocalMachine\My\> $cert.Thumbprint > C:\Users\Administrator\Documents\tprint.txt
+>> ParameterBinding(Out-File): name="InputObject"; value="58F0E4C712EADE3CB00611051550F4846C2522D4"
+PS Cert:\LocalMachine\My\> Enter-PSSession $IISsession
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $certToImport
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+
+
+PS Cert:\LocalMachine\My\> cd $certToImport.Path
+>> TerminatingError(Set-Location): "Cannot process argument because the value of argument "path" is null. Change the value of argument "path" to a non-null value."
+cd : Cannot process argument because the value of argument "path" is null. Change the value of argument "path" to a 
+non-null value.
+At line:1 char:1
++ cd $certToImport.Path
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot process argument because the value of argument "path" is null. Change the value of argument "path" to a non-null value.
+At line:1 char:1
++ cd $certToImport.Path
++ ~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], PSArgumentNullException
+    + FullyQualifiedErrorId : ArgumentNull,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS Cert:\LocalMachine\My\> cd C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   6:25 PM           2126 cert.cer
+-a----        9/19/2018   6:25 PM           1704 cert.key
+-a----        9/19/2018   6:25 PM           3232 cert.pfx
+-a----        9/19/2018   6:25 PM           1679 chain.cer
+-a----        9/19/2018   6:25 PM           3806 fullchain.cer
+-a----        9/19/2018   6:25 PM           4546 fullchain.pfx
+-a----        9/19/2018   6:25 PM           2428 order.json
+-a----        9/19/2018   6:25 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> $certToImport = Get-Item .\fullchain.pfx
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cp $certToImport -Destination C:\ProgramData\ -ToSession $IISsession
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Enter-PSSession $IISsession
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cls
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Get-Command -Module Posh-ACME
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Get-DnsPluginHelp                                  2.8.0      Posh-ACME
+Function        Get-DnsPlugins                                     2.8.0      Posh-ACME
+Function        Get-KeyAuthorization                               2.8.0      Posh-ACME
+Function        Get-PAAccount                                      2.8.0      Posh-ACME
+Function        Get-PAAuthorizations                               2.8.0      Posh-ACME
+Function        Get-PACertificate                                  2.8.0      Posh-ACME
+Function        Get-PAOrder                                        2.8.0      Posh-ACME
+Function        Get-PAServer                                       2.8.0      Posh-ACME
+Function        New-PAAccount                                      2.8.0      Posh-ACME
+Function        New-PACertificate                                  2.8.0      Posh-ACME
+Function        New-PAOrder                                        2.8.0      Posh-ACME
+Function        Publish-DnsChallenge                               2.8.0      Posh-ACME
+Function        Remove-PAAccount                                   2.8.0      Posh-ACME
+Function        Remove-PAOrder                                     2.8.0      Posh-ACME
+Function        Save-DnsChallenge                                  2.8.0      Posh-ACME
+Function        Send-ChallengeAck                                  2.8.0      Posh-ACME
+Function        Set-PAAccount                                      2.8.0      Posh-ACME
+Function        Set-PAOrder                                        2.8.0      Posh-ACME
+Function        Set-PAServer                                       2.8.0      Posh-ACME
+Function        Submit-ChallengeValidation                         2.8.0      Posh-ACME
+Function        Submit-OrderFinalize                               2.8.0      Posh-ACME
+Function        Submit-Renewal                                     2.8.0      Posh-ACME
+Function        Unpublish-DnsChallenge                             2.8.0      Posh-ACME
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Get-PAServer
+
+location                                               newNonce   newAccount newOrder   revokeCert   keyChange
+--------                                               --------   ---------- --------   ----------   ---------
+https://acme-staging-v02.api.letsencrypt.org/directory /new-nonce /new-acct  /new-order /revoke-cert /key-change
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> certlm.msc
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Get-Command -Module Posh-ACME
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Get-DnsPluginHelp                                  2.8.0      Posh-ACME
+Function        Get-DnsPlugins                                     2.8.0      Posh-ACME
+Function        Get-KeyAuthorization                               2.8.0      Posh-ACME
+Function        Get-PAAccount                                      2.8.0      Posh-ACME
+Function        Get-PAAuthorizations                               2.8.0      Posh-ACME
+Function        Get-PACertificate                                  2.8.0      Posh-ACME
+Function        Get-PAOrder                                        2.8.0      Posh-ACME
+Function        Get-PAServer                                       2.8.0      Posh-ACME
+Function        New-PAAccount                                      2.8.0      Posh-ACME
+Function        New-PACertificate                                  2.8.0      Posh-ACME
+Function        New-PAOrder                                        2.8.0      Posh-ACME
+Function        Publish-DnsChallenge                               2.8.0      Posh-ACME
+Function        Remove-PAAccount                                   2.8.0      Posh-ACME
+Function        Remove-PAOrder                                     2.8.0      Posh-ACME
+Function        Save-DnsChallenge                                  2.8.0      Posh-ACME
+Function        Send-ChallengeAck                                  2.8.0      Posh-ACME
+Function        Set-PAAccount                                      2.8.0      Posh-ACME
+Function        Set-PAOrder                                        2.8.0      Posh-ACME
+Function        Set-PAServer                                       2.8.0      Posh-ACME
+Function        Submit-ChallengeValidation                         2.8.0      Posh-ACME
+Function        Submit-OrderFinalize                               2.8.0      Posh-ACME
+Function        Submit-Renewal                                     2.8.0      Posh-ACME
+Function        Unpublish-DnsChallenge                             2.8.0      Posh-ACME
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> Set-PAServer LE_PROD
+Please review the Terms of Service here: https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> New-PACertificate *.ugn.bobbysworld.org, ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-v02.api.letsencrypt.org/directory
+VERBOSE: Creating a new ec-256 account with contact: mailto:RobbieRigel@gmail.com
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/new-acct with -1-byte payload
+VERBOSE: received 341-byte response of content type application/json
+VERBOSE: Using account 42527662
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org, ugn.bobbysworld.org
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 548-byte response of content type application/json
+WARNING: Fewer DnsPlugin values than Domain values supplied. Using Windows for the rest.
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value UDHQeYr0nZSSL5eZwwzXL36y2Kv3D1UHPgcVxiJVV3s
+VERBOSE: Publishing DNS challenge for ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value s4iloBmcqB2T0wVvwiU-SHwyLr9QL6GbBxyEPFnKMvg
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/challenge/SFO01H0D-_suiCRWjX8R8qv_kl5pSU7EiXDeJ-fRloo/7550052749 with -1-byte payload
+VERBOSE: received 222-byte response of content type application/json
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/challenge/O6J0U7XxEcUN_iw6Bue1OwEtJTwW_XY2ke3gmv3MZL8/7550052752 with -1-byte payload
+VERBOSE: received 222-byte response of content type application/json
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value UDHQeYr0nZSSL5eZwwzXL36y2Kv3D1UHPgcVxiJVV3s
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value s4iloBmcqB2T0wVvwiU-SHwyLr9QL6GbBxyEPFnKMvg
+VERBOSE: Saving changes for Windows plugin
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org
+Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at
+_acme-challenge.ugn.bobbysworld.org
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Wait-AuthValidation.ps1:34 char:17
++ ...             throw "Authorization invalid for $($auth.fqdn): $message" ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Authorization i...bobbysworld.org:String) [], RuntimeException
+    + FullyQualifiedErrorId : Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg
+   " found at _acme-challenge.ugn.bobbysworld.org
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/acct/42527662 with -1-byte payload
+VERBOSE: received 331-byte response of content type application/json
+VERBOSE: Using account 42527662
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 379-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value LzHPsdGFVGYK-1_U1-QeBfCzlTelT4b6e6Iy7iZpG-Q
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/challenge/DgBEU57rlck9iYce8sVlBf0zReI7QUU82GlCZWvaqCE/7550097968 with -1-byte payload
+VERBOSE: received 222-byte response of content type application/json
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value LzHPsdGFVGYK-1_U1-QeBfCzlTelT4b6e6Iy7iZpG-Q
+VERBOSE: Saving changes for Windows plugin
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+>> TerminatingError(): "Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org"
+Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at _acme-challenge.ugn.bobbysworld.org
+Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg" found at
+_acme-challenge.ugn.bobbysworld.org
+At C:\Program Files\WindowsPowerShell\Modules\Posh-ACME\2.8.0\Private\Wait-AuthValidation.ps1:34 char:17
++ ...             throw "Authorization invalid for $($auth.fqdn): $message" ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Authorization i...bobbysworld.org:String) [], RuntimeException
+    + FullyQualifiedErrorId : Authorization invalid for *.ugn.bobbysworld.org: Incorrect TXT record "aQlkW8aUpITdC9NZyEnC8DSL_8iPb7PTPDdiEfCa8jg
+   " found at _acme-challenge.ugn.bobbysworld.org
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> New-PACertificate *.ugn.bobbysworld.org -AcceptTOS -Contact RobbieRigel@gmail.com -DnsPlugin Windows -PluginArgs $winParams -Verbose
+VERBOSE: Using directory https://acme-v02.api.letsencrypt.org/directory
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/acct/42527662 with -1-byte payload
+VERBOSE: received 331-byte response of content type application/json
+VERBOSE: Using account 42527662
+VERBOSE: Creating a new order for *.ugn.bobbysworld.org
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/new-order with -1-byte payload
+VERBOSE: received 379-byte response of content type application/json
+VERBOSE: Publishing DNS challenge for *.ugn.bobbysworld.org
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Adding a TXT record for _acme-challenge.ugn.bobbysworld.org with value egag5vJkRWRmtBEoM14EEzfCWhVT8t0RekPreysrUIg
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Sleeping for 120 seconds while DNS change(s) propagate
+VERBOSE: Requesting challenge validations
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/challenge/bWxidRcfVbUqpt6KTfdYy-vE0N7hATLwCG2XmStGh4M/7550159698 with -1-byte payload
+VERBOSE: received 222-byte response of content type application/json
+VERBOSE: Connected to BWORLD-DC-01
+VERBOSE: Deleting _acme-challenge.ugn.bobbysworld.org with value egag5vJkRWRmtBEoM14EEzfCWhVT8t0RekPreysrUIg
+VERBOSE: Saving changes for Windows plugin
+VERBOSE: Finalizing the order.
+VERBOSE: Creating new certificate request with key length 2048.
+VERBOSE: Creating new private key for the certificate request.
+VERBOSE: POST https://acme-v02.api.letsencrypt.org/acme/finalize/42527662/75991466 with -1-byte payload
+VERBOSE: received 471-byte response of content type application/json
+VERBOSE: GET https://acme-v02.api.letsencrypt.org/acme/cert/0379f6e539b08ba2eab6347af730cb8d9900 with 0-byte payload
+VERBOSE: received 3819-byte response of content type application/pem-certificate-chain
+VERBOSE: Updating cert expiration and renewal window
+VERBOSE: Successfully created certificate.
+
+Subject                  NotAfter               KeyLength Thumbprint                               AllSANs
+-------                  --------               --------- ----------                               -------
+CN=*.ugn.bobbysworld.org 12/20/2018 10:49:06 AM 2048      9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB {*.ugn.bobbysworld.org}
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org\6928447\!.ugn.bobbysworld.org> cd ../..
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/19/2018   6:13 PM                6928447
+-a----        9/12/2018  10:23 PM             20 current-account.txt
+-a----        9/19/2018   6:22 PM           2108 dir.json
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> Get-PACertificate
+
+Subject                  NotAfter               KeyLength Thumbprint                               AllSANs
+-------                  --------               --------- ----------                               -------
+CN=*.ugn.bobbysworld.org 12/20/2018 10:49:06 AM 2048      9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB {*.ugn.bobbysworld.org}
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> Get-PACertificate | select *
+
+
+Subject       : CN=*.ugn.bobbysworld.org
+NotBefore     : 9/21/2018 11:49:06 AM
+NotAfter      : 12/20/2018 10:49:06 AM
+KeyLength     : 2048
+Thumbprint    : 9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB
+AllSANs       : {*.ugn.bobbysworld.org}
+CertFile      : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\cert.cer
+KeyFile       : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\cert.key
+ChainFile     : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\chain.cer
+FullChainFile : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\fullchain.cer
+PfxFile       : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\cert.pfx
+PfxFullChain  : C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\fullchain.pfx
+PfxPass       : System.Security.SecureString
+
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/19/2018   6:13 PM                6928447
+-a----        9/12/2018  10:23 PM             20 current-account.txt
+-a----        9/19/2018   6:22 PM           2108 dir.json
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> ls -Force
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/19/2018   6:13 PM                6928447
+-a----        9/12/2018  10:23 PM             20 current-account.txt
+-a----        9/19/2018   6:22 PM           2108 dir.json
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-staging-v02.api.letsencrypt.org> cd ..
+PS C:\Users\Administrator\AppData\Local\Posh-ACME> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/12/2018  10:23 PM                acme-staging-v02.api.letsencrypt.org
+d-----        9/21/2018  12:33 PM                acme-v02.api.letsencrypt.org
+-a----        9/21/2018  12:32 PM             98 current-server.txt
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME> cd .\acme-v02.api.letsencrypt.org\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/21/2018  12:33 PM                42527662
+-a----        9/21/2018  12:33 PM             22 current-account.txt
+-a----        9/21/2018  12:39 PM           1960 dir.json
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org> cd .\42527662\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/21/2018  12:41 PM                !.ugn.bobbysworld.org
+-a----        9/21/2018  12:39 PM           1202 acct.json
+-a----        9/21/2018  12:39 PM             48 current-order.txt
+-a----        9/21/2018  12:39 PM            736 plugindata.xml
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662> cd .\!.ugn.bobbysworld.org\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/21/2018  12:41 PM           2171 cert.cer
+-a----        9/21/2018  12:41 PM           1704 cert.key
+-a----        9/21/2018  12:41 PM           3265 cert.pfx
+-a----        9/21/2018  12:41 PM           1647 chain.cer
+-a----        9/21/2018  12:41 PM           3819 fullchain.cer
+-a----        9/21/2018  12:41 PM           4562 fullchain.pfx
+-a----        9/21/2018  12:41 PM           2372 order.json
+-a----        9/21/2018  12:41 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> $certToCopy = Get-Item .\fullchain.pfx
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> Get-PSSession
+
+ Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
+ -- ----            ------------    ------------    -----         -----------------     ------------
+  3 Session3        BWORLD-IIS-01   RemoteMachine   Opened        Microsoft.PowerShell     Available
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> cp $certToCopy -Destination C:\ProgramData\ -ToSession 3
+>> TerminatingError(Copy-Item): "Cannot bind parameter 'ToSession'. Cannot convert the "3" value of type "System.Int32" to type "System.Management.Automation.Runspaces.PSSession"."
+Copy-Item : Cannot bind parameter 'ToSession'. Cannot convert the "3" value of type "System.Int32" to type 
+"System.Management.Automation.Runspaces.PSSession".
+At line:1 char:56
++ cp $certToCopy -Destination C:\ProgramData\ -ToSession 3
++                                                        ~
+    + CategoryInfo          : InvalidArgument: (:) [Copy-Item], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.CopyItemCommand
+Copy-Item : Cannot bind parameter 'ToSession'. Cannot convert the "3" value of type "System.Int32" to type
+"System.Management.Automation.Runspaces.PSSession".
+At line:1 char:56
++ cp $certToCopy -Destination C:\ProgramData\ -ToSession 3
++                                                        ~
+    + CategoryInfo          : InvalidArgument: (:) [Copy-Item], ParameterBindingException
+    + FullyQualifiedErrorId : CannotConvertArgumentNoMessage,Microsoft.PowerShell.Commands.CopyItemCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> cp $certToCopy -Destination C:\ProgramData\ -ToSession $IISsession
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> Enter-PSSession bworld-iis-01
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> cd Cert:\LocalMachine\My\
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+58F0E4C712EADE3CB00611051550F4846C2522D4  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> rm 58*
+PS Cert:\LocalMachine\My\> cd C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org\
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> $certPwd
+System.Security.SecureString
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> Import-PfxCertificate -FilePath .\fullchain.pfx -CertStoreLocation Cert:\LocalMachine\My\ -Password $certPwd
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB  CN=*.ugn.bobbysworld.org
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> $cert = ls 9DD*
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> $cert.Thumbprint
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> Get-Certificate 9dd*
+>> TerminatingError(Get-Certificate): "A positional parameter cannot be found that accepts argument '9dd*'."
+Get-Certificate : A positional parameter cannot be found that accepts argument '9dd*'.
+At line:1 char:1
++ Get-Certificate 9dd*
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Certificate], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.CertificateServices.Commands.GetCertificateCommand
+Get-Certificate : A positional parameter cannot be found that accepts argument '9dd*'.
+At line:1 char:1
++ Get-Certificate 9dd*
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Certificate], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.CertificateServices.Commands.GetCertificateCommand
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> man Get-Certificate
+
+NAME
+    Get-Certificate
+
+SYNTAX
+    Get-Certificate -Template <string> [-Url <uri>] [-SubjectName <string>] [-DnsName <string[]>] [-Credential <PkiCredential>]
+    [-CertStoreLocation <string>] [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+    Get-Certificate -Request <Certificate> [-Credential <PkiCredential>] [-WhatIf] [-Confirm]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Get-Certificate -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=386820.
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> $cert
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> ls
+
+
+    Directory: C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/21/2018  12:41 PM           2171 cert.cer
+-a----        9/21/2018  12:41 PM           1704 cert.key
+-a----        9/21/2018  12:41 PM           3265 cert.pfx
+-a----        9/21/2018  12:41 PM           1647 chain.cer
+-a----        9/21/2018  12:41 PM           3819 fullchain.cer
+-a----        9/21/2018  12:41 PM           4562 fullchain.pfx
+-a----        9/21/2018  12:41 PM           2372 order.json
+-a----        9/21/2018  12:41 PM           1106 request.csr
+
+
+PS C:\Users\Administrator\AppData\Local\Posh-ACME\acme-v02.api.letsencrypt.org\42527662\!.ugn.bobbysworld.org> cd Cert:\LocalMachine\My\
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $cert = ls 9dd
+ls : Cannot find path '\LocalMachine\My\9dd' because it does not exist.
+At line:1 char:9
++ $cert = ls 9dd
++         ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\LocalMachine\My\9dd:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+ls : Cannot find path '\LocalMachine\My\9dd' because it does not exist.
+At line:1 char:9
++ $cert = ls 9dd
++         ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (\LocalMachine\My\9dd:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS Cert:\LocalMachine\My\> $cert = ls 9dd*
+PS Cert:\LocalMachine\My\> ls
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $cert
+
+
+   PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\My
+
+Thumbprint                                Subject
+----------                                -------
+9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB  CN=*.ugn.bobbysworld.org
+
+
+PS Cert:\LocalMachine\My\> $cert.Thumbprint
+9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB
+PS Cert:\LocalMachine\My\> cd C:\ProgramData\
+PS C:\ProgramData> ls
+
+
+    Directory: C:\ProgramData
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        8/19/2018   8:48 AM                chocolatey
+d-----        7/16/2016   8:23 AM                Comms
+d---s-        9/12/2016   6:30 AM                Microsoft
+d-----        8/17/2018   4:16 PM                Package Cache
+d-----        7/26/2018  10:19 PM                regid.1991-06.com.microsoft
+d-----        8/19/2018   8:48 AM                shimgen
+d-----        7/16/2016   8:23 AM                SoftwareDistribution
+d-----        9/12/2016   6:38 AM                USOPrivate
+d-----        9/12/2016   6:38 AM                USOShared
+
+
+PS C:\ProgramData> $cert.Thumbprint >> thumb.txt
+>> ParameterBinding(Out-File): name="InputObject"; value="9DD77448DC3D1C21F205F75E5BDB42A24D3B72CB"

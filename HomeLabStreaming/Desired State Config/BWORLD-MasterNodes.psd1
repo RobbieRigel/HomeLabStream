@@ -14,6 +14,15 @@
 			Role = "IIS"
 			Application = "DSC"
 			}
+		@{
+			NodeName = "BWORLD-MGT-01"
+			Role = "Managment"
+			
+		}
+		@{
+			NodeName = "BWORLD-BU-01"
+			Role = "Backup"
+		}
 
 		)
 }

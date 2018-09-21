@@ -1,0 +1,306 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180905170729
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Machine: BWORLD-DC-01 (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 4156
+PSVersion: 5.1.14393.2430
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.2430
+BuildVersion: 10.0.14393.2430
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.BWORLD-DC-01.g55EAXKI.20180905170729.txt
+PS C:\> Enter-PSSession orion
+PS C:\> man Set-ADAccountExpiration
+
+NAME
+    Set-ADAccountExpiration
+
+SYNTAX
+    Set-ADAccountExpiration [-Identity] <ADAccount> [[-DateTime] <datetime>] [-WhatIf] [-Confirm] [-AuthType {Negotiate | Basic}] [-Credential <pscredential>] [-Partition <string>] [-PassThru] [-Server <string>] [-TimeSpan <timespan>]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Set-ADAccountExpiration -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=219354.
+PS C:\> man Set-ADAccountExpiration -Examples
+
+NAME
+    Set-ADAccountExpiration
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Set-ADAccountExpiration -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=219354.
+PS C:\> man Set-ADAccount 
+
+Name                              Category  Module                    Synopsis
+----                              --------  ------                    --------
+Set-ADAccountAuthenticationPol... Cmdlet    ActiveDirectory           ...
+Set-ADAccountControl              Cmdlet    ActiveDirectory           ...
+Set-ADAccountExpiration           Cmdlet    ActiveDirectory           ...
+Set-ADAccountPassword             Cmdlet    ActiveDirectory           ...
+PS C:\> man Set-ADUser
+
+NAME
+    Set-ADUser
+
+SYNTAX
+    Set-ADUser [-Identity] <ADUser> [-WhatIf] [-Confirm] [-AccountExpirationDate <datetime>] [-AccountNotDelegated <bool>] [-Add <hashtable>] [-AllowReversiblePasswordEncryption <bool>] [-AuthenticationPolicy <ADAuthenticationPolicy>] [-AuthenticationPolicySilo
+    <ADAuthenticationPolicySilo>] [-AuthType {Negotiate | Basic}] [-CannotChangePassword <bool>] [-Certificates <hashtable>] [-ChangePasswordAtLogon <bool>] [-City <string>] [-Clear <string[]>] [-Company <string>] [-CompoundIdentitySupported <bool>] [-Country <string>]
+    [-Credential <pscredential>] [-Department <string>] [-Description <string>] [-DisplayName <string>] [-Division <string>] [-EmailAddress <string>] [-EmployeeID <string>] [-EmployeeNumber <string>] [-Enabled <bool>] [-Fax <string>] [-GivenName <string>]
+    [-HomeDirectory <string>] [-HomeDrive <string>] [-HomePage <string>] [-HomePhone <string>] [-Initials <string>] [-KerberosEncryptionType {None | DES | RC4 | AES128 | AES256}] [-LogonWorkstations <string>] [-Manager <ADUser>] [-MobilePhone <string>] [-Office
+    <string>] [-OfficePhone <string>] [-Organization <string>] [-OtherName <string>] [-Partition <string>] [-PassThru] [-PasswordNeverExpires <bool>] [-PasswordNotRequired <bool>] [-POBox <string>] [-PostalCode <string>] [-PrincipalsAllowedToDelegateToAccount
+    <ADPrincipal[]>] [-ProfilePath <string>] [-Remove <hashtable>] [-Replace <hashtable>] [-SamAccountName <string>] [-ScriptPath <string>] [-Server <string>] [-ServicePrincipalNames <hashtable>] [-SmartcardLogonRequired <bool>] [-State <string>] [-StreetAddress
+    <string>] [-Surname <string>] [-Title <string>] [-TrustedForDelegation <bool>] [-UserPrincipalName <string>]  [<CommonParameters>]
+
+    Set-ADUser -Instance <ADUser> [-WhatIf] [-Confirm] [-AuthType {Negotiate | Basic}] [-Credential <pscredential>] [-PassThru] [-SamAccountName <string>] [-Server <string>]  [<CommonParameters>]
+
+
+ALIASES
+    None
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Set-ADUser -Online" or
+           go to http://go.microsoft.com/fwlink/?LinkId=301403.
+PS C:\> Set-ADUser Administrator -PasswordNeverExpires $true
+PS C:\> cls
+PS C:\> ls
+
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        9/12/2016   6:36 AM                Logs
+d-----        7/27/2018  10:20 PM                PerfLogs
+d-r---        8/19/2018   8:06 PM                Program Files
+d-----        8/17/2018   4:17 PM                Program Files (x86)
+d-r---        8/30/2018   7:32 PM                Users
+d-----        8/22/2018   6:36 PM                vscode
+d-----        8/18/2018   2:18 PM                Windows
+-a----         8/5/2018  11:15 AM          10610 serverFeatures.txt
+
+
+PS C:\> Enter-PSSession Orion
+PS C:\> get-adcomputer BWORLD-BU-01
+>> TerminatingError(Get-ADComputer): "Cannot find an object with identity: 'BWORLD-BU-01' under: 'DC=ugn,DC=bobbysworld,DC=org'."
+get-adcomputer : Cannot find an object with identity: 'BWORLD-BU-01' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ get-adcomputer BWORLD-BU-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (BWORLD-BU-01:ADComputer) [Get-ADComputer], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Mic
+rosoft.ActiveDirectory.Management.Commands.GetADComputer
+get-adcomputer : Cannot find an object with identity: 'BWORLD-BU-01' under: 'DC=ugn,DC=bobbysworld,DC=org'.
+At line:1 char:1
++ get-adcomputer BWORLD-BU-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (BWORLD-BU-01:ADComputer) [Get-ADComputer], ADIdentityNotFoundException
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADIdentityNotFoundException,Microsoft.ActiveDirectory.Management.Commands.GetADComputer
+
+PS C:\> New-ADComputer BWORLD-BU-01
+PS C:\> get-adcomputer BWORLD-BU-01
+
+
+DistinguishedName : CN=BWORLD-BU-01,CN=Computers,DC=ugn,DC=bobbysworld,DC=org
+DNSHostName       :
+Enabled           : True
+Name              : BWORLD-BU-01
+ObjectClass       : computer
+ObjectGUID        : 9275faa7-bdaa-4b77-8508-0ae5b551029e
+SamAccountName    : BWORLD-BU-01$
+SID               : S-1-5-21-2983660187-1718435535-191266432-1112
+UserPrincipalName :
+
+
+
+PS C:\> Enter-PSSession orion
+PS C:\> cd '\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28\'
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         9/5/2018   6:26 PM              0 bcdboot.exe-StandardError.txt
+-a----         9/5/2018   6:26 PM           5048 bcdboot.exe-StandardOutput.txt
+-a----         9/5/2018   6:26 PM            693 Convert-WindowsImageTranscript.txt
+-a----         9/5/2018   6:27 PM         153592 DISM.log
+-a----         9/5/2018   6:26 PM             92 DismLogs.log
+-a----         9/5/2018   6:27 PM           7702 NanoServerImageGenerator.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28> notepad .\NanoServerImageGenerator.log
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28> Enter-PSSession Orion
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         9/5/2018   6:26 PM              0 bcdboot.exe-StandardError.txt
+-a----         9/5/2018   6:26 PM           5048 bcdboot.exe-StandardOutput.txt
+-a----         9/5/2018   6:26 PM            693 Convert-WindowsImageTranscript.txt
+-a----         9/5/2018   6:27 PM         153592 DISM.log
+-a----         9/5/2018   6:26 PM             92 DismLogs.log
+-a----         9/5/2018   6:27 PM           7702 NanoServerImageGenerator.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-25-31-28> cd ..
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         9/5/2018   6:06 PM                2018-09-05_18-04-04-39
+d-----         9/5/2018   6:09 PM                2018-09-05_18-07-19-75
+d-----         9/5/2018   6:15 PM                2018-09-05_18-14-11-66
+d-----         9/5/2018   6:27 PM                2018-09-05_18-25-31-28
+d-----         9/5/2018   6:40 PM                2018-09-05_18-38-41-93
+d-----         9/5/2018   6:45 PM                2018-09-05_18-43-23-73
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs> cd .\2018-09-05_18-43-23-73\
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-43-23-73> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-43-23-73
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----         9/5/2018   6:44 PM              0 bcdboot.exe-StandardError.txt
+-a----         9/5/2018   6:44 PM           5048 bcdboot.exe-StandardOutput.txt
+-a----         9/5/2018   6:44 PM            694 Convert-WindowsImageTranscript.txt
+-a----         9/5/2018   6:45 PM         153113 DISM.log
+-a----         9/5/2018   6:44 PM             94 DismLogs.log
+-a----         9/5/2018   6:45 PM           7522 NanoServerImageGenerator.log
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-43-23-73> notepad.exe .\NanoServerImageGenerator.log
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs\2018-09-05_18-43-23-73> cd ..
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         9/5/2018   6:06 PM                2018-09-05_18-04-04-39
+d-----         9/5/2018   6:09 PM                2018-09-05_18-07-19-75
+d-----         9/5/2018   6:15 PM                2018-09-05_18-14-11-66
+d-----         9/5/2018   6:27 PM                2018-09-05_18-25-31-28
+d-----         9/5/2018   6:40 PM                2018-09-05_18-38-41-93
+d-----         9/5/2018   6:45 PM                2018-09-05_18-43-23-73
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator\Logs> cd ..
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         9/5/2018   6:43 PM                Logs
+d-----         9/5/2018   6:04 PM                Packages
+d-----         9/5/2018   6:05 PM                Temp
+-ar---        9/12/2016   7:19 AM      172757121 NanoServer.wim
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> ls
+
+
+    Directory: \\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----         9/5/2018   6:43 PM                Logs
+d-----         9/5/2018   6:04 PM                Packages
+d-----         9/5/2018   6:05 PM                Temp
+-ar---        9/12/2016   7:19 AM      172757121 NanoServer.wim
+
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> Enter-PSSession Orion
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> cls
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> Enter-PSSession BWORLD-BU-01 -Credential (Get-Credential)
+Enter-PSSession : Connecting to remote server BWORLD-BU-01 failed with the following error message : WinRM cannot 
+process the request. The following error with errorcode 0x80090311 occurred while using Kerberos authentication: There 
+are currently no logon servers available to service the logon request.  
+ Possible causes are:
+  -The user name or password specified are invalid.
+  -Kerberos is used when no authentication method and no user name are specified.
+  -Kerberos accepts domain user names, but not local user names.
+  -The Service Principal Name (SPN) for the remote computer name and port does not exist.
+  -The client and remote computers are in different domains and there is no trust between the two domains.
+ After checking for the above issues, try the following:
+  -Check the Event Viewer for events related to authentication.
+  -Change the authentication method; add the destination computer to the WinRM TrustedHosts configuration setting or 
+use HTTPS transport.
+ Note that computers in the TrustedHosts list might not be authenticated.
+   -For more information about WinRM configuration, run the following command: winrm help config. For more information, 
+see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-BU-01 -Credential (Get-Credential)
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-BU-01:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+Enter-PSSession : Connecting to remote server BWORLD-BU-01 failed with the following error message : WinRM cannot process the request. The following error with errorcode 0x80090311 occurred while using Kerberos authentication: There are currently no logon servers
+available to service the logon request.
+ Possible causes are:
+  -The user name or password specified are invalid.
+  -Kerberos is used when no authentication method and no user name are specified.
+  -Kerberos accepts domain user names, but not local user names.
+  -The Service Principal Name (SPN) for the remote computer name and port does not exist.
+  -The client and remote computers are in different domains and there is no trust between the two domains.
+ After checking for the above issues, try the following:
+  -Check the Event Viewer for events related to authentication.
+  -Change the authentication method; add the destination computer to the WinRM TrustedHosts configuration setting or use HTTPS transport.
+ Note that computers in the TrustedHosts list might not be authenticated.
+   -For more information about WinRM configuration, run the following command: winrm help config. For more information, see the about_Remote_Troubleshooting Help topic.
+At line:1 char:1
++ Enter-PSSession BWORLD-BU-01 -Credential (Get-Credential)
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (BWORLD-BU-01:String) [Enter-PSSession], PSRemotingTransportException
+    + FullyQualifiedErrorId : CreateRemoteRunspaceFailed
+
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> cls
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> cls
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> clear
+PS Microsoft.PowerShell.Core\FileSystem::\\orion\c$\Users\Administrator.BobbysWorld\AppData\Local\Temp\NanoServerImageGenerator> $global:?
+**********************
+Windows PowerShell transcript end
+End time: 20180905193007
+**********************

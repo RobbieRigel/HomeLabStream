@@ -1,0 +1,750 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180919165120
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Configuration Name: 
+Machine: SIRIUS (Microsoft Windows NT 10.0.17134.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 12220
+PSVersion: 5.1.17134.228
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.17134.228
+BuildVersion: 10.0.17134.228
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.SIRIUS.BwzWZg8L.20180919165120.txt
+PS C:\Users\Bob> Enter-PSSession ORION
+PS C:\Users\Bob> cd C:\Users\Administrator\Documents\
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   4:51 PM            783 PowerShell_transcript.SIRIUS.BwzWZg8L.2018091
+                                                 9165120.txt
+
+
+PS C:\Users\Administrator\Documents> cat .\PowerShell_transcript.SIRIUS.BwzWZg8L.20180919165120.txt
+**********************
+Windows PowerShell transcript start
+Start time: 20180919165120
+Username: BobbysWorld\Administrator
+RunAs User: BobbysWorld\Administrator
+Configuration Name:
+Machine: SIRIUS (Microsoft Windows NT 10.0.17134.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 12220
+PSVersion: 5.1.17134.228
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.17134.228
+BuildVersion: 10.0.17134.228
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\Administrator\Documents\PowerShell_transcript.SIRIUS.BwzWZg8L.20180919165120.txt
+PS C:\Users\Bob> Enter-PSSession ORION
+PS C:\Users\Bob> cd C:\Users\Administrator\Documents\
+PS C:\Users\Administrator\Documents> ls
+
+
+    Directory: C:\Users\Administrator\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        9/19/2018   4:51 PM            783 PowerShell_transcript.SIRIUS.BwzWZg8L.2018091
+                                                 9165120.txt
+
+
+PS C:\Users\Administrator\Documents> cls
+PS C:\Users\Administrator\Documents> cd C:\
+PS C:\> ls
+
+
+    Directory: C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        5/15/2017   7:24 PM                56b0dddabc6e65e1ef33a21f99888a
+d-----        5/15/2017   7:29 PM                6dcdacc13a387c175c8e7fd04164
+d-----        4/25/2018   6:20 PM                Chocolatey
+d-----        4/11/2018   6:38 PM                PerfLogs
+d-----        5/15/2017   7:41 PM                pgData93
+d-r---        8/27/2018   8:41 PM                Program Files
+d-r---        9/18/2018   7:32 PM                Program Files (x86)
+da----        9/16/2016   7:10 PM                Python32
+d-r---        9/12/2018   5:04 PM                Users
+d-----        9/19/2018   3:30 AM                Windows
+-a----         3/5/2016   4:59 AM              0 Recovery.txt
+-a----        5/23/2018   8:37 PM       33491555 wmi.csv
+
+
+PS C:\> cls
+PS C:\> Enter-PSSession BWORLD-IIS-01
+PS C:\> Get-WindowsOptionalFeature -Online
+
+
+FeatureName : LegacyComponents
+State       : Disabled
+
+FeatureName : DirectPlay
+State       : Disabled
+
+FeatureName : SimpleTCP
+State       : Disabled
+
+FeatureName : SNMP
+State       : Disabled
+
+FeatureName : WMISnmpProvider
+State       : Disabled
+
+FeatureName : MicrosoftWindowsPowerShellV2Root
+State       : Enabled
+
+FeatureName : MicrosoftWindowsPowerShellV2
+State       : Enabled
+
+FeatureName : Windows-Identity-Foundation
+State       : Enabled
+
+FeatureName : Microsoft-Windows-Subsystem-Linux
+State       : Enabled
+
+FeatureName : HypervisorPlatform
+State       : Disabled
+
+FeatureName : Client-ProjFS
+State       : Disabled
+
+FeatureName : WorkFolders-Client
+State       : Enabled
+
+FeatureName : MediaPlayback
+State       : Enabled
+
+FeatureName : WindowsMediaPlayer
+State       : Enabled
+
+FeatureName : NetFx3
+State       : Enabled
+
+FeatureName : IIS-WebServerRole
+State       : Disabled
+
+FeatureName : IIS-WebServer
+State       : Disabled
+
+FeatureName : IIS-CommonHttpFeatures
+State       : Disabled
+
+FeatureName : IIS-HttpErrors
+State       : Disabled
+
+FeatureName : IIS-HttpRedirect
+State       : Disabled
+
+FeatureName : IIS-ApplicationDevelopment
+State       : Disabled
+
+FeatureName : IIS-NetFxExtensibility
+State       : Disabled
+
+FeatureName : IIS-NetFxExtensibility45
+State       : Disabled
+
+FeatureName : IIS-HealthAndDiagnostics
+State       : Disabled
+
+FeatureName : IIS-HttpLogging
+State       : Disabled
+
+FeatureName : IIS-LoggingLibraries
+State       : Disabled
+
+FeatureName : IIS-RequestMonitor
+State       : Disabled
+
+FeatureName : IIS-HttpTracing
+State       : Disabled
+
+FeatureName : IIS-Security
+State       : Disabled
+
+FeatureName : IIS-URLAuthorization
+State       : Disabled
+
+FeatureName : IIS-RequestFiltering
+State       : Disabled
+
+FeatureName : IIS-IPSecurity
+State       : Disabled
+
+FeatureName : IIS-Performance
+State       : Disabled
+
+FeatureName : IIS-HttpCompressionDynamic
+State       : Disabled
+
+FeatureName : IIS-WebServerManagementTools
+State       : Disabled
+
+FeatureName : IIS-ManagementScriptingTools
+State       : Disabled
+
+FeatureName : IIS-IIS6ManagementCompatibility
+State       : Disabled
+
+FeatureName : IIS-Metabase
+State       : Disabled
+
+FeatureName : WAS-WindowsActivationService
+State       : Disabled
+
+FeatureName : WAS-ProcessModel
+State       : Disabled
+
+FeatureName : WAS-NetFxEnvironment
+State       : Disabled
+
+FeatureName : WAS-ConfigurationAPI
+State       : Disabled
+
+FeatureName : IIS-HostableWebCore
+State       : Disabled
+
+FeatureName : WCF-HTTP-Activation
+State       : Disabled
+
+FeatureName : WCF-NonHTTP-Activation
+State       : Disabled
+
+FeatureName : WCF-Services45
+State       : Enabled
+
+FeatureName : WCF-HTTP-Activation45
+State       : Disabled
+
+FeatureName : WCF-TCP-Activation45
+State       : Disabled
+
+FeatureName : WCF-Pipe-Activation45
+State       : Disabled
+
+FeatureName : WCF-MSMQ-Activation45
+State       : Disabled
+
+FeatureName : WCF-TCP-PortSharing45
+State       : Enabled
+
+FeatureName : IIS-StaticContent
+State       : Disabled
+
+FeatureName : IIS-DefaultDocument
+State       : Disabled
+
+FeatureName : IIS-DirectoryBrowsing
+State       : Disabled
+
+FeatureName : IIS-WebDAV
+State       : Disabled
+
+FeatureName : IIS-WebSockets
+State       : Disabled
+
+FeatureName : IIS-ApplicationInit
+State       : Disabled
+
+FeatureName : IIS-ASPNET
+State       : Disabled
+
+FeatureName : IIS-ASPNET45
+State       : Disabled
+
+FeatureName : IIS-ASP
+State       : Disabled
+
+FeatureName : IIS-CGI
+State       : Disabled
+
+FeatureName : IIS-ISAPIExtensions
+State       : Disabled
+
+FeatureName : IIS-ISAPIFilter
+State       : Disabled
+
+FeatureName : IIS-ServerSideIncludes
+State       : Disabled
+
+FeatureName : IIS-CustomLogging
+State       : Disabled
+
+FeatureName : IIS-BasicAuthentication
+State       : Disabled
+
+FeatureName : IIS-HttpCompressionStatic
+State       : Disabled
+
+FeatureName : IIS-ManagementConsole
+State       : Disabled
+
+FeatureName : IIS-ManagementService
+State       : Disabled
+
+FeatureName : IIS-WMICompatibility
+State       : Disabled
+
+FeatureName : IIS-LegacyScripts
+State       : Disabled
+
+FeatureName : IIS-LegacySnapIn
+State       : Disabled
+
+FeatureName : IIS-FTPServer
+State       : Disabled
+
+FeatureName : IIS-FTPSvc
+State       : Disabled
+
+FeatureName : IIS-FTPExtensibility
+State       : Disabled
+
+FeatureName : MSMQ-Container
+State       : Disabled
+
+FeatureName : MSMQ-Server
+State       : Disabled
+
+FeatureName : MSMQ-Triggers
+State       : Disabled
+
+FeatureName : MSMQ-ADIntegration
+State       : Disabled
+
+FeatureName : MSMQ-HTTP
+State       : Disabled
+
+FeatureName : MSMQ-Multicast
+State       : Disabled
+
+FeatureName : MSMQ-DCOMProxy
+State       : Disabled
+
+FeatureName : IIS-CertProvider
+State       : Disabled
+
+FeatureName : IIS-WindowsAuthentication
+State       : Disabled
+
+FeatureName : IIS-DigestAuthentication
+State       : Disabled
+
+FeatureName : IIS-ClientCertificateMappingAuthentication
+State       : Disabled
+
+FeatureName : IIS-IISCertificateMappingAuthentication
+State       : Disabled
+
+FeatureName : IIS-ODBCLogging
+State       : Disabled
+
+FeatureName : NetFx4-AdvSrvs
+State       : Enabled
+
+FeatureName : NetFx4Extended-ASPNET45
+State       : Disabled
+
+FeatureName : Printing-PrintToPDFServices-Features
+State       : Enabled
+
+FeatureName : Printing-XPSServices-Features
+State       : Enabled
+
+FeatureName : RasRip
+State       : Disabled
+
+FeatureName : MSRDC-Infrastructure
+State       : Enabled
+
+FeatureName : SearchEngine-Client-Package
+State       : Enabled
+
+FeatureName : SMB1Protocol
+State       : Disabled
+
+FeatureName : SMB1Protocol-Client
+State       : Disabled
+
+FeatureName : SMB1Protocol-Server
+State       : Disabled
+
+FeatureName : TelnetClient
+State       : Disabled
+
+FeatureName : TFTP
+State       : Disabled
+
+FeatureName : Windows-Defender-Default-Definitions
+State       : Disabled
+
+FeatureName : Printing-Foundation-Features
+State       : Enabled
+
+FeatureName : FaxServicesClientPackage
+State       : Enabled
+
+FeatureName : Printing-Foundation-InternetPrinting-Client
+State       : Enabled
+
+FeatureName : Printing-Foundation-LPDPrintService
+State       : Disabled
+
+FeatureName : Printing-Foundation-LPRPortMonitor
+State       : Disabled
+
+FeatureName : ScanManagementConsole
+State       : Disabled
+
+FeatureName : TIFFIFilter
+State       : Disabled
+
+FeatureName : Microsoft-Windows-NetFx3-OC-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-NetFx4-US-OC-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-NetFx3-WCF-OC-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-NetFx4-WCF-US-OC-Package
+State       : Enabled
+
+FeatureName : Microsoft-Hyper-V-All
+State       : Enabled
+
+FeatureName : Microsoft-Hyper-V
+State       : Disabled
+
+FeatureName : Microsoft-Hyper-V-Tools-All
+State       : Enabled
+
+FeatureName : Microsoft-Hyper-V-Management-PowerShell
+State       : Enabled
+
+FeatureName : Microsoft-Hyper-V-Hypervisor
+State       : Disabled
+
+FeatureName : Microsoft-Hyper-V-Services
+State       : Disabled
+
+FeatureName : Microsoft-Hyper-V-Management-Clients
+State       : Enabled
+
+FeatureName : HostGuardian
+State       : Disabled
+
+FeatureName : DataCenterBridging
+State       : Disabled
+
+FeatureName : DirectoryServices-ADAM-Client
+State       : Disabled
+
+FeatureName : Windows-Defender-ApplicationGuard
+State       : Disabled
+
+FeatureName : ServicesForNFS-ClientOnly
+State       : Disabled
+
+FeatureName : ClientForNFS-Infrastructure
+State       : Disabled
+
+FeatureName : NFS-Administration
+State       : Disabled
+
+FeatureName : Containers
+State       : Disabled
+
+FeatureName : RasCMAK
+State       : Disabled
+
+FeatureName : SmbDirect
+State       : Disabled
+
+FeatureName : Microsoft-Windows-NetFx-VCRedist-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-Printing-PrintToPDFServices-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-Printing-XPSServices-Package
+State       : Enabled
+
+FeatureName : Microsoft-Windows-Client-EmbeddedExp-Package
+State       : Enabled
+
+FeatureName : Client-DeviceLockdown
+State       : Disabled
+
+FeatureName : Client-EmbeddedShellLauncher
+State       : Disabled
+
+FeatureName : Client-EmbeddedBootExp
+State       : Disabled
+
+FeatureName : Client-EmbeddedLogon
+State       : Disabled
+
+FeatureName : Client-KeyboardFilter
+State       : Disabled
+
+FeatureName : Client-UnifiedWriteFilter
+State       : Disabled
+
+FeatureName : MultiPoint-Connector
+State       : Disabled
+
+FeatureName : MultiPoint-Connector-Services
+State       : Disabled
+
+FeatureName : MultiPoint-Tools
+State       : Disabled
+
+FeatureName : AppServerClient
+State       : Disabled
+
+FeatureName : Internet-Explorer-Optional-amd64
+State       : Enabled
+
+
+
+PS C:\> cls
+PS C:\> Enter-PSSession ORION
+PS C:\> Enter-PSSession BWORLD-IIS-01
+PS C:\> man Import-Certificate -Online
+
+PS C:\> man Import-PfxCertificate -Online
+
+PS C:\> Test-Connection BWORLD-IIS-01
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of
+resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection],
+   PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConne
+   ctionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of
+resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection],
+   PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConne
+   ctionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of
+resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection],
+   PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConne
+   ctionCommand
+
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection], PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConnectionCommand
+Test-Connection : Testing connection to computer 'BWORLD-IIS-01' failed: Error due to lack of
+resources
+At line:1 char:1
++ Test-Connection BWORLD-IIS-01
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (BWORLD-IIS-01:String) [Test-Connection],
+   PingException
+    + FullyQualifiedErrorId : TestConnectionException,Microsoft.PowerShell.Commands.TestConne
+   ctionCommand
+
+PS C:\> Get-Command *clipboard*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Get-Clipboard                                      3.1.0.0    Microsoft.Pow...
+Cmdlet          Set-Clipboard                                      3.1.0.0    Microsoft.Pow...
+
+
+PS C:\> New-Guid | Set-Clipboard
+PS C:\> cls
+PS C:\> Get-Command *vpn*
+
+CommandType     Name                                               Version
+-----------     ----                                               -------
+Alias           Get-VpnServerIPsecConfiguration                    3.0.0.0
+Alias           Set-VpnServerIPsecConfiguration                    3.0.0.0
+Function        Add-VpnConnection                                  2.0.0.0
+Function        Add-VpnConnectionRoute                             2.0.0.0
+Function        Add-VpnConnectionTriggerApplication                2.0.0.0
+Function        Add-VpnConnectionTriggerDnsConfiguration           2.0.0.0
+Function        Add-VpnConnectionTriggerTrustedNetwork             2.0.0.0
+Function        Add-VpnIPAddressRange                              3.0.0.0
+Function        Add-VpnS2SInterface                                3.0.0.0
+Function        Add-VpnSstpProxyRule                               3.0.0.0
+Function        Clear-VpnS2SInterfaceStatistics                    3.0.0.0
+Function        Connect-VpnS2SInterface                            3.0.0.0
+Function        Disconnect-VpnS2SInterface                         3.0.0.0
+Function        Disconnect-VpnUser                                 3.0.0.0
+Function        Get-VpnAuthProtocol                                3.0.0.0
+Function        Get-VpnConnection                                  2.0.0.0
+Function        Get-VpnConnectionTrigger                           2.0.0.0
+Function        Get-VpnS2SInterface                                3.0.0.0
+Function        Get-VpnS2SInterfaceStatistics                      3.0.0.0
+Function        Get-VpnServerConfiguration                         3.0.0.0
+Function        Get-VpnSstpProxyRule                               3.0.0.0
+Function        New-VpnServerAddress                               2.0.0.0
+Function        New-VpnSstpProxyRule                               3.0.0.0
+Function        New-VpnTrafficSelector                             3.0.0.0
+Function        Remove-VpnConnection                               2.0.0.0
+Function        Remove-VpnConnectionRoute                          2.0.0.0
+Function        Remove-VpnConnectionTriggerApplication             2.0.0.0
+Function        Remove-VpnConnectionTriggerDnsConfiguration        2.0.0.0
+Function        Remove-VpnConnectionTriggerTrustedNetwork          2.0.0.0
+Function        Remove-VpnIPAddressRange                           3.0.0.0
+Function        Remove-VpnS2SInterface                             3.0.0.0
+Function        Remove-VpnSstpProxyRule                            3.0.0.0
+Function        Set-VpnAuthProtocol                                3.0.0.0
+Function        Set-VpnAuthType                                    3.0.0.0
+Function        Set-VpnConnection                                  2.0.0.0
+Function        Set-VpnConnectionIPsecConfiguration                2.0.0.0
+Function        Set-VpnConnectionProxy                             2.0.0.0
+Function        Set-VpnConnectionTriggerDnsConfiguration           2.0.0.0
+Function        Set-VpnConnectionTriggerTrustedNetwork             2.0.0.0
+Function        Set-VpnIPAddressAssignment                         3.0.0.0
+Function        Set-VpnS2SInterface                                3.0.0.0
+Function        Set-VpnServerConfiguration                         3.0.0.0
+Function        Set-VpnSstpProxyRule                               3.0.0.0
+
+
+PS C:\> man Add-VpnConnection -Online
+PS C:\> TerminatingError(Get-Help): "The online version of this Help topic cannot be displayed because the Internet address (URI) of the Help topic is not specified in the command code or in the help file for the command."
+Get-Help : The online version of this Help topic cannot be displayed because the Internet address (URI) of the Help 
+topic is not specified in the command code or in the help file for the command.
+At line:55 char:5
++     Get-Help @PSBoundParameters | more
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-Help], PSInvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperation,Microsoft.PowerShell.Commands.GetHelpCommand
+Get-Help : The online version of this Help topic cannot be displayed because the Internet
+address (URI) of the Help topic is not specified in the command code or in the help file for
+the command.
+At line:55 char:5
++     Get-Help @PSBoundParameters | more
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Get-Help], PSInvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperation,Microsoft.PowerShell.Commands.GetHelpCommand
+
+PS C:\> ping  n-jet-12238234216-29-ghpbmvtgzh.dynamic-m.com
+
+Pinging n-jet-12238234216-29-ghpbmvtgzh.dynamic-m.com [12.238.234.218] with 32 bytes of data:
+Reply from 12.238.234.218: bytes=32 time=26ms TTL=54
+Reply from 12.238.234.218: bytes=32 time=24ms TTL=54
+Reply from 12.238.234.218: bytes=32 time=22ms TTL=54
+Reply from 12.238.234.218: bytes=32 time=29ms TTL=54
+
+Ping statistics for 12.238.234.218:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 22ms, Maximum = 29ms, Average = 25ms
+PS C:\> Get-WindowsFeature 
+PS C:\> TerminatingError(Get-WindowsFeature): "The target of the specified cmdlet cannot be a Windows client-based operating system."
+Get-WindowsFeature : The target of the specified cmdlet cannot be a Windows client-based operating system.
+At line:1 char:1
++ Get-WindowsFeature
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : DeviceError: (localhost:String) [Get-WindowsFeature], Exception
+    + FullyQualifiedErrorId : 
+WindowsClient_NotSupported,Microsoft.Windows.ServerManager.Commands.GetWindowsFeatureCommand
+Get-WindowsFeature : The target of the specified cmdlet cannot be a Windows
+client-based operating system.
+At line:1 char:1
++ Get-WindowsFeature
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : DeviceError: (localhost:String) [Get-WindowsFea
+   ture], Exception
+    + FullyQualifiedErrorId : WindowsClient_NotSupported,Microsoft.Windows.Se
+   rverManager.Commands.GetWindowsFeatureCommand
+PS C:\> cls
+PS C:\> Resolve-DnsName _acme-challenge -Type txt
+
+Name                                     Type   TTL   Section    Strings
+----                                     ----   ---   -------    -------
+_acme-challenge.ugn.bobbysworld.org      TXT    10    Answer     {UDHQeYr0nZSS
+                                                                 L5eZwwzXL36y2
+                                                                 Kv3D1UHPgcVxi
+                                                                 JVV3s}
+_acme-challenge.ugn.bobbysworld.org      TXT    10    Answer     {s4iloBmcqB2T
+                                                                 0wVvwiU-SHwyL
+                                                                 r9QL6GbBxyEPF
+                                                                 nKMvg}
+
+
+PS C:\> Resolve-DnsName _acme-challenge -Type txt
+
+Name                                     Type   TTL   Section    Strings
+----                                     ----   ---   -------    -------
+_acme-challenge.ugn.bobbysworld.org      TXT    10    Answer     {LzHPsdGFVGYK-1_U1-Q
+                                                                 eBfCzlTelT4b6e6Iy7iZ
+                                                                 pG-Q}
+
+
+PS C:\> $dnsinfo = Resolve-DnsName _acme-challenge -Type txt
+PS C:\> cd C:\Users\Bob\Documents\
+PS C:\Users\Bob\Documents> ii ..
+PS C:\Users\Bob\Documents> $dnsinfo[0].Strings
+LzHPsdGFVGYK-1_U1-QeBfCzlTelT4b6e6Iy7iZpG-Q
+PS C:\Users\Bob\Documents> $dnsinfo[0].Strings > dnsinfo.txt
+>> ParameterBinding(Out-File): name="InputObject"; value="LzHPsdGFVGYK-1_U1-QeBfCzlTelT4b6e6Iy7iZpG-Q"
+PS C:\Users\Bob\Documents> ii .\dnsinfo.txt
+PS C:\Users\Bob\Documents> $dnsinfo = Resolve-DnsName _acme-challenge -Type txt
+PS C:\Users\Bob\Documents> $dnsinfo[0].Strings > dnsinfo.txt
+>> ParameterBinding(Out-File): name="InputObject"; value="egag5vJkRWRmtBEoM14EEzfCWhVT8t0RekPreysrUIg"
+PS C:\Users\Bob\Documents> ii .\dnsinfo.txt
+PS C:\Users\Bob\Documents> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20180921131830
+**********************
